@@ -1,0 +1,107 @@
+{
+    "include": [
+        "$HOME/.config/waybar/Modules",
+        "$HOME/.config/waybar/ModulesCustom",
+        "$HOME/.config/waybar/ModulesGroups",
+        "$HOME/.config/waybar/UserModules"
+    ],
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 30,
+    "width": 1300,
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": true,
+    "fixed-center": true,
+    "ipc": true,
+    "margin-top": 3,
+    "margin-bottom": 3,
+    "margin-left": 8,
+    "margin-right": 8,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "clock",
+        "custom/weather",
+        "tray",
+        "custom/swaync"
+    ],
+    "hyprland/workspaces": {
+        "format": "{name} {icon}",
+        "show-special": false,
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "all-outputs": true,
+        "sort-by-number": true,
+        "format-icons": {
+            "1": "", // Home
+            "2": "", // Games/Steam
+            "3": "", // Music/Spotify
+            "4": "", // Code/Generic
+            "5": "", // Files/Generic
+            "6": "", // Virtual Machines
+            "7": "", // Settings/Generic
+            "8": "", // Design/Generic
+            "9": "", // Email/WhatsApp
+            "10": "", // Battery/Peripherals
+            "focused": "", // Solid circle for focused
+            "urgent": "", // Warning for urgent
+            "default": "" // Empty circle for others
+        }
+    },
+    "hyprland/window": {
+        "max-length": 50,
+        "separator": false,
+        "icon": true,
+        "icon-size": 18,
+        "format": "{initialTitle}"
+    },
+    "clock": {
+        "format": "{:%H:%M %d/%m}",
+        "tooltip-format": "{:%A, %B %d %Y}"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "cpu": {
+        "format": "{usage}% 󰍛",
+        "interval": 1,
+        "min-length": 5,
+        "format-alt-click": "click",
+        "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ]
+    },
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 5
+    },
+    "disk": {
+        "format": "  {percentage_used}%",
+        "path": "/home",
+        "interval": 30
+    },
+    "network": {
+        "format-wifi": "  {bandwidthDownBits}↓ {bandwidthUpBits}↑",
+        "format-ethernet": "  {bandwidthDownBits}↓ {bandwidthUpBits}↑",
+        "format-disconnected": "⚠  Disconnected",
+        "interval": 5
+    }
+}
