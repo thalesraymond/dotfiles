@@ -1,0 +1,114 @@
+* {
+  font-family: "Fira Code", "Font Awesome", sans-serif;
+  font-size: 12px;
+}
+
+window#waybar {
+  background-color: rgba(30, 30, 46, 0.9);  /* base with transparency */
+  border-radius: 12px;  /* rounded corners */
+  border: 1px solid #585b70;  /* surface2 border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);  /* subtle shadow */
+  margin: 10px;  /* spacing from screen edges */
+}
+
+/* For bottom positioning */
+window#waybar.bottom {
+  margin-bottom: 15px;
+}
+
+#workspaces {
+  margin: 0 8px;
+}
+
+/* Workspaces */
+#workspaces button {
+  color: #6c7086;  /* overlay2 */
+  background: transparent;
+  padding: 0 8px;
+  margin: 2px 0;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: #cdd6f4;  /* text */
+  background: rgba(108, 112, 134, 0.1);  /* overlay2 with opacity */
+}
+
+#workspaces button.active {
+  color: #f5e0dc;  /* rosewater */
+  border-bottom: 2px solid #cba6f7;  /* mauve */
+}
+
+#workspaces button.urgent {
+  color: #f38ba8;  /* red */
+}
+
+/* Modules */
+#window {
+  color: #bac2de;  /* subtext1 */
+  padding: 0 12px;
+}
+
+#cpu {
+  color: #94e2d5;  /* teal */
+  padding: 0 10px;
+}
+
+#memory {
+  color: #89b4fa;  /* blue */
+  padding: 0 10px;
+}
+
+#disk {
+  color: #f5c2e7;  /* pink */
+  padding: 0 10px;
+}
+
+#network {
+  color: #74c7ec;  /* sapphire */
+  padding: 0 10px;
+}
+
+#network.disconnected {
+  color: #f38ba8;  /* red */
+}
+
+#clock {
+  color: #fab387;  /* peach */
+  padding: 0 12px;
+  font-weight: bold;
+}
+
+#tray {
+  padding: 0 12px;
+}
+
+#custom-swaync {
+  color: #f5e0dc;  /* rosewater */
+  padding: 0 5px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+/* Tooltips */
+tooltip {
+  background: #1e1e2e;  /* base */
+  border: 1px solid #585b70;  /* surface2 */
+  border-radius: 4px;
+}
+
+tooltip label {
+  color: #cdd6f4;  /* text */
+}
+
+/* Weather Module - Catppuccin Mocha Style */
+#custom-weather {
+  color: #74c7ec;  /* sapphire - for general weather */
+  padding: 0 10px 0 8px;
+  font-weight: 500;
+  font-weight: bold;
+  margin: -5px; /* tighter spacing with clock */
+}
