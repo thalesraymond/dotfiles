@@ -1,0 +1,57 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 32,
+    "margin-bottom": 5,
+    "width": 1600,
+    "output": "DP-3",
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/glitch"
+    ],
+    "modules-center": [
+        
+    ],
+    "modules-right": [
+        "clock",
+        "custom/temp",
+        "cpu",
+        "memory",
+        "disk",
+        "pulseaudio",
+        "tray"
+    ],
+    "clock": {
+        "format": "{:%H:%M  %d-%m}",
+        "markup": false
+    },
+    "pulseaudio": {
+        "format": "🔊 {volume}%",
+        "format-muted": "🔇 MUTE"
+    },
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "max-decimals": 0
+    },
+    "memory": {
+        "format": "RAM: {percentage}%"
+    },
+    "disk": {
+        "format": "DISK: {percentage_used}%"
+    },
+    "custom/temp": {
+        "exec": "sensors | grep -m 1 'Package id 0:' | awk '{print $4}'",
+        "interval": 5,
+        "format": "TEMP: {}"
+    },
+    "custom/glitch": {
+        "exec": "~/.config/waybar/scripts/glitch.sh",
+        "interval": 60,
+        "format": "{}"
+    },
+    "hyprland/workspaces": {
+        "format": "[{name}]",
+        "on-click": "activate",
+        "all-outputs": true
+    }
+}

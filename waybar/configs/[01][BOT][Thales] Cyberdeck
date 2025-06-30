@@ -1,0 +1,61 @@
+{
+    "include": [
+        "$HOME/.config/waybar/Modules",
+        "$HOME/.config/waybar/ModulesCustom",
+        "$HOME/.config/waybar/ModulesGroups",
+        "$HOME/.config/waybar/UserModules"
+    ],
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "output": "DP-3",
+    "margin-bottom": 5,
+    "width": 2000, // only respected if centered with a style
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/cava_mviz",
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "disk",
+        "tray"
+    ],
+    "hyprland/workspaces": {
+        "format": "{name} {icon}",
+        "format-active": "{name} {icon}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "format-icons": {
+            "1": "", // Home
+            "2": "", // Games
+            "3": "", // Email
+            "9": " ", // WhatsApp + Spotify
+            "default": "" // Generic icon for others
+        }
+    },
+    "hyprland/window": {
+        "format": "{initialTitle}"
+    },
+    "clock": {
+        "format": "{:%H:%M \u2039 %d-%m-%y \u203a}"
+    },
+    "pulseaudio": {
+        "format": "AUX: {volume}%",
+        "format-muted": "AUX: -- MUTE"
+    },
+    "cpu": {
+        "format": "CPU:{usage}%"
+    },
+    "memory": {
+        "format": "MEM:{percentage}%"
+    },
+    "disk": {
+        "format": "DISK:{percentage_used}%"
+    }
+}

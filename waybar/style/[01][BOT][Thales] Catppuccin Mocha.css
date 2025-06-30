@@ -1,0 +1,89 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 12px;
+    padding: 1px 8px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.7); /* Mocha base with transparency */
+    color: #cdd6f4;
+    margin: 0px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Workspaces */
+#workspaces {
+    background-color: transparent;
+    margin: 0 6px;
+}
+#workspaces button {
+    background: transparent;
+    color: #a6adc8;
+    margin: 0 3px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+#workspaces button:hover {
+    background-color: #45475a;
+}
+#workspaces button.active {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+}
+
+/* Modules Appearance */
+#clock,
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#tray,
+#custom-cava_mviz {
+    background-color: #313244;
+    margin: 0 4px;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
+
+/* Custom Highlight per Type */
+#clock {
+    background-color: #45475a;
+}
+#cpu, #memory {
+    background-color: #585b70;
+}
+#disk {
+    background-color: #6c7086;
+}
+#pulseaudio {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+}
+#pulseaudio.muted {
+    background-color: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* Tray Special Treatment */
+#tray {
+    padding: 3px 8px;
+    background-color: #313244;
+}
+
+/* Hover animation for all modules */
+#clock:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#tray:hover {
+    background-color: #a6adc8;
+    color: #1e1e2e;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}

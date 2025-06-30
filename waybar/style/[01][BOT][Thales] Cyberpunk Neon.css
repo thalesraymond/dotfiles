@@ -1,0 +1,91 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 10px;
+    min-height: 0;
+    color: #00ffe0;
+}
+
+window#waybar {
+    background-color: rgba(5, 5, 10, 0.95);
+    border-top: 2px solid #00ffff;
+    border-bottom: 2px solid #ff00aa;
+    box-shadow: 0 0 12px #00ffff66 inset;
+    padding: 6px 12px;
+}
+
+/* Workspaces - neon pulse */
+#workspaces button {
+    background: transparent;
+    color: #00ffcc;
+    margin: 0 5px;
+    border: 1px solid #00ffcc;
+    padding: 0 6px;
+}
+#workspaces button.active {
+    background-color: #00ffcc;
+    color: #000000;
+}
+#workspaces button:hover {
+    background-color: #ff00aa;
+    color: #000000;
+}
+
+/* Modules */
+#clock, #pulseaudio, #cpu, #memory, #disk, #custom-temp, #custom-net_status, #tray {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 5px;
+    padding: 4px 10px;
+    border: 1px solid;
+    box-shadow: 0 0 6px #00fff077;
+}
+
+/* Color per module */
+#clock {
+    border-color: #00ffff;
+    color: #00ffff;
+}
+#cpu {
+    border-color: #ff00aa;
+    color: #ff00aa;
+}
+#memory {
+    border-color: #89b4fa;
+    color: #89b4fa;
+}
+#disk {
+    border-color: #f38ba8;
+    color: #f38ba8;
+}
+#pulseaudio {
+    border-color: #fab387;
+    color: #fab387;
+}
+#pulseaudio.muted {
+    border-color: #ff5555;
+    color: #ff5555;
+}
+#custom-temp {
+    border-color: #f9e2af;
+    color: #f9e2af;
+}
+#custom-net_status {
+    border-color: #a6e3a1;
+    color: #a6e3a1;
+}
+#tray {
+    border-color: #94e2d5;
+    color: #94e2d5;
+}
+#custom-glitch {
+    background-color: rgba(255, 20, 147, 0.15); /* neon pink */
+    color: #ff00cc;
+    border: 1px solid #ff00cc;
+    padding: 4px 10px;
+    margin: 0 5px;
+    font-weight: bold;
+    font-style: italic;
+    box-shadow: 0 0 6px #ff00cc88;
+}

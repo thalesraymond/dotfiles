@@ -1,0 +1,52 @@
+* {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    padding: 2px 10px;
+    color: #ffffff;
+}
+
+window#waybar {
+    background-color: #263238; /* Material dark blue-gray */
+    padding: 6px 10px;
+}
+
+/* Workspaces */
+#workspaces button {
+    background-color: transparent;
+    color: #90a4ae;
+    margin: 0 4px;
+}
+#workspaces button.active {
+    background-color: #4fc3f7;
+    color: #263238;
+}
+
+/* Modules */
+#clock {
+    background-color: #ffb74d;
+    color: #263238;
+}
+#pulseaudio {
+    background-color: #4db6ac;
+    color: #263238;
+}
+#cpu {
+    background-color: #f06292;
+    color: #263238;
+}
+#memory {
+    background-color: #ba68c8;
+    color: #ffffff;
+}
+#disk {
+    background-color: #64b5f6;
+    color: #263238;
+}
+#tray {
+    background-color: #607d8b;
+}
+#custom-cava_mviz {
+    background-color: #26a69a;
+}
