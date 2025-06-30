@@ -1,3 +1,5 @@
+I was lazy to write my own README, so I ask for chat gpt to do it:
+
 # 🌌 Thales' Waybar + Hyprland Dotfiles
 
 Custom configuration files for [Waybar](https://github.com/Alexays/Waybar) and [Hyprland](https://github.com/hyprwm/Hyprland), optimized for performance, ricing, and modularity. Built with [GNU Stow](https://www.gnu.org/software/stow/) for clean management.
