@@ -1,0 +1,59 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 32,
+  "margin-bottom": 8,
+  "width": 1400,
+  "output": "DP-3",
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/net_status"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    "pulseaudio",
+    "tray"
+  ],
+
+  "clock": {
+    "format": "%H:%M:%S",
+    "tooltip-format": "%A, %d %B %Y\n%H:%M:%S",
+    "markup": false
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " MUTE"
+  },
+
+  "cpu": {
+    "format": "CPU {usage}%",
+    "max-decimals": 0
+  },
+
+  "memory": {
+    "format": "RAM {percentage}%"
+  },
+
+  "disk": {
+    "format": "SSD {percentage_used}%"
+  },
+
+  "custom/net_status": {
+    "exec": "ip route | grep default >/dev/null && echo 'NET: ✓' || echo 'NET: ✗'",
+    "interval": 8,
+    "format": "{}"
+  },
+
+  "hyprland/workspaces": {
+    "format": "[{name}]",
+    "on-click": "activate",
+    "all-outputs": true
+  }
+}
