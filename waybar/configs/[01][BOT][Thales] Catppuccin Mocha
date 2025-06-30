@@ -35,7 +35,7 @@
             "1": "", // Home
             "2": "", // Games
             "3": "", // Email
-            "9": " ", // WhatsApp + Spotify
+            "9": " ", // WhatsApp + Spotify
             "default": "" // Generic icon for others
         }
     },
