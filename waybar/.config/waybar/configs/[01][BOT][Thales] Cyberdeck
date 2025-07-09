@@ -33,7 +33,7 @@
         "all-outputs": true,
         "format-icons": {
             "1": "", // Home
-            "2": "", // Games
+            "2": "", // Games
             "3": "", // Email
             "9": " ", // WhatsApp + Spotify
             "default": "" // Generic icon for others
