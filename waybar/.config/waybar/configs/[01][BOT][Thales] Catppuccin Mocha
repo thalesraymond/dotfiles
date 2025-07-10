@@ -20,6 +20,7 @@
         "clock"
     ],
     "modules-right": [
+        "custom/playerctl",
         "custom/cava_mviz",
         "pulseaudio",
         "cpu",
