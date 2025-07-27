@@ -38,6 +38,9 @@ sudo dnf install stow   # Fedora
 sudo pacman -S stow     # Arch
 ```
 
+- Install PowerLevel10k: https://github.com/romkatv/powerlevel10k
+- Install Ghostty terminal: ```yay -S ghostty```
+
 ---
 
 ## 📁 Repo Structure
