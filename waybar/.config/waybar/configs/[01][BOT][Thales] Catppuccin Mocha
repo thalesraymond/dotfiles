@@ -53,11 +53,11 @@
         "format": "{:%H:%M:%S %d/%m/%Y}"
     },
     "pulseaudio": {
-        "format": " {volume}%",
+        "format": "   {volume}%",
         "format-muted": " muted"
     },
     "cpu": {
-        "format": " {usage}%", // CPU icon + usage %
+        "format": "  {usage}%", // CPU icon + usage %
         "max-decimals": 0
     },
     "memory": {
