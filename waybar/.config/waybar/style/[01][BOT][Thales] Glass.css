@@ -1,29 +1,29 @@
 * {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 13px;
-    border: none;
-    border-radius: 12px;
-    padding: 2px 6px;
-    color: #e0f2ff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 13px;
+  border: none;
+  border-radius: 12px;
+  padding: 2px 6px;
+  color: #e0f2ff;
 }
 
 window#waybar {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 6px 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Workspaces */
 #workspaces button {
-    background-color: transparent;
-    color: #cdd6f4;
-    margin: 0 5px;
-    transition: background 0.3s ease;
+  background-color: transparent;
+  color: #cdd6f4;
+  margin: 0 5px;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 #workspaces button.active {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 /* Modules */
@@ -35,8 +35,8 @@ window#waybar {
 #tray,
 #custom-cava_mviz,
 #custom-playerctl {
-    background-color: rgba(255, 255, 255, 0.05);
-    margin: 0 6px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  margin: 0 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
 }
