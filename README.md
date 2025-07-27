@@ -39,7 +39,8 @@ sudo pacman -S stow     # Arch
 ```
 
 - Install PowerLevel10k: https://github.com/romkatv/powerlevel10k
-- Install Ghostty terminal: ```yay -S ghostty```
+- Install Ghostty terminal: `yay -S ghostty`
+- Make sure to have Meslo Nerd Fonts installed
 
 ---
 
@@ -76,6 +77,7 @@ stow --target=$HOME/.config waybar
 ```
 
 📌 If you're also using the `hypr/` directory:
+
 ```bash
 stow --target=$HOME/.config hypr
 ```
@@ -86,10 +88,10 @@ stow --target=$HOME/.config hypr
 
 Some modules rely on shell scripts inside `waybar/scripts/`:
 
-| Script        | Purpose                           |
-|---------------|-----------------------------------|
-| `glitch.sh`   | Rotating terminal-style messages  |
-| `net_status`  | Show ✓ or ✗ based on connectivity |
+| Script       | Purpose                           |
+| ------------ | --------------------------------- |
+| `glitch.sh`  | Rotating terminal-style messages  |
+| `net_status` | Show ✓ or ✗ based on connectivity |
 
 Make sure scripts are executable:
 
@@ -107,7 +109,7 @@ Pull requests and suggestions welcome. If you have an idea for a new theme, feel
 
 ## 📸 Screenshots
 
-> *maybe another time*
+> _maybe another time_
 
 ## 📚 Credits
 
