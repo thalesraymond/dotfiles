@@ -1,99 +1,91 @@
-I was lazy to write my own README, so I ask for chat gpt to do it:
+# 🌌 Thales’ Waybar + Hyprland Dotfiles
 
-# 🌌 Thales' Waybar + Hyprland Dotfiles
+Custom configuration files for **Waybar** and **Hyprland**, optimized for performance, modular ricing, and easy theming. Configs are managed using **GNU Stow** for clean integration.
 
-Custom configuration files for [Waybar](https://github.com/Alexays/Waybar) and [Hyprland](https://github.com/hyprwm/Hyprland), optimized for performance, ricing, and modularity. Built with [GNU Stow](https://www.gnu.org/software/stow/) for clean management.
-
-> ⚙️ Based on the [Hyprkool](https://github.com/thrombe/hyprkool) starter pack
+> ⚙️ Designed to work *with* [JaKooLit’s Arch‑Hyprland installer](https://github.com/JaKooLit/Arch-Hyprland), which handles installing Hyprland and populating the Hyprland and Waybar dotfiles from the centralized Hyprland‑Dots repository.
 
 ---
 
 ## 📦 Features
 
-- ✨ Beautiful **custom Waybar themes** (Cyberpunk, Zen Dark, HUD, and more)
-- 🧱 Hyprland workspace & window support
-- 📊 Modules: CPU, RAM, Disk, Volume, Network, Visualizer, etc.
-- 🎛️ Easy configuration via [GNU Stow](https://www.gnu.org/software/stow/)
-- 🔮 Transparent, blur-friendly, themed CSS
-- ⚙️ Shell scripts for dynamic modules (`glitch.sh`, `net_status`, etc.)
+- ✨ Multiple themes supported—Cyberpunk, Zen Dark, HUD, and custom CSS
+- 🧱 Configured for Hyprland workspaces, windows, and layouts
+- 📊 Bundled Waybar modules: CPU, RAM, Disk, Volume, Network, Visualizer, etc.
+- 🎛️ Modular installation via **GNU Stow**
+- 🔮 Transparent, blur-friendly, themed CSS for visual polish
+- ⚙️ Shell scripts for dynamic modules (e.g. `glitch.sh`, `net_status`)
 
 ---
 
-## 🚀 Initial Setup
+## 🚀 Prerequisites & Setup
 
-> These steps assume you're starting from a fresh HyprKool-based setup.
+These configs are intended for use alongside **Arch‑Hyprland**:
 
-### ✅ 1. Pre-requisites
+### ✅ 1. Install Arch-Hyprland
 
-Make sure you have:
-
-- Hyprland (recommended: HyprKool)
+Run [JaKooLit’s Arch‑Hyprland installer](https://github.com/JaKooLit/Arch-Hyprland), which installs:
+- Hyprland
 - Waybar
-- Nerd Font (e.g. [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads))
-- `swaybg` or `swww` for wallpapers (optional)
-- [GNU Stow](https://www.gnu.org/software/stow/) installed:
+- GTK theming
+- Fonts
+- Rofi + other ricing components
+- Prepopulated Hyprland dotfiles (Hyprland‑Dots repo)
+
+### ✅ 2. Clone Your Dotfiles
 
 ```bash
-sudo dnf install stow   # Fedora
-sudo pacman -S stow     # Arch
+git clone https://github.com/thalesraymond/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
-- Install PowerLevel10k: https://github.com/romkatv/powerlevel10k
-- Install Ghostty terminal: `yay -S ghostty`
-- Make sure to have Meslo Nerd Fonts installed
+### ✅ 3. Install GNU Stow
+
+```bash
+sudo pacman -S stow    # Arch
+sudo dnf install stow  # Fedora
+```
+
+### ✅ 4. (Optional) Remove Existing Configs
+
+```bash
+rm -rf ~/.config/waybar ~/.config/hypr
+```
+
+### ✅ 5. Stow Dotfiles
+
+```bash
+stow --target=$HOME/.config waybar
+stow --target=$HOME/.config hypr   # If you're using the hypr/ directory
+```
 
 ---
 
-## 📁 Repo Structure
+## 📁 Repository Structure
 
 ```
 dotfiles/
 ├── waybar/
-│   ├── config.jsonc         # Waybar config
-│   ├── style.css            # Main style sheet
-│   └── scripts/             # Custom shell scripts for modules
-├── hypr/                    # (optional) Hyprland config
-├── ...
+│   ├── config.jsonc         # Waybar configuration
+│   ├── style.css            # Custom styles/themes
+│   └── scripts/             # Shell scripts for interactive modules
+├── hypr/                    # Hyprland configuration files (optional)
+├── ghostty/                 # Ghostty terminal config (optional)
+├── zshrc                    # Optional shell customization
+└── README.md
 ```
 
 ---
 
-## 📂 Installation with GNU Stow
+## 🧪 Scripts / Dynamic Modules
 
-> Run these commands from the root of this repo:
+Several modules in `waybar/scripts/` include custom behavior:
 
-### 🛠️ Step-by-step:
+| Script        | Description                              |
+|---------------|------------------------------------------|
+| `glitch.sh`   | Cyclic “terminal-style” messages         |
+| `net_status`  | Displays ✓ or ✗ based on connectivity    |
 
-```bash
-# Clone the dotfiles
-git clone https://github.com/thalesraymond/dotfiles ~/dotfiles
-cd ~/dotfiles
-
-# Clean up any existing config (optional, careful!)
-rm -rf ~/.config/waybar
-
-# Stow the Waybar files into place
-stow --target=$HOME/.config waybar
-```
-
-📌 If you're also using the `hypr/` directory:
-
-```bash
-stow --target=$HOME/.config hypr
-```
-
----
-
-## 🧪 Optional: Scripts
-
-Some modules rely on shell scripts inside `waybar/scripts/`:
-
-| Script       | Purpose                           |
-| ------------ | --------------------------------- |
-| `glitch.sh`  | Rotating terminal-style messages  |
-| `net_status` | Show ✓ or ✗ based on connectivity |
-
-Make sure scripts are executable:
+Ensure all scripts are executable:
 
 ```bash
 chmod +x ~/.config/waybar/scripts/*.sh
@@ -103,23 +95,31 @@ chmod +x ~/.config/waybar/scripts/*.sh
 
 ## 💬 Contributing
 
-Pull requests and suggestions welcome. If you have an idea for a new theme, feel free to fork and submit it!
+Contributions are welcome! If you have:
+- New themes or CSS layouts
+- New shell modules or widgets
+- Ideas for layout or usability
+
+Feel free to open an issue or pull request!
 
 ---
 
-## 📸 Screenshots
-
-> _maybe another time_
-
-## 📚 Credits
+## 📚 Credits & Dependencies
 
 - [Waybar](https://github.com/Alexays/Waybar)
 - [Hyprland](https://github.com/hyprwm/Hyprland)
-- [HyprKool](https://github.com/hyprwm/HyprKool)
+- [JaKooLit’s Arch‑Hyprland](https://github.com/JaKooLit/Arch-Hyprland)
 - [Catppuccin](https://github.com/catppuccin)
+- [HyprKool](https://github.com/thrombe/hyprkool) (theme inspiration)
 
 ---
 
 ## 🧠 License
 
-MIT — use freely, but credits are appreciated.
+**MIT License** — free to use, modify, and redistribute. A credit is appreciated. ✨
+
+---
+
+## 📸 Screenshots
+
+> _coming soon™_
