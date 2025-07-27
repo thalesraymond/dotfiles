@@ -1,0 +1,20 @@
+{
+  "chat.commandCenter.enabled": false,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "security.workspace.trust.untrustedFiles": "open",
+  "codeium.enableConfig": {
+    "*": true,
+    "properties": true,
+    "markdown": true
+  },
+  "workbench.editor.empty.hint": "hidden",
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "git.enableSmartCommit": true,
+  "editor.allowVariableFontsInAccessibilityMode": true,
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'Meslo LG Nerd Font'",
+  "terminal.integrated.fontFamily": "MesloLGMDZ Nerd Font",
+  "terminal.integrated.fontWeight": "normal"
+}
