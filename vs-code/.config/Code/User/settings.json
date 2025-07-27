@@ -14,7 +14,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "git.enableSmartCommit": true,
   "editor.allowVariableFontsInAccessibilityMode": true,
-  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'Meslo LG Nerd Font'",
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
   "terminal.integrated.fontFamily": "MesloLGMDZ Nerd Font",
   "terminal.integrated.fontWeight": "normal"
 }
