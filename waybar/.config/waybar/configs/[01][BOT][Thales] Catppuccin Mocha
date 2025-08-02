@@ -26,6 +26,7 @@
         "cpu",
         "memory",
         "disk",
+        "custom/updater",
         "tray"
     ],
     "hyprland/workspaces": {

@@ -29,14 +29,16 @@ window#waybar {
 /* Modules */
 #clock,
 #pulseaudio,
-#cpu,
 #memory,
 #disk,
+#cpu,
 #tray,
 #custom-cava_mviz,
+#custom-updater,
 #custom-playerctl {
   background-color: rgba(255, 255, 255, 0.05);
   margin: 0 6px;
+  min-width: 50px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
 }
