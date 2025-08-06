@@ -2,7 +2,8 @@
 
 // ### TOP and Right PANEL ## //
 
-[{
+[
+    {
 "include": [
   "$HOME/.config/waybar/Modules",
   "$HOME/.config/waybar/ModulesWorkspaces",
