@@ -60,9 +60,9 @@
         "max-decimals": 0
     },
     "memory": {
-        "format": "󰾆 {percentage}%"
+        "format": "󰾆  {percentage}%"
     },
     "disk": {
-        "format": " {percentage_used}%"
+        "format": "  {percentage_used}%"
     }
 }
