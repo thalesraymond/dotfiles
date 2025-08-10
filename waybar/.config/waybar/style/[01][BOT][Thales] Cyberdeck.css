@@ -1,41 +1,41 @@
 * {
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    padding: 2px 8px;
-    min-height: 0;
-    color: #00ff99; /* Primary HUD green */
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 8px;
+  min-height: 0;
+  color: #00ff99; /* Primary HUD green */
 }
 
 window#waybar {
-    background-color: rgba(10, 10, 10, 0.85); /* Dark glass */
-    margin: 0;
-    padding: 4px 12px;
-    border-top: 2px solid #00ffcc; /* HUD scanline */
-    border-bottom: 2px solid #00ffcc;
-    box-shadow: inset 0 0 4px #00ffcc;
+  background-color: rgba(10, 10, 10, 0.85); /* Dark glass */
+  margin: 0;
+  padding: 4px 12px;
+  border-top: 2px solid #00ffcc; /* HUD scanline */
+  border-bottom: 2px solid #00ffcc;
+  box-shadow: inset 0 0 4px #00ffcc;
 }
 
 /* WORKSPACES: segmented buttons */
 #workspaces {
-    background: transparent;
+  background: transparent;
 }
 #workspaces button {
-    background-color: transparent;
-    color: #00ffcc;
-    margin: 0 3px;
-    padding: 1px 6px;
-    border: 1px solid #00ffcc;
-    transition: all 0.15s ease;
+  background-color: transparent;
+  color: #00ffcc;
+  margin: 0 3px;
+  padding: 1px 6px;
+  border: 1px solid #00ffcc;
+  transition: all 0.15s ease;
 }
 #workspaces button.active {
-    background-color: #00cca3;
-    color: #000000;
+  background-color: #00cca3;
+  color: #000000;
 }
 #workspaces button:hover {
-    background-color: #00ff99;
-    color: #1e1e1e;
+  background-color: #00ff99;
+  color: #1e1e1e;
 }
 
 /* MODULES – glowing neon pills */
@@ -46,49 +46,49 @@ window#waybar {
 #disk,
 #tray,
 #custom-cava_mviz {
-    background-color: rgba(0, 255, 153, 0.1);
-    color: #00ffaa;
-    border: 1px solid #00ffaa;
-    margin: 0 6px;
-    padding: 4px 10px;
-    box-shadow: 0 0 4px #00ffaa55;
+  background-color: rgba(0, 255, 153, 0.1);
+  color: #00ffaa;
+  border: 1px solid #00ffaa;
+  margin: 0 6px;
+  padding: 4px 10px;
+  box-shadow: 0 0 4px #00ffaa55;
 }
 
 #clock {
-    color: #89dceb;
-    border-color: #89dceb;
+  color: #89dceb;
+  border-color: #89dceb;
 }
 
 #pulseaudio {
-    color: #fab387;
-    border-color: #fab387;
+  color: #fab387;
+  border-color: #fab387;
 }
 
 #cpu {
-    color: #f9e2af;
-    border-color: #f9e2af;
+  color: #f9e2af;
+  border-color: #f9e2af;
 }
 
 #memory {
-    color: #a6e3a1;
-    border-color: #a6e3a1;
+  color: #a6e3a1;
+  border-color: #a6e3a1;
 }
 
 #disk {
-    color: #f38ba8;
-    border-color: #f38ba8;
+  color: #f38ba8;
+  border-color: #f38ba8;
 }
 
 #tray {
-    border-color: #94e2d5;
-    color: #94e2d5;
+  border-color: #94e2d5;
+  color: #94e2d5;
 }
 
 /* Mute state alert */
 #pulseaudio.muted {
-    color: #ff5555;
-    border-color: #ff5555;
-    background-color: rgba(255, 85, 85, 0.1);
+  color: #ff5555;
+  border-color: #ff5555;
+  background-color: rgba(255, 85, 85, 0.1);
 }
 
 /* Optional hover effect */
@@ -98,7 +98,7 @@ window#waybar {
 #memory:hover,
 #disk:hover,
 #tray:hover {
-    background-color: rgba(0, 255, 204, 0.2);
-    color: #ffffff;
-    transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: rgba(0, 255, 204, 0.2);
+  color: #ffffff;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
