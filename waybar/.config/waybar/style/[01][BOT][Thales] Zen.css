@@ -1,29 +1,29 @@
 * {
-    font-family: "Noto Sans", sans-serif;
-    font-size: 14px;
-    border: none;
-    border-radius: 8px;
-    padding: 2px 10px;
-    color: #b0b8ac;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  padding: 2px 10px;
+  color: #b0b8ac;
 }
 
 window#waybar {
-    background-color: #2a2f27;  /* Dark olive/forest tone */
-    border: none;
-    margin: 0;
-    padding: 4px 10px;
-    box-shadow: 0 0 8px rgba(40, 50, 40, 0.6);
+  background-color: #2a2f27; /* Dark olive/forest tone */
+  border: none;
+  margin: 0;
+  padding: 4px 10px;
+  box-shadow: 0 0 8px rgba(40, 50, 40, 0.6);
 }
 
 /* Workspaces */
 #workspaces button {
-    background-color: transparent;
-    color: #849478;  /* muted green */
-    margin: 0 4px;
+  background-color: transparent;
+  color: #849478; /* muted green */
+  margin: 0 4px;
 }
 #workspaces button.active {
-    background-color: #5a6a53;  /* deeper green */
-    color: #d7e2cd;
+  background-color: #5a6a53; /* deeper green */
+  color: #d7e2cd;
 }
 
 /* Modules */
@@ -34,13 +34,13 @@ window#waybar {
 #disk,
 #tray,
 #custom-cava_mviz {
-    background-color: #3a433a;  /* dark moss */
-    color: #c7d3bb;
-    margin: 0 5px;
-    border: 1px solid #54654c;
+  background-color: #3a433a; /* dark moss */
+  color: #c7d3bb;
+  margin: 0 5px;
+  border: 1px solid #54654c;
 }
 
 /* Tray adjustments */
 #tray {
-    padding: 4px 6px;
+  padding: 4px 6px;
 }

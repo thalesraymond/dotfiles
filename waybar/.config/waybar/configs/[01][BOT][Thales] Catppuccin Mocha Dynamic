@@ -12,31 +12,16 @@
   "margin-bottom": 5,
   "margin-left": 300,
   "margin-right": 300,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces#rwCustom", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": [
     "pulseaudio",
+    "cpu",
+    "memory",
     "disk",
+    "custom/updater",
     "tray"
   ],
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-active": "{icon}",
-    "on-click": "activate",
-    "all-outputs": true,
-    "format-icons": {
-      "1": "󰼏    󰖟", // Home
-      "2": "󰼐 󰓓", // Games :Launchers
-      "3": "󰼑", // Email
-      "4": "󰼒", // Generic 4
-      "5": "󰼓", // Generic 5
-      "6": "󰼔", // Generic 6
-      "7": "󰼕", // Generic 7
-      "8": "󰼖 󰺵", // Generic 8
-      "9": "󰼗    ", // WhatsApp + Spotify
-      "default": "" // Generic icon for others
-    }
-  },
   "hyprland/window": {
     "format": "{initialTitle}"
   },
