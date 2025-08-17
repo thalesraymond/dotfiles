@@ -8,7 +8,6 @@
   "layer": "top",
   "position": "bottom",
   "height": 30,
-  "output": "DP-3",
   "margin-bottom": 5,
   "margin-left": 300,
   "margin-right": 300,
@@ -23,17 +22,17 @@
     "format": "{icon}",
     "format-active": "{icon}",
     "on-click": "activate",
-    "all-outputs": true,
+    "all-outputs": false,
     "format-icons": {
       "1": "󰼏    󰖟", // Home
       "2": "󰼐 󰓓", // Games :Launchers
-      "3": "󰼑", // Email
+      "3": "󰼑  ", // Spotify
       "4": "󰼒", // Generic 4
       "5": "󰼓", // Generic 5
       "6": "󰼔", // Generic 6
       "7": "󰼕", // Generic 7
       "8": "󰼖 󰺵", // Generic 8
-      "9": "󰼗    ", // WhatsApp + Spotify
+      "9": "󰼗   ", // WhatsApp + Thunderbird
       "default": "" // Generic icon for others
     }
   },
