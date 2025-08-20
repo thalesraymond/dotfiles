@@ -6,7 +6,7 @@
     "$HOME/.config/waybar/UserModules"
   ],
   "layer": "top",
-  "position": "bottom",
+  "position": "top",
   "height": 30,
   "margin-bottom": 5,
   "margin-left": 5,
