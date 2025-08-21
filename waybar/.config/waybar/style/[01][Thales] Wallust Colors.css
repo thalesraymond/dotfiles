@@ -1,4 +1,4 @@
-@import '../../.config/waybar/wallust/colors-waybar.css';
+@import "../../.config/waybar/wallust/colors-waybar.css";
 
 * {
   font-family: "JetBrainsMono Nerd Font", monospace;
@@ -10,7 +10,12 @@
 }
 
 window#waybar {
-  background-color: rgba(0, 1, 1, 0.7); /* Usando @background com transparência */
+  background-color: rgba(
+    0,
+    1,
+    1,
+    0.7
+  ); /* Usando @background com transparência */
   color: @foreground;
   margin: 0px;
   padding: 6px 12px;
@@ -62,11 +67,12 @@ window#waybar {
   background-color: @color10;
 }
 #disk {
-  background-color: @color11;
+  background-color: @color14;
+  color: @color9;
 }
 #pulseaudio {
   background-color: @color12;
-  color: @color0;
+  color: @color7;
 }
 #pulseaudio.muted {
   background-color: @color9;
