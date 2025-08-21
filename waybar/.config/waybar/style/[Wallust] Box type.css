@@ -29,7 +29,7 @@ window#waybar.empty #window {
     border: 0px;
 }
 
-#window {
+#window {  
 	padding-left: 10px;
 	padding-right: 10px;
 	border-radius: 10px;

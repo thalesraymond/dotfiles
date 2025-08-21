@@ -1,0 +1,115 @@
+/* ~/.config/waybar/style.css */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 12px;
+  padding: 1px 8px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(40, 40, 40, 0.85); /* Base escura com transparência */
+  color: #ebdbb2; /* Texto principal - amarelo claro do Gruvbox */
+  margin: 0px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Workspaces - inspirado no Gruvbox */
+#workspaces {
+  background-color: transparent;
+  margin: 0 6px;
+}
+#workspaces button {
+  background: transparent;
+  color: #a89984; /* Cinza do Gruvbox */
+  margin: 0 3px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+#workspaces button:hover {
+  background-color: #504945; /* Cinza escuro do Gruvbox */
+  color: #ebdbb2;
+}
+#workspaces button.active {
+  background-color: #98971a; /* Verde do Gruvbox */
+  color: #1d2021; /* Quase preto para contraste */
+  font-weight: bold;
+}
+
+/* Módulos do lado direito */
+#clock,
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#tray,
+#custom-playerctl {
+  background-color: #3c3836; /* Fundo escuro do Gruvbox */
+  margin: 0 4px;
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+/* Destaques individuais inspirados em ambas as paletas */
+#clock {
+  background-color: #d79921; /* Amarelo queimado do Gruvbox */
+  color: #1d2021;
+  font-weight: bold;
+}
+#cpu {
+  background-color: #458588; /* Azul turquesa do Gruvbox */
+  color: #1d2021;
+}
+#memory {
+  background-color: #b16286; /* Roxo do Gruvbox */
+  color: #1d2021;
+}
+#disk {
+  background-color: #689d6a; /* Verde do Gruvbox */
+  color: #1d2021;
+}
+#pulseaudio {
+  background-color: #8ec07c; /* Verde claro do Gruvbox */
+  color: #1d2021;
+}
+#pulseaudio.muted {
+  background-color: #fb4934; /* Vermelho do Gruvbox */
+  color: #1d2021;
+}
+#custom-playerctl {
+  background-color: #fe8019; /* Laranja do Gruvbox */
+  color: #1d2021;
+}
+
+/* Tray */
+#tray {
+  padding: 3px 8px;
+  background-color: #665c54; /* Cinza médio do Gruvbox */
+}
+
+/* Efeitos de hover */
+#clock:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#tray:hover,
+#custom-playerctl:hover {
+  background-color: #ebdbb2; /* Fundo claro do Gruvbox */
+  color: #1d2021;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Janela ativa */
+#window {
+  color: #ebdbb2;
+  background-color: rgba(60, 56, 54, 0.7); /* Cinza escuro com transparência */
+  padding: 4px 12px;
+  border-radius: 10px;
+  margin: 0 4px;
+}
