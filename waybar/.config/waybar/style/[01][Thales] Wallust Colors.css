@@ -1,0 +1,92 @@
+@import '../../.config/waybar/wallust/colors-waybar.css';
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 12px;
+  padding: 1px 8px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(0, 1, 1, 0.7); /* Usando @background com transparência */
+  color: @foreground;
+  margin: 0px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Workspaces */
+#workspaces {
+  background-color: transparent;
+  margin: 0 6px;
+}
+#workspaces button {
+  background: transparent;
+  color: @color7;
+  margin: 0 3px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+#workspaces button:hover {
+  background-color: @color3;
+}
+#workspaces button.active {
+  background-color: @color12;
+  color: @color7;
+}
+
+/* Modules Appearance */
+#clock,
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#tray,
+#custom-cava_mviz {
+  background-color: @color2;
+  margin: 0 4px;
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+
+/* Custom Highlight per Type */
+#clock {
+  background-color: @color3;
+}
+#cpu,
+#memory {
+  background-color: @color10;
+}
+#disk {
+  background-color: @color11;
+}
+#pulseaudio {
+  background-color: @color12;
+  color: @color0;
+}
+#pulseaudio.muted {
+  background-color: @color9;
+  color: @color0;
+}
+
+/* Tray Special Treatment */
+#tray {
+  padding: 3px 8px;
+  background-color: @color2;
+}
+
+/* Hover animation for all modules */
+#clock:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#tray:hover {
+  background-color: @color8;
+  color: @color0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
