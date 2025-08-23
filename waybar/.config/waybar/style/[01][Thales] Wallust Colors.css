@@ -10,12 +10,7 @@
 }
 
 window#waybar {
-  background-color: rgba(
-    0,
-    1,
-    1,
-    0.7
-  ); /* Usando @background com transparência */
+  background-color: @background-alt;
   color: @foreground;
   margin: 0px;
   padding: 6px 12px;
@@ -41,7 +36,7 @@ window#waybar {
 }
 #workspaces button.active {
   background-color: @color12;
-  color: @color7;
+  color: @foreground;
 }
 
 /* Modules Appearance */
@@ -56,6 +51,7 @@ window#waybar {
   margin: 0 4px;
   padding: 4px 10px;
   border-radius: 10px;
+  color: @foreground;
 }
 
 /* Custom Highlight per Type */
