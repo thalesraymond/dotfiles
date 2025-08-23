@@ -19,6 +19,7 @@
   ],
   "modules-center": [ "clock"],
   "modules-right": [
+    "custom/cava_mviz",
     "custom/playerctl",
     "pulseaudio",
     "disk",
@@ -30,13 +31,13 @@
     "on-click": "activate",
     "all-outputs": false,
     "format-icons": {
-      "1": "󰼏    󰖟", // Home
+      "1": "󰼏   󰖟", // Home
       "2": "󰼐 󰓓", // Games :Launchers
-      "3": "󰼑", // Spotify
+      "3": "󰼑", // Generic 3
       "4": "󰼒", // Generic 4
       "5": "󰼓", // Generic 5
       "6": "󰼔", // Generic 6
-      "7": "󰼕  ", // Generic 7
+      "7": "󰼕  ", // Spotify
       "8": "󰼖 󰺵", // Generic 8
       "9": "󰼗   ", // WhatsApp + Thunderbird
       "default": "" // Generic icon for others
