@@ -29,7 +29,7 @@
     "format": "{icon}",
     "format-active": "{icon}",
     "on-click": "activate",
-    "all-outputs": false,
+    "all-outputs": true,
     "format-icons": {
       "1": "󰼏   󰖟", // Home
       "2": "󰼐 󰓓", // Games :Launchers
