@@ -24,7 +24,7 @@ jobs:
       - name: Get next tag number
         id: get_next_tag
         run: |
-          $DATE=${{ steps.get_date.outputs.DATE }}
+          $DATE="${{ steps.get_date.outputs.DATE }}"
           tags=$(git tag -l --sort=-creatordate)
           next_tag_number=0
           for tag in $tags; do
