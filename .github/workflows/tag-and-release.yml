@@ -30,6 +30,8 @@ jobs:
 
       - name: Create tag
         run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git tag -a "${DATE}.${NEXT_TAG_NUMBER}" -m "Automated tag"
           git push origin "${DATE}.${NEXT_TAG_NUMBER}"
 
