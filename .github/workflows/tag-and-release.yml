@@ -1,4 +1,4 @@
-name: Daily Release
+name: Tag and Releasee
 
 on:
   workflow_dispatch: # run manually
@@ -8,6 +8,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   release:
