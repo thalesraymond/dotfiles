@@ -1,55 +1,53 @@
-name: Create Tag and Release
+name: Daily Release
 
 on:
+  workflow_dispatch: # run manually
   push:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
-  create-tag-and-release:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Get current date
-        id: get_date
-        run: |
-          date=$(date +"%Y.%m.%d")
-          echo "DATE=$date" >> $GITHUB_OUTPUT
+      - name: Fetch tags
+        run: git fetch --tags
 
-      - name: Get next tag number
-        id: get_next_tag
+      - name: Determine new tag
+        id: tagger
         run: |
-          $DATE="${{ steps.get_date.outputs.DATE }}"
-          tags=$(git tag -l --sort=-creatordate)
-          next_tag_number=0
-          for tag in $tags; do
-            if [[ $tag =~ ^$DATE\.([0-9]+)$ ]]; then
-              next_tag_number=$((next_tag_number > ${BASH_REMATCH[1]} ? next_tag_number : ${BASH_REMATCH[1]} + 1))
-            fi
-          done
-          echo "NEXT_TAG_NUMBER=$next_tag_number" >> $GITHUB_OUTPUT
+          today=$(date +'%Y.%m.%d')
+          echo "Today: $today"
+
+          # List tags for today
+          tags_today=$(git tag --list "${today}.*" | sort -V)
+          echo "Tags today:"
+          echo "$tags_today"
+
+          if [ -z "$tags_today" ]; then
+            new_tag="${today}.0"
+          else
+            last_tag=$(echo "$tags_today" | tail -n 1)
+            last_num=$(echo "$last_tag" | awk -F. '{print $NF}')
+            new_num=$((last_num + 1))
+            new_tag="${today}.${new_num}"
+          fi
+
+          echo "New tag: $new_tag"
+          echo "tag=$new_tag" >> $GITHUB_OUTPUT
 
       - name: Create tag
         run: |
-          $DATE="${{ steps.get_date.outputs.DATE }}"
-          $NEXT_TAG_NUMBER=${{ steps.get_next_tag.outputs.NEXT_TAG_NUMBER }}
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag ${{ steps.tagger.outputs.tag }}
+          git push origin ${{ steps.tagger.outputs.tag }}
 
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          git tag -a "${DATE}.${NEXT_TAG_NUMBER}" -m "Automated tag"
-          git push origin "${DATE}.${NEXT_TAG_NUMBER}"
-
-      - name: Create release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: "${{ steps.get_date.outputs.DATE }}.${{ steps.get_next_tag.outputs.NEXT_TAG_NUMBER }}"
-          name: "Release ${{ steps.get_date.outputs.DATE }}.${{ steps.get_next_tag.outputs.NEXT_TAG_NUMBER }}"
-          draft: false
-          prerelease: false
+          tag_name: ${{ steps.tagger.outputs.tag }}
           generate_release_notes: true
