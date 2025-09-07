@@ -19,7 +19,7 @@ jobs:
         id: get_date
         run: |
           date=$(date +"%Y.%m.%d")
-          echo "DATE=$date" >> $GITHUB_ENV
+          echo "DATE=$date" >> $GITHUB_OUTPUT
 
       - name: Get next tag number
         id: get_next_tag
@@ -32,7 +32,7 @@ jobs:
               next_tag_number=$((next_tag_number > ${BASH_REMATCH[1]} ? next_tag_number : ${BASH_REMATCH[1]} + 1))
             fi
           done
-          echo "NEXT_TAG_NUMBER=$next_tag_number" >> $GITHUB_ENV
+          echo "NEXT_TAG_NUMBER=$next_tag_number" >> $GITHUB_OUTPUT
 
       - name: Create tag
         run: |
