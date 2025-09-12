@@ -25,5 +25,7 @@
   },
   "[qml]": {
     "editor.defaultFormatter": "theqtcompany.qt-qml"
-  }
+  },
+  "diffEditor.codeLens": true,
+  "geminicodeassist.inlineSuggestions.enableAuto": true
 }
