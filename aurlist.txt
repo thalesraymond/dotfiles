@@ -1,0 +1,16 @@
+bibata-cursor-theme
+insomnium-bin
+jetbrains-toolbox
+lmstudio
+lug-helper
+muffon-bin
+nexusmods-app-bin
+redhat-fonts
+sddm-conf
+sddm-silent-theme
+spotify
+ttf-victor-mono
+unityhub
+visual-studio-code-bin
+wallust
+zapzap
