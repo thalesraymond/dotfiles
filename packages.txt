@@ -281,3 +281,4 @@ yt-dlp
 zapzap
 zed
 zen-browser-bin
+ghostty
