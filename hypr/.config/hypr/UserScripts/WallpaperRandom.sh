@@ -22,7 +22,9 @@ SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration
 swww query || swww-daemon --format xrgb && swww img -o $focused_monitor ${RANDOMPICS} $SWWW_PARAMS
 
 wait $!
-"$SCRIPTSDIR/WallustSwww.sh" &&
+ wallust run "${RANDOMPICS}" -s &
+
+# "$SCRIPTSDIR/WallustSwww.sh" &&
 
 wait $!
 sleep 2
