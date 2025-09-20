@@ -171,7 +171,8 @@ apply_image_wallpaper() {
   swww img -o "$focused_monitor" "$image_path" $SWWW_PARAMS
 
   # Run additional scripts
-  "$SCRIPTSDIR/WallustSwww.sh"
+  # "$SCRIPTSDIR/WallustSwww.sh"
+  wallust run "$image_path" -s &
   sleep 2
   "$SCRIPTSDIR/Refresh.sh"
   sleep 1
