@@ -1,3 +1,5 @@
+@import "../../.config/waybar/wallust/colors-waybar.css";
+
 * {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 13px;
@@ -11,7 +13,7 @@ window#waybar {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 6px 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Workspaces */
