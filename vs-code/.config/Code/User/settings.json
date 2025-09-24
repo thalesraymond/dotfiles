@@ -28,5 +28,11 @@
   },
   "diffEditor.codeLens": true,
   "geminicodeassist.inlineSuggestions.enableAuto": true,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }
