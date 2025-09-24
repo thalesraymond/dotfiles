@@ -12,6 +12,7 @@
     "interval": 1,
     "tooltip": false
   },
+
   "hyprland/workspaces#rwCustom": {
     "disable-scroll": true,
     "all-outputs": true,

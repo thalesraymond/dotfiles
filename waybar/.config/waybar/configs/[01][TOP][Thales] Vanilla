@@ -19,6 +19,7 @@
   ],
   "modules-center": [ "clock"],
   "modules-right": [
+    "custom/hypr_sunset",
     "custom/cava_mviz",
     "custom/playerctl",
     "pulseaudio",
