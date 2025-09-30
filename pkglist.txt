@@ -8,6 +8,7 @@ alsa-firmware
 alsa-plugins
 alsa-utils
 amd-ucode
+android-tools
 awesome-terminal-fonts
 base
 base-devel
@@ -70,6 +71,8 @@ fastfetch
 ffmpegthumbnailer
 firefox
 fsarchiver
+gamemode
+ghostty
 git
 github-cli
 glances
@@ -93,6 +96,7 @@ hypridle
 hyprland
 hyprlock
 hyprpolkitagent
+hyprsunset
 inetutils
 insomnium-bin
 iptables-nft
@@ -125,6 +129,7 @@ loupe
 lsb-release
 lsd
 lsscsi
+luarocks
 lug-helper
 lutris
 lvm2
@@ -181,6 +186,7 @@ plymouth
 polkit-kde-agent
 poppler-glib
 power-profiles-daemon
+proton-ge-custom-bin
 pv
 python
 python-defusedxml
@@ -209,7 +215,6 @@ smartmontools
 snapper
 sof-firmware
 solaar
-spotify
 stow
 stremio
 sudo
@@ -281,5 +286,3 @@ yt-dlp
 zapzap
 zed
 zen-browser-bin
-ghostty
-hyprsunset
