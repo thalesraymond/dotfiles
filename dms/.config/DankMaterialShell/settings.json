@@ -75,7 +75,7 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": false,
+  "showWorkspaceIndex": true,
   "showWorkspacePadding": false,
   "showWorkspaceApps": false,
   "maxWorkspaceIcons": 3,
@@ -85,14 +85,23 @@
   "clockCompactMode": false,
   "focusedWindowCompactMode": false,
   "runningAppsCompactMode": true,
-  "runningAppsCurrentWorkspace": false,
-  "clockDateFormat": "",
+  "runningAppsCurrentWorkspace": true,
+  "clockDateFormat": "ddd d MMM yyyy",
   "lockDateFormat": "",
   "mediaSize": 1,
   "dankBarLeftWidgets": [
-    "launcherButton",
-    "workspaceSwitcher",
-    "focusedWindow"
+    {
+      "id": "workspaceSwitcher",
+      "enabled": true
+    },
+    {
+      "id": "runningApps",
+      "enabled": true
+    },
+    {
+      "id": "focusedWindow",
+      "enabled": true
+    }
   ],
   "dankBarCenterWidgets": [
     "music",
@@ -100,13 +109,22 @@
     "weather"
   ],
   "dankBarRightWidgets": [
-    "systemTray",
-    "clipboard",
-    "cpuUsage",
-    "memUsage",
-    "notificationButton",
-    "battery",
-    "controlCenterButton"
+    {
+      "id": "diskUsage",
+      "enabled": true
+    },
+    {
+      "id": "cpuUsage",
+      "enabled": true
+    },
+    {
+      "id": "memUsage",
+      "enabled": true
+    },
+    {
+      "id": "notificationButton",
+      "enabled": true
+    }
   ],
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
@@ -141,8 +159,8 @@
   "dankBarOpenOnOverview": false,
   "dankBarVisible": true,
   "dankBarSpacing": 4,
-  "dankBarBottomGap": 0,
-  "dankBarInnerPadding": 4,
+  "dankBarBottomGap": -7,
+  "dankBarInnerPadding": 0,
   "dankBarSquareCorners": false,
   "dankBarNoBackground": false,
   "dankBarGothCornersEnabled": false,
@@ -159,7 +177,9 @@
     "dankBar": [
       "DP-3"
     ],
-    "dock": [],
+    "dock": [
+      "DP-3"
+    ],
     "notifications": [
       "DP-3"
     ]
