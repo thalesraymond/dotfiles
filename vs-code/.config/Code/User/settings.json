@@ -1,39 +1,45 @@
 {
-  "chat.commandCenter.enabled": false,
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "security.workspace.trust.untrustedFiles": "open",
-  "codeium.enableConfig": {
-    "*": true,
-    "properties": true,
-    "markdown": true,
-    "qml": true
-  },
-  "workbench.editor.empty.hint": "hidden",
-  "files.autoSave": "afterDelay",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "git.enableSmartCommit": true,
-  "editor.allowVariableFontsInAccessibilityMode": true,
-  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
-  "terminal.integrated.fontFamily": "MesloLGMDZ Nerd Font",
-  "terminal.integrated.fontWeight": "normal",
-  "git.autofetch": true,
-  "workbench.iconTheme": "vscode-icons",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "[qml]": {
-    "editor.defaultFormatter": "theqtcompany.qt-qml"
-  },
-  "diffEditor.codeLens": true,
-  "geminicodeassist.inlineSuggestions.enableAuto": true,
-  "git.confirmSync": false,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
-  "prettier.tabWidth": 4
+    "chat.commandCenter.enabled": false,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "security.workspace.trust.untrustedFiles": "open",
+    "codeium.enableConfig": {
+        "*": true,
+        "properties": true,
+        "markdown": true,
+        "qml": true
+    },
+    "workbench.editor.empty.hint": "hidden",
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "git.enableSmartCommit": true,
+    "editor.allowVariableFontsInAccessibilityMode": true,
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
+    "terminal.integrated.fontFamily": "MesloLGMDZ Nerd Font",
+    "terminal.integrated.fontWeight": "normal",
+    "git.autofetch": true,
+    "workbench.iconTheme": "vscode-icons",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "[qml]": {
+        "editor.defaultFormatter": "theqtcompany.qt-qml"
+    },
+    "diffEditor.codeLens": true,
+    "geminicodeassist.inlineSuggestions.enableAuto": true,
+    "git.confirmSync": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "prettier.tabWidth": 4,
+    "qt-core.additionalQtPaths": [
+        {
+            "name": "Qt-5.15.17-linux-g++_from_PATH",
+            "path": "/usr/bin/qmake"
+        }
+    ]
 }
