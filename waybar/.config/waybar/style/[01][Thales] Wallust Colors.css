@@ -1,46 +1,46 @@
 @import "../../.config/waybar/wallust/colors-waybar.css";
- /* ------ General Pattern ------ 
+/* ------ General Pattern ------ 
 background: color0 (dark) or color15 (light)
 foreground: color7 or color15 (for dark backgrounds), color0 or color8 (for light backgrounds)
 accent/highlight: color1–color6, color9–color14  */
 
 * {
-  font-family: "JetBrainsMono Nerd Font", monospace;
-  font-size: 13px;
-  border: none;
-  border-radius: 12px;
-  padding: 1px 8px;
-  min-height: 0;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 12px;
+    padding: 1px 8px;
+    min-height: 0;
 }
 
 window#waybar {
-  background-color: @background-alt;
-  color: @foreground;
-  margin: 0px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
+    background-color: @background-alt;
+    color: @foreground;
+    margin: 0px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
 }
 
 /* Workspaces */
 #workspaces {
-  background-color: transparent;
-  margin: 0 6px;
+    background-color: transparent;
+    margin: 0 6px;
 }
 #workspaces button {
-  background: transparent;
-  color: @color8;
-  margin: 0 3px;
-  padding: 2px 8px;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+    background: transparent;
+    color: @color8;
+    margin: 0 3px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
 }
 #workspaces button:hover {
-  background-color: @color3;
+    background-color: @color3;
 }
 #workspaces button.active {
-  background-color: @color12;
-  color: @foreground;
+    background-color: @color12;
+    color: @foreground;
 }
 
 /* Modules Appearance */
@@ -51,38 +51,38 @@ window#waybar {
 #disk,
 #tray,
 #custom-cava_mviz {
-  background-color: @color2;
-  margin: 0 4px;
-  padding: 4px 10px;
-  border-radius: 10px;
-  color: @foreground;
+    background-color: @color2;
+    margin: 0 4px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    color: @foreground;
 }
 
 /* Custom Highlight per Type */
 #clock {
-  background-color: @color3;
+    background-color: @color3;
 }
 #cpu,
 #memory {
-  background-color: @color10;
+    background-color: @color10;
 }
 #disk {
-  background-color: @color15;
-  color: @color9;
+    background-color: @color15;
+    color: @color9;
 }
 #pulseaudio {
-  background-color: @color12;
-  color: @color15;
+    background-color: @color12;
+    color: @color15;
 }
 #pulseaudio.muted {
-  background-color: @color0;
-  color: @color15;
+    background-color: @color0;
+    color: @color15;
 }
 
 /* Tray Special Treatment */
 #tray {
-  padding: 3px 8px;
-  background-color: @color2;
+    padding: 3px 8px;
+    background-color: @color2;
 }
 
 /* Hover animation for all modules */
@@ -92,7 +92,13 @@ window#waybar {
 #memory:hover,
 #disk:hover,
 #tray:hover {
-  background-color: @color8;
-  color: @color0;
-  transition: background-color 0.2s ease, color 0.2s ease;
+    background-color: @color8;
+    color: @color0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#power-profiles-daemon {
+    min-width: 20px;
+    background-color: @color14;
+    color: @color9;
 }

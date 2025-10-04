@@ -17,13 +17,16 @@
     "hyprland/workspaces",
     "hyprland/window"
   ],
-  "modules-center": [ "clock"],
+  "modules-center": [ 
+    "clock"
+  ],
   "modules-right": [
     "custom/hypr_sunset",
     "custom/cava_mviz",
     "custom/playerctl",
     "pulseaudio",
     "disk",
+    "power-profiles-daemon",
     "tray"
   ],
   "hyprland/workspaces": {
@@ -63,5 +66,16 @@
   },
   "disk": {
     "format": "  {percentage_used}%"
+  },
+  "power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "",
+    "performance": "",
+    "balanced": " ",
+    "power-saver": ""
   }
+}
 }
