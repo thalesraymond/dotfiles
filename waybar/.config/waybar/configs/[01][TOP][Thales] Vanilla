@@ -15,7 +15,9 @@
   "margin-bottom": -5,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window"
+    "niri/workspaces",
+    "hyprland/window",
+    "niri/window"
   ],
   "modules-center": [ 
     "clock"

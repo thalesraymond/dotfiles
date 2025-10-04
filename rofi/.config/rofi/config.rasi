@@ -29,4 +29,12 @@
 //@theme "~/.config/rofi/themes/KooL_style-11-Win11-list-dark.rasi"
 //@theme "~/.config/rofi/themes/KooL_style-12-TOP-Docu.rasi"
 //@theme "~/.config/rofi/themes/KooL_style-14.rasi"
-@theme "~/.config/rofi/themes/saint-rofi.rasi"
+//@theme "~/.config/rofi/themes/saint-rofi.rasi"
+
+//@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
+//@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+
+//@theme "/home/thales/.config/rofi/themes/KooL_style-4.rasi"
+
+@theme "/home/thales/.config/rofi/themes/saint-rofi.rasi"

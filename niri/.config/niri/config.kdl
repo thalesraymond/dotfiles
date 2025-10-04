@@ -66,7 +66,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="20%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -75,7 +75,8 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "DP-3" {
+    focus-at-startup
     // Uncomment this line to disable this output.
     // off
 
@@ -85,10 +86,10 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "2560x1080@144.001"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    scale 1
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -103,13 +104,47 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=0 y=0
 }
+
+output "HDMI-A-1" {
+    // Uncomment this line to disable this output.
+    // off
+
+    // Resolution and, optionally, refresh rate of the output.
+    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
+    // If the refresh rate is omitted, niri will pick the highest refresh rate
+    // for the resolution.
+    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+    mode "2560x1080@75.001"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "180"
+
+    // Position of the output in the global coordinate space.
+    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
+    // The cursor can only move between directly adjacent outputs.
+    // Output scale and rotation has to be taken into account for positioning:
+    // outputs are sized in logical, or scaled, pixels.
+    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
+    // so to put another output directly adjacent to it on the right, set its x to 1920.
+    // If the position is unset or results in an overlap, the output is instead placed
+    // automatically.
+    position x=0 y=-1080
+}
+
+
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
+    
     // Set gaps around windows in logical pixels.
     gaps 16
 
@@ -270,6 +305,18 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 
+spawn-at-startup "zapzap" 
+spawn-sh-at-startup "discord --start-minimized" 
+spawn-at-startup "thunderbird" 
+spawn-at-startup "zen-browser" 
+spawn-at-startup "lutris" 
+spawn-at-startup "steam-native" 
+spawn-sh-at-startup "openrgb --startminimized" 
+spawn-sh-at-startup "solaar -w hide" 
+
+//swww for wallpaper
+spawn-sh-at-startup "swww-daemon --format xrgb"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -283,7 +330,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -304,6 +351,10 @@ animations {
     // slowdown 3.0
 }
 
+workspace "Secondary" {
+    open-on-output "HDMI-A-1"
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
@@ -318,33 +369,72 @@ window-rule {
     default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+
+// Thunderbird no HDMI-A-1
+window-rule {
+    match app-id="thunderbird"
+    open-on-workspace "Secondary"
+    open-focused false
+    open-maximized false
+    default-column-width { proportion 0.5; }
+}
+
+// ZapZap no HDMI-A-1
+window-rule {
+    match app-id="ZapZap"
+    open-on-workspace "Secondary"
+    open-focused false
+    open-maximized false
+    default-column-width { proportion 0.5; }
+}
+
+// Zen Browser no DP-3
+window-rule {
+    match app-id="zen"
+    exclude title="Picture-in-Picture"
+    open-on-output "DP-3"
+    open-maximized true
+    open-focused true
+}
+
+// Picture-in-Picture sempre fullscreen no HDMI-A-1
+window-rule {
+    match title="Picture-in-Picture"
+    open-on-workspace "Secondary"
+    open-maximized true
+    open-focused false
+    match at-startup=false
+    
+}
+
+
+// Steam no DP-3 em novo workspace
+window-rule {
+    match app-id="steam"
+    open-on-output "DP-3"
+    open-focused false
+}
+
+// Lutris no DP-3 em novo workspace
+window-rule {
+    match app-id="lutris"
+    open-on-output "DP-3"
+    open-focused false
+}
+
+window-rule {
+    match title=".*"   // pega todas as janelas
+    open-on-output "DP-3"
+}
+
+
+
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -362,8 +452,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kittyy" { spawn "kitty"; }
+    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -modi drun,filebrowser,run,window"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -389,6 +479,7 @@ binds {
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
+    MouseBack repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -515,15 +606,15 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
