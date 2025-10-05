@@ -1,3 +1,10 @@
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
@@ -137,8 +144,6 @@ output "HDMI-A-1" {
     // automatically.
     position x=0 y=-1080
 }
-
-
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -297,13 +302,18 @@ layout {
     }
 }
 
+// include "$HOME/.config/niri/dms/colors.kdl"
+// include "$HOME/.config/niri/dms/layout.kdl"
+
+
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "dms"
+spawn-at-startup "dms" "run"
 
 //notification deamon
 spawn-at-startup "swaync"
@@ -312,13 +322,14 @@ spawn-at-startup "zapzap"
 spawn-sh-at-startup "discord --start-minimized" 
 spawn-at-startup "thunderbird" 
 spawn-at-startup "zen-browser" 
+spawn-at-startup "spotify"
 spawn-at-startup "lutris" 
 spawn-at-startup "steam-native" 
 spawn-sh-at-startup "openrgb --startminimized" 
 spawn-sh-at-startup "solaar -w hide" 
 
 //swww for wallpaper
-spawn-sh-at-startup "swww-daemon --format xrgb"
+//spawn-sh-at-startup "swww-daemon --format xrgb"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -396,6 +407,7 @@ window-rule {
 
 // Zen Browser no DP-3
 window-rule {
+    match app-id="spotify"
     match app-id="zen"
     exclude title="Picture-in-Picture"
     open-on-output "DP-3"
