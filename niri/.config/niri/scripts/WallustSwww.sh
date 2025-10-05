@@ -1,40 +1,56 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# Wallust Colors for current wallpaper
+# /* ---- 💫 Adaptado para Niri 💫 ---- */  ##
+# Wallust: derive colors from the current wallpaper and update templates
+# Uso: WallustNiri.sh [caminho_absoluto_para_wallpaper]
 
-# Define the path to the swww cache directory
+set -euo pipefail
+
+# Inputs e paths
+passed_path="${1:-}"
 cache_dir="$HOME/.cache/swww/"
+rofi_link="$HOME/.config/rofi/.current_wallpaper"
+wallpaper_current="$HOME/.config/niri/wallpaper_effects/.wallpaper_current"
 
-# Get a list of monitor outputs
-monitor_outputs=($(ls "$cache_dir"))
+# Helper: pegar o monitor focado no Niri
+get_focused_monitor() {
+  if command -v jq >/dev/null 2>&1; then
+    niri msg focused-output | jq -r 'match("\\(([^)]+)\\)").captures[0].string'
+  else
+    niri msg focused-output | grep -oP '\(\K[^)]+'
+  fi
+}
 
-# Initialize a flag to determine if the ln command was executed
-ln_success=false
+# Determinar wallpaper_path
+wallpaper_path=""
+if [[ -n "$passed_path" && -f "$passed_path" ]]; then
+  wallpaper_path="$passed_path"
+else
+  # tenta pegar do cache do swww para o monitor focado
+  current_monitor="$(get_focused_monitor)"
+  cache_file="$cache_dir$current_monitor"
 
-# Get current focused monitor
-current_monitor=$(niri msg focused-output | grep "Output" | sed -E 's/.*\((.*)\)/\1/')
-echo $current_monitor
-# Construct the full path to the cache file
-cache_file="$cache_dir$current_monitor"
-echo $cache_file
-# Check if the cache file exists for the current monitor output
-if [ -f "$cache_file" ]; then
-    # Get the wallpaper path from the cache file
-    #wallpaper_path=$(grep -v 'Lanczos3' "$cache_file" | head -n 1)
-    wallpaper_path=$(swww query | grep $current_monitor | awk '{print $9}')
-    echo $wallpaper_path
-    # symlink the wallpaper to the location Rofi can access
-    if ln -sf "$wallpaper_path" "$HOME/.config/rofi/.current_wallpaper"; then
-        ln_success=true  # Set the flag to true upon successful execution
+  # aguarda o swww atualizar o cache
+  for i in {1..10}; do
+    if [[ -f "$cache_file" ]]; then
+      break
     fi
-    # copy the wallpaper for wallpaper effects
-	cp -r "$wallpaper_path" "$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
+    sleep 0.1
+  done
+
+  if [[ -f "$cache_file" ]]; then
+    wallpaper_path="$(grep -v 'Lanczos3' "$cache_file" | head -n 1)"
+  fi
 fi
 
-# Check the flag before executing further commands
-if [ "$ln_success" = true ]; then
-    # execute wallust
-	echo 'about to execute wallust'
-    # execute wallust skipping tty and terminal changes
-    wallust run "$wallpaper_path" -s &
+if [[ -z "${wallpaper_path:-}" || ! -f "$wallpaper_path" ]]; then
+  # nada a fazer
+  exit 0
 fi
+
+# Atualizar symlinks e cópias
+ln -sf "$wallpaper_path" "$rofi_link" || true
+mkdir -p "$(dirname "$wallpaper_current")"
+cp -f "$wallpaper_path" "$wallpaper_current" || true
+
+# Rodar wallust para regenerar templates
+wallust run -s "$wallpaper_path" || true

@@ -313,7 +313,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "dms" "run"
+spawn-at-startup "waybar"
 
 //notification deamon
 spawn-at-startup "swaync"
@@ -329,7 +329,7 @@ spawn-sh-at-startup "openrgb --startminimized"
 spawn-sh-at-startup "solaar -w hide" 
 
 //swww for wallpaper
-//spawn-sh-at-startup "swww-daemon --format xrgb"
+spawn-sh-at-startup "swww-daemon --format xrgb"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -447,8 +447,12 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+E { spawn "thunar"; }
 
-    // Not working yet :(
-    //Mod+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperSelect.sh"; }
+    // Partialy Working (Swww colors not being generated)
+    Mod+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperSelect.sh"; }
+
+    Mod+Ctrl+B { spawn-sh "$HOME/.config/niri/scripts/WaybarStyles.sh"; }
+    Mod+Alt+B { spawn-sh "$HOME/.config/niri/scripts/WaybarLayout.sh"; }
+
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
