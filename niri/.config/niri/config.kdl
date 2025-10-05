@@ -399,7 +399,7 @@ binds {
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --inc"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --dec"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle-miceeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle-mic"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
