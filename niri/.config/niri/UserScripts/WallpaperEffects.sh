@@ -4,9 +4,9 @@
 
 # Variables
 terminal=kitty
-wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
-wallpaper_output="$HOME/.config/hypr/wallpaper_effects/.wallpaper_modified"
-SCRIPTSDIR="$HOME/.config/hypr/scripts"
+wallpaper_current="$HOME/.config/niri/wallpaper_effects/.wallpaper_current"
+wallpaper_output="$HOME/.config/niri/wallpaper_effects/.wallpaper_modified"
+SCRIPTSDIR="$HOME/.config/niri/scripts"
 focused_monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
 rofi_theme="$HOME/.config/rofi/config-wallpaper-effect.rasi"
 

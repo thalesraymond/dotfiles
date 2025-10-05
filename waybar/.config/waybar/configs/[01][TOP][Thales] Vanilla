@@ -3,7 +3,8 @@
     "$HOME/.config/waybar/Modules",
     "$HOME/.config/waybar/ModulesCustom",
     "$HOME/.config/waybar/ModulesGroups",
-    "$HOME/.config/waybar/UserModules"
+    "$HOME/.config/waybar/UserModules",
+    "$HOME/.config/waybar/ModulesWorkspaces"
   ],
   "layer": "top",
   "position": "top",
@@ -14,7 +15,7 @@
   "margin-right": 2,
   "margin-bottom": 2,
   "modules-left": [
-    "hyprland/workspaces",
+    "hyprland/workspaces#rw",
     "niri/workspaces",
     "hyprland/window",
     "niri/window"
@@ -31,25 +32,25 @@
     "power-profiles-daemon",
     "tray"
   ],
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-active": "{icon}",
-    "on-click": "activate",
-    "all-outputs": true,
-    "format-icons": {
-      "1": "01", // Home
-      "2": "02", // Games :Launchers
-      "3": "03", // Generic 3
-      "4": "04", // Generic 4
-      "5": "05", // Generic 5
-      "6": "06", // Generic 6
-      "7": "07", // Spotify
-      "8": "08", // Generic 8
-      "9": "09", // WhatsApp + Thunderbird
-      "10": "10", // Generic 10
-      "default": "" // Generic icon for others
-    }
-  },
+  // "hyprland/workspaces": {
+  //   "format": "{icon}",
+  //   "format-active": " {icon}",        // bolinha cheia + ícone
+  //   "format-urgent": " {icon}",        // ícone de alerta
+  //   "on-click": "activate",
+  //   "on-scroll-up": "hyprctl dispatch workspace e+1",
+  //   "on-scroll-down": "hyprctl dispatch workspace e-1",
+  //   "all-outputs": true
+  //   // "format-icons": {
+  //   //   "1": "",        // Home
+  //   //   "2": "",        // Games
+  //   //   "3": "",        // Dev/VSCode
+  //   //   "7": "",        // Spotify
+  //   //   "8": "󰺵",        // Social/Discord
+  //   //   "9": " ",     // WhatsApp + Mail
+  //   //   "10": "",       // Media/Streaming
+  //   //   "default": ""   // Generic dot
+  //   // }
+  // },
   "hyprland/window": {
     "format": "{initialTitle}"
   },

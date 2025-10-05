@@ -175,15 +175,21 @@
 	"on-click": "activate",
 	"on-scroll-up": "hyprctl dispatch workspace e+1",
 	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"persistent-workspaces": {
-		"*": 5
-	  },
 	"format": "{icon} {windows}",
 	"format-window-separator": " ",
 	"window-rewrite-default": " ",
 	"window-rewrite": {		
 		"title<.*amazon.*>": " ",
 		"title<.*reddit.*>": " ",
+		"title<.*youtube.*>": " ",         // YouTube
+		"title<.*instagram.*>": " ",       // Instagram
+		"title<.*github.*>": " ",          // GitHub
+		"title<.*protondb.*>": " ",        // ProtonDB (uso de cadeado / segurança)
+		"title<.*udemy.*>": " ",           // Udemy (capelo - educação)
+		"title<.*adguard.*>": " ",         // AdGuard / DNS (escudo)
+		"title<.*myfitnesspal.*>": " ",    // MyFitnessPal (batimento / saúde)
+		"title<.*habitica.*>": "⚔ ",        // Habitica (espadas / gamificação)
+		"title<.*chatgpt.*>": " ",          // ChatGPT (balão de conversa)
 
 		"class<firefox|org.mozilla.firefox|librewolf|floorp|mercury-browser|[Cc]achy-browser>": " ",
 		"class<zen>": "󰰷 ",
@@ -199,8 +205,8 @@
 		"class<com.mitchellh.ghostty>": " ",
 		"class<org.wezfurlong.wezterm>": " ",
 
-		"class<[Tt]hunderbird|[Tt]hunderbird-esr>": " ",
-		"class<eu.betterbird.Betterbird>": " ",
+		"class<[Tt]hunderbird|[Tt]hunderbird-esr>": " ",
+		"class<eu.betterbird.Betterbird>": " ",
 		"title<.*gmail.*>": "󰊫 ",
 
 		"class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
@@ -233,7 +239,7 @@
 		"title<virtualbox>": "💽 ",
 		"class<remmina>": "🖥️ ",
 
-		"class<VSCode|code-url-handler|code-oss|codium|codium-url-handler|VSCodium>": "󰨞 ",
+		"class<VSCode|code-url-handler|code-oss|codium|codium-url-handler|VSCodium|code>": "󰨞 ",
     "class<dev.zed.Zed>": "󰵁",
 		"class<codeblocks>": "󰅩 ",
 		"title<.*github.*>": " ",
@@ -254,6 +260,7 @@
 		"class<nwg-look>": " ",
 		"class<[Pp]avucontrol|org.pulseaudio.pavucontrol>": "󱡫 ",
 		"class<steam>": " ",
+		"class<lutris|Lutris>": " ",
 		"class<thunar|nemo>": "󰝰 ",	
     "class<Gparted>":"",
 		"class<gimp>": " ",
@@ -263,5 +270,5 @@
     "class<localsend>":"",
     "class<PrusaSlicer|UltiMaker-Cura|OrcaSlicer>": "󰹛",
 		}
-	},
+	}
 }
