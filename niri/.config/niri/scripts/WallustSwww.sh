@@ -14,9 +14,10 @@ wallpaper_current="$HOME/.config/niri/wallpaper_effects/.wallpaper_current"
 # Helper: pegar o monitor focado no Niri
 get_focused_monitor() {
   if command -v jq >/dev/null 2>&1; then
-    niri msg focused-output | jq -r 'match("\\(([^)]+)\\)").captures[0].string'
+    #niri msg focused-output | jq -r 'match("\\(([^)]+)\\)").captures[0].string'
+    niri msg focused-output | grep -oP '\(\K[^)]+' | head -n1
   else
-    niri msg focused-output | grep -oP '\(\K[^)]+'
+    niri msg focused-output | grep -oP '\(\K[^)]+' | head -n1
   fi
 }
 
@@ -38,7 +39,7 @@ else
   done
 
   if [[ -f "$cache_file" ]]; then
-    wallpaper_path="$(grep -v 'Lanczos3' "$cache_file" | head -n 1)"
+    wallpaper_path="$(grep -v 'Lanczos3' "$cache_file" | head -n1)"
   fi
 fi
 

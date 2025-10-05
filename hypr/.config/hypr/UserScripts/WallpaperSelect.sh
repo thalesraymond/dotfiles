@@ -101,6 +101,8 @@ menu() {
 # Offer SDDM Simple Wallpaper Option (only for non-video wallpapers)
 set_sddm_wallpaper() {
   sleep 1
+  echo "starting sddm routine";
+
   sddm_simple="/usr/share/sddm/themes/simple_sddm_2"
 
   if [ -d "$sddm_simple" ]; then
@@ -168,6 +170,8 @@ apply_image_wallpaper() {
 
   swww img -o "$focused_monitor" "$image_path" $SWWW_PARAMS
   
+  #sleep 1
+  # set_sddm_wallpaper
 
   # Run additional scripts (pass the image path to avoid cache race conditions)
   "$SCRIPTSDIR/WallustSwww.sh" "$image_path"
@@ -175,7 +179,6 @@ apply_image_wallpaper() {
   "$SCRIPTSDIR/Refresh.sh"
   sleep 1
 
-  set_sddm_wallpaper
 }
 
 apply_video_wallpaper() {

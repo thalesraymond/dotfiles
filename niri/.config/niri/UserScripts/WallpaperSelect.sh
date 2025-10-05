@@ -36,8 +36,18 @@ if [[ -z "$focused_monitor" ]]; then
 fi
 
 # Monitor details (ajustes de ícones do rofi)
-scale_factor=1
-monitor_height=1080
+scale_factor=$(niri msg outputs | awk -v mon="$focused_monitor" '
+    $0 ~ "\\(" mon "\\)" {in_block=1}
+    in_block && /Scale:/ {print $2; exit}
+')
+monitor_height=$(niri msg outputs | awk -v mon="$focused_monitor" '
+    $0 ~ "\\(" mon "\\)" {in_block=1}
+    in_block && /Logical size:/ {
+        split($3, res, "x");
+        print res[2];
+        exit
+    }
+')
 icon_size=$(echo "scale=1; ($monitor_height * 3) / ($scale_factor * 150)" | bc)
 adjusted_icon_size=$(echo "$icon_size" | awk '{if ($1 < 15) $1 = 20; if ($1 > 25) $1 = 25; print $1}')
 rofi_override="element-icon{size:${adjusted_icon_size}%;}"
@@ -110,7 +120,7 @@ apply_image_wallpaper() {
   swww img -o "$focused_monitor" "$image_path" $SWWW_PARAMS
 
   # Run wallust + refresh
-  "$SCRIPTSDIR/WallustSwww.sh"
+  "$SCRIPTSDIR/WallustSwww.sh" "$image_path"
   sleep 2
   "$SCRIPTSDIR/Refresh.sh"
   sleep 1
