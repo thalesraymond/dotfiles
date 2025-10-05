@@ -2,7 +2,7 @@
   "currentThemeName": "dynamic",
   "customThemeFile": "",
   "matugenScheme": "scheme-fidelity",
-  "dankBarTransparency": 1,
+  "dankBarTransparency": 0.5,
   "dankBarWidgetTransparency": 1,
   "popupTransparency": 1,
   "dockTransparency": 1,
@@ -75,7 +75,7 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": true,
+  "showWorkspaceIndex": false,
   "showWorkspacePadding": false,
   "showWorkspaceApps": false,
   "maxWorkspaceIcons": 3,
@@ -159,7 +159,7 @@
   "dankBarOpenOnOverview": false,
   "dankBarVisible": true,
   "dankBarSpacing": 4,
-  "dankBarBottomGap": 3,
+  "dankBarBottomGap": -5,
   "dankBarInnerPadding": 0,
   "dankBarSquareCorners": false,
   "dankBarNoBackground": false,
