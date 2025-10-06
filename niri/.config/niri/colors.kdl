@@ -1,29 +1,32 @@
+# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  
+# /* wallust template - colors-niri */  
+
 layout {
-    background-color "transparent"
+    background-color "rgb(111010)"
 
     focus-ring {
-        active-color   "#b1c5ff"
-        inactive-color "#8c90a0"
-        urgent-color   "#ffb4ab"
+        active-color   "rgb(874C2E)"
+        inactive-color "rgb(8A9695)"
+        urgent-color   "rgb(0D0C0A)"
     }
 
     border {
-        active-color   "#b1c5ff"
-        inactive-color "#8c90a0"
-        urgent-color   "#ffb4ab"
+        active-color   "rgb(874C2E)"
+        inactive-color "rgb(8A9695)"
+        urgent-color   "rgb(0D0C0A)"
     }
 
     shadow {
-        color "#00000070"
+        color "rgb(393938)70" # alpha ajustado como no template original
     }
 
     tab-indicator {
-        active-color   "#b1c5ff"
-        inactive-color "#8c90a0"
-        urgent-color   "#ffb4ab"
+        active-color   "rgb(874C2E)"
+        inactive-color "rgb(8A9695)"
+        urgent-color   "rgb(0D0C0A)"
     }
 
     insert-hint {
-        color "#b1c5ff80"
+        color "rgb(874C2E)80" # alpha como no template original
     }
 }
