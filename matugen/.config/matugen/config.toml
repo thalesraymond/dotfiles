@@ -12,7 +12,7 @@ output_path = '~/.config/kitty/kitty-themes/01-matugen.conf'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
-output_path = '~/.config/rofi/colors.rasi'
+output_path = '~/.config/rofi/themes/01-matugen-colors.rasi'
 
 [templates.alacritty]
 input_path = '~/.config/matugen/templates/alacritty.toml'
