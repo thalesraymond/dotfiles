@@ -2,7 +2,7 @@
   "currentThemeName": "dynamic",
   "customThemeFile": "",
   "matugenScheme": "scheme-fidelity",
-  "dankBarTransparency": 0.5,
+  "dankBarTransparency": 0.29,
   "dankBarWidgetTransparency": 1,
   "popupTransparency": 1,
   "dockTransparency": 1,
@@ -91,6 +91,10 @@
   "mediaSize": 1,
   "dankBarLeftWidgets": [
     {
+      "id": "launcherButton",
+      "enabled": true
+    },
+    {
       "id": "workspaceSwitcher",
       "enabled": true
     },
@@ -127,7 +131,7 @@
     }
   ],
   "appLauncherViewMode": "list",
-  "spotlightModalViewMode": "list",
+  "spotlightModalViewMode": "grid",
   "networkPreference": "auto",
   "iconTheme": "System Default",
   "useOSLogo": false,
