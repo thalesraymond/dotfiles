@@ -6,15 +6,9 @@ command = "swww"
 arguments = ["img", "--transition-type", "center"]
 set = true
 
-[templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
-
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/theme/matugen.conf'
-post_hook = "kitty +kitten themes --reload-in=all matugen"
+output_path = '~/.config/kitty/theme/01-matugen.conf'
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
