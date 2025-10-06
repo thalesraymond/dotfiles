@@ -2,31 +2,31 @@
 # /* wallust template - colors-niri */  
 
 layout {
-    background-color "rgb(111010)"
+    background-color "rgb(140D16)"
 
     focus-ring {
-        active-color   "rgb(874C2E)"
-        inactive-color "rgb(8A9695)"
-        urgent-color   "rgb(0D0C0A)"
+        active-color   "rgb(7D5806)"
+        inactive-color "rgb(9A8559)"
+        urgent-color   "rgb(17011F)"
     }
 
     border {
-        active-color   "rgb(874C2E)"
-        inactive-color "rgb(8A9695)"
-        urgent-color   "rgb(0D0C0A)"
+        active-color   "rgb(7D5806)"
+        inactive-color "rgb(9A8559)"
+        urgent-color   "rgb(17011F)"
     }
 
     shadow {
-        color "rgb(393938)70" # alpha ajustado como no template original
+        color "rgb(3C363E)70" # alpha ajustado como no template original
     }
 
     tab-indicator {
-        active-color   "rgb(874C2E)"
-        inactive-color "rgb(8A9695)"
-        urgent-color   "rgb(0D0C0A)"
+        active-color   "rgb(7D5806)"
+        inactive-color "rgb(9A8559)"
+        urgent-color   "rgb(17011F)"
     }
 
     insert-hint {
-        color "rgb(874C2E)80" # alpha como no template original
+        color "rgb(7D5806)80" # alpha como no template original
     }
 }

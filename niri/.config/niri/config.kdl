@@ -5,6 +5,7 @@ gestures {
 }
 
 input {
+    disable-power-key-handling
     keyboard {
         xkb {
             // You can set rules, model, layout, variant and options.
@@ -629,4 +630,6 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    XF86PowerOff { spawn-sh "systemctl poweroff"; }
 }
