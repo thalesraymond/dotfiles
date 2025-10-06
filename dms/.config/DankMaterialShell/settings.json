@@ -128,13 +128,20 @@
     {
       "id": "notificationButton",
       "enabled": true
+    },
+    {
+      "id": "controlCenterButton",
+      "enabled": true,
+      "showNetworkIcon": true,
+      "showBluetoothIcon": true,
+      "showAudioIcon": true
     }
   ],
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "grid",
   "networkPreference": "auto",
   "iconTheme": "System Default",
-  "useOSLogo": false,
+  "useOSLogo": true,
   "osLogoColorOverride": "",
   "osLogoBrightness": 0.5,
   "osLogoContrast": 1,
