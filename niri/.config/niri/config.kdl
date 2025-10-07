@@ -1,3 +1,13 @@
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  TERMINAL "kitty"
+}
+
+
 gestures {
     hot-corners {
         off
@@ -288,11 +298,13 @@ layout {
 // include "$HOME/.config/niri/dms/colors.kdl"
 // include "$HOME/.config/niri/dms/layout.kdl"
 
+//notification deamon
+
+spawn-sh-at-startup "qs"
+spawn-sh-at-startup "killall swaync"
+
 //spawn-at-startup "waybar"
 spawn-sh-at-startup "dms run"
-
-//notification deamon
-spawn-at-startup "swaync"
 
 spawn-at-startup "zapzap" 
 spawn-sh-at-startup "discord --start-minimized" 
@@ -385,7 +397,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: kittyy" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     
     //Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -modi drun,filebrowser,run,window"; }
         Mod+Space hotkey-overlay-title="Application Launcher" { 
