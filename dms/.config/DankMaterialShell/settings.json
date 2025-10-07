@@ -131,20 +131,25 @@
     },
     {
       "id": "controlCenterButton",
-      "enabled": true,
-      "showNetworkIcon": true,
-      "showBluetoothIcon": true,
-      "showAudioIcon": true
+      "enabled": true
+    },
+    {
+      "id": "systemUpdate",
+      "enabled": true
+    },
+    {
+      "id": "systemTray",
+      "enabled": true
     }
   ],
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "grid",
   "networkPreference": "auto",
-  "iconTheme": "System Default",
-  "useOSLogo": true,
+  "iconTheme": "Reversal",
+  "useOSLogo": false,
   "osLogoColorOverride": "",
-  "osLogoBrightness": 0.5,
-  "osLogoContrast": 1,
+  "osLogoBrightness": 1,
+  "osLogoContrast": 2,
   "fontFamily": "Inter Variable",
   "monoFontFamily": "Fira Code",
   "fontWeight": 400,
