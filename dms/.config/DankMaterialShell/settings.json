@@ -130,10 +130,6 @@
       "enabled": true
     },
     {
-      "id": "controlCenterButton",
-      "enabled": true
-    },
-    {
       "id": "systemUpdate",
       "enabled": true
     },
@@ -175,7 +171,7 @@
   "dankBarOpenOnOverview": false,
   "dankBarVisible": true,
   "dankBarSpacing": 4,
-  "dankBarBottomGap": -5,
+  "dankBarBottomGap": 3,
   "dankBarInnerPadding": 0,
   "dankBarSquareCorners": false,
   "dankBarNoBackground": false,
