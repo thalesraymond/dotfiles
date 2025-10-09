@@ -408,16 +408,8 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+E { spawn "thunar"; }
 
-    // Partialy Working (Swww colors not being generated)
-    Mod+W { spawn-sh "$HOME/.config/niri/UserScripts/WallpaperSelect.sh"; }
-
-    Mod+Ctrl+B { spawn-sh "$HOME/.config/niri/scripts/WaybarStyles.sh"; }
-    Mod+Alt+B { spawn-sh "$HOME/.config/niri/scripts/WaybarLayout.sh"; }
-
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
-    // XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --inc"; }
-    // XF86AudioLowerVolume allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --dec"; }
     XF86AudioRaiseVolume allow-when-locked=true {
       spawn "dms" "ipc" "call" "audio" "increment" "5";
    }
@@ -430,8 +422,6 @@ binds {
    XF86AudioMicMute allow-when-locked=true {
       spawn "dms" "ipc" "call" "audio" "micmute";
    }
-    // XF86AudioMute        allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle"; }
-    // XF86AudioMicMute     allow-when-locked=true { spawn-sh "$HOME/.config/niri/scripts/Volume.sh --toggle-mic"; }
 
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
