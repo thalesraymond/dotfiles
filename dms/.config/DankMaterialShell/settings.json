@@ -2,7 +2,7 @@
   "currentThemeName": "dynamic",
   "customThemeFile": "",
   "matugenScheme": "scheme-fidelity",
-  "dankBarTransparency": 0.7,
+  "dankBarTransparency": 0.2,
   "dankBarWidgetTransparency": 0.5,
   "popupTransparency": 1,
   "dockTransparency": 1,
@@ -75,11 +75,11 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": false,
+  "showWorkspaceIndex": true,
   "showWorkspacePadding": false,
   "showWorkspaceApps": false,
   "maxWorkspaceIcons": 3,
-  "workspacesPerMonitor": true,
+  "workspacesPerMonitor": false,
   "workspaceNameIcons": {},
   "waveProgressEnabled": true,
   "clockCompactMode": false,
