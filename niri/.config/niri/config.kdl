@@ -317,7 +317,7 @@ spawn-sh-at-startup "openrgb --startminimized"
 spawn-sh-at-startup "solaar -w hide" 
 
 //swww for wallpaper
-spawn-sh-at-startup "swww-daemon --format xrgb"
+//spawn-sh-at-startup "swww-daemon --format xrgb"
 
 
 hotkey-overlay {
@@ -349,8 +349,9 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 10
     clip-to-geometry true
+    
 }
 
 // Thunderbird/ZapZap/PiP no HDMI-A-1 

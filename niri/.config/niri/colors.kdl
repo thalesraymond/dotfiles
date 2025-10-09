@@ -1,0 +1,32 @@
+# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  
+# /* wallust template - colors-niri */  
+
+layout {
+    background-color "rgb(1E1E20)"
+
+    focus-ring {
+        active-color   "rgb(4B566B)"
+        inactive-color "rgb(A4A7A4)"
+        urgent-color   "rgb(16161B)"
+    }
+
+    border {
+        active-color   "rgb(4B566B)"
+        inactive-color "rgb(A4A7A4)"
+        urgent-color   "rgb(16161B)"
+    }
+
+    shadow {
+        color "rgb(454546)70" # alpha ajustado como no template original
+    }
+
+    tab-indicator {
+        active-color   "rgb(4B566B)"
+        inactive-color "rgb(A4A7A4)"
+        urgent-color   "rgb(16161B)"
+    }
+
+    insert-hint {
+        color "rgb(4B566B)80" # alpha como no template original
+    }
+}
