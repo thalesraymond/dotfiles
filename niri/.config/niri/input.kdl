@@ -1,0 +1,18 @@
+input {
+    disable-power-key-handling
+    keyboard {
+        xkb {
+            layout "us"
+            variant "alt-intl"
+        }
+
+        numlock
+    }
+
+    mouse {
+        accel-speed 0.1
+        accel-profile "flat"
+    }
+    
+    focus-follows-mouse max-scroll-amount="20%"
+}
