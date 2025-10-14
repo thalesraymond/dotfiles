@@ -27,3 +27,7 @@ layout {
         color "#f1b3e680"
     }
 }
+
+overview {
+    backdrop-color "#161215"
+}
