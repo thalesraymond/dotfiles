@@ -122,3 +122,5 @@ export PATH="$PATH:/home/thales/.lmstudio/bin"
 # End of LM Studio CLI section
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+. "$HOME/.local/bin/env"
