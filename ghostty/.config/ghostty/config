@@ -1,8 +1,10 @@
 # This is the configuration file for Ghostty.
-background-opacity = 0.8
+background-opacity = 0.9
+background-blur = true
 
-#disable confirmation on exit
+config-file = config-dankcolors
+
 confirm-close-surface = false
-confirm-close = false
 
-
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block

@@ -26,10 +26,14 @@ window-rule {
 //PiP
 window-rule {
     match title="Picture-in-Picture"
-    open-focused true
-    open-maximized true
+    open-focused false
+    open-floating true
+    open-maximized false
     open-on-output "HDMI-A-1"
-    open-fullscreen true
+    open-fullscreen false
+    //min-width 1300
+    min-height 731
+    default-floating-position x=50 y=50 relative-to="bottom-right"
 }
 
 // Zen Browser no DP-3
@@ -48,4 +52,13 @@ window-rule {
     match app-id="lutris"
     open-on-output "DP-3"
     open-focused false
+}
+
+// Thunar rename dialog
+window-rule {
+    match app-id="Thunar"
+    match title=r"^Rename"
+    open-floating true
+    //default-floating-position x=400 y=500 relative-to="bottom-right"
+
 }
