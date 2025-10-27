@@ -3,7 +3,7 @@
   "customThemeFile": "",
   "matugenScheme": "scheme-fidelity",
   "runUserMatugenTemplates": true,
-  "dankBarTransparency": 0.2,
+  "dankBarTransparency": 0.8,
   "dankBarWidgetTransparency": 0.5,
   "popupTransparency": 1,
   "dockTransparency": 1,
@@ -77,7 +77,7 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": true,
+  "showWorkspaceIndex": false,
   "workspaceScrolling": false,
   "showWorkspacePadding": false,
   "showWorkspaceApps": false,
@@ -147,13 +147,13 @@
   "sortAppsAlphabetically": false,
   "networkPreference": "auto",
   "iconTheme": "Reversal",
-  "launcherLogoMode": "apps",
+  "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
   "launcherLogoColorOverride": "",
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 1,
   "launcherLogoContrast": 2,
-  "launcherLogoSizeOffset": 0,
+  "launcherLogoSizeOffset": 12,
   "fontFamily": "Inter Variable",
   "monoFontFamily": "Fira Code",
   "fontWeight": 500,
@@ -175,12 +175,13 @@
   "syncModeWithPortal": true,
   "showDock": false,
   "dockAutoHide": false,
-  "dockGroupByApp": false,
+  "dockGroupByApp": true,
   "dockOpenOnOverview": false,
   "dockPosition": 1,
-  "dockSpacing": 4,
-  "dockBottomGap": 0,
-  "dockIconSize": 40,
+  "dockSpacing": 11,
+  "dockBottomGap": -30,
+  "dockIconSize": 36,
+  "dockIndicatorStyle": "line",
   "cornerRadius": 12,
   "notificationOverlayEnabled": false,
   "dankBarAutoHide": false,
@@ -205,6 +206,7 @@
   "hideBrightnessSlider": false,
   "widgetBackgroundColor": "s",
   "surfaceBase": "s",
+  "wallpaperFillMode": "Fill",
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,
@@ -231,7 +233,11 @@
       "DP-3"
     ]
   },
+  "showOnLastDisplay": {
+    "dankBar": true
+  },
   "animationSpeed": 2,
+  "customAnimationDuration": 500,
   "acMonitorTimeout": 3600,
   "acLockTimeout": 1800,
   "acSuspendTimeout": 0,
@@ -243,5 +249,6 @@
   "lockBeforeSuspend": false,
   "loginctlLockIntegration": true,
   "launchPrefix": "",
+  "brightnessDevicePins": {},
   "configVersion": 1
 }
