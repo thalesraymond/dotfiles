@@ -1,3 +1,4 @@
+spawn-at-startup "xsettingsd"
 spawn-sh-at-startup "qs"
 spawn-sh-at-startup "killall swaync"
 
@@ -13,6 +14,7 @@ spawn-at-startup "lutris"
 spawn-at-startup "steam-native" 
 spawn-sh-at-startup "openrgb --startminimized" 
 spawn-sh-at-startup "solaar -w hide" 
+
 
 //swww for wallpaper
 //spawn-sh-at-startup "swww-daemon --format xrgb"
