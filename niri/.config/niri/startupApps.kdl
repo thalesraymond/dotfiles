@@ -1,3 +1,6 @@
+//set dark themes
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+
 spawn-sh-at-startup "qs"
 spawn-sh-at-startup "killall swaync"
 
