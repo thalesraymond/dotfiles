@@ -1,5 +1,5 @@
 {
-  "currentThemeName": "custom",
+  "currentThemeName": "dynamic",
   "customThemeFile": "",
   "matugenScheme": "scheme-fidelity",
   "runUserMatugenTemplates": true,
@@ -81,7 +81,7 @@
   "showWorkspaceIndex": false,
   "workspaceScrolling": false,
   "showWorkspacePadding": false,
-  "showWorkspaceApps": true,
+  "showWorkspaceApps": false,
   "maxWorkspaceIcons": 3,
   "workspacesPerMonitor": false,
   "dwlShowAllTags": false,
