@@ -78,10 +78,10 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": true,
+  "showWorkspaceIndex": false,
   "workspaceScrolling": false,
   "showWorkspacePadding": false,
-  "showWorkspaceApps": false,
+  "showWorkspaceApps": true,
   "maxWorkspaceIcons": 3,
   "workspacesPerMonitor": false,
   "dwlShowAllTags": false,
