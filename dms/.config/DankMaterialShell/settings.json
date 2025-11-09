@@ -8,14 +8,17 @@
   "dankBarWidgetTransparency": 0.5,
   "popupTransparency": 1,
   "dockTransparency": 1,
+  "widgetBackgroundColor": "s",
+  "cornerRadius": 12,
   "use24HourClock": true,
   "showSeconds": true,
   "useFahrenheit": false,
   "nightModeEnabled": false,
-  "weatherLocation": "São Paulo, Região Sudeste",
-  "weatherCoordinates": "-23.5506507,-46.6333824",
-  "useAutoLocation": false,
-  "weatherEnabled": true,
+  "animationSpeed": 2,
+  "customAnimationDuration": 500,
+  "wallpaperFillMode": "Fill",
+  "blurredWallpaperLayer": false,
+  "blurWallpaperOnOverview": false,
   "showLauncherButton": true,
   "showWorkspaceSwitcher": true,
   "showFocusedWindow": true,
@@ -79,8 +82,8 @@
     }
   ],
   "showWorkspaceIndex": false,
-  "workspaceScrolling": false,
   "showWorkspacePadding": false,
+  "workspaceScrolling": false,
   "showWorkspaceApps": false,
   "maxWorkspaceIcons": 3,
   "workspacesPerMonitor": false,
@@ -98,15 +101,7 @@
   "mediaSize": 1,
   "dankBarLeftWidgets": [
     {
-      "id": "launcherButton",
-      "enabled": true
-    },
-    {
       "id": "workspaceSwitcher",
-      "enabled": true
-    },
-    {
-      "id": "runningApps",
       "enabled": true
     },
     {
@@ -115,21 +110,16 @@
     }
   ],
   "dankBarCenterWidgets": [
-    "music",
+    {
+      "id": "music",
+      "enabled": true
+    },
     "clock",
     "weather"
   ],
   "dankBarRightWidgets": [
     {
       "id": "diskUsage",
-      "enabled": true
-    },
-    {
-      "id": "cpuUsage",
-      "enabled": true
-    },
-    {
-      "id": "memUsage",
       "enabled": true
     },
     {
@@ -145,9 +135,14 @@
       "enabled": true
     }
   ],
+  "dankBarWidgetOrder": [],
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "grid",
   "sortAppsAlphabetically": false,
+  "weatherLocation": "São Paulo, Região Sudeste",
+  "weatherCoordinates": "-23.5506507,-46.6333824",
+  "useAutoLocation": false,
+  "weatherEnabled": true,
   "networkPreference": "auto",
   "vpnLastConnected": "",
   "iconTheme": "Reversal-dark",
@@ -174,6 +169,18 @@
   "soundNewNotification": true,
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
+  "acMonitorTimeout": 3600,
+  "acLockTimeout": 1800,
+  "acSuspendTimeout": 0,
+  "acSuspendBehavior": 0,
+  "batteryMonitorTimeout": 0,
+  "batteryLockTimeout": 0,
+  "batterySuspendTimeout": 0,
+  "batterySuspendBehavior": 0,
+  "lockBeforeSuspend": false,
+  "loginctlLockIntegration": true,
+  "launchPrefix": "",
+  "brightnessDevicePins": {},
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
@@ -184,9 +191,9 @@
   "dockPosition": 1,
   "dockSpacing": 11,
   "dockBottomGap": -30,
+  "dockMargin": 0,
   "dockIconSize": 36,
   "dockIndicatorStyle": "line",
-  "cornerRadius": 12,
   "notificationOverlayEnabled": false,
   "dankBarAutoHide": false,
   "dankBarOpenOnOverview": false,
@@ -194,25 +201,23 @@
   "dankBarSpacing": 0,
   "dankBarBottomGap": -2,
   "dankBarInnerPadding": 2,
+  "dankBarPosition": 0,
   "dankBarSquareCorners": true,
   "dankBarNoBackground": false,
   "dankBarGothCornersEnabled": false,
+  "dankBarGothCornerRadiusOverride": false,
+  "dankBarGothCornerRadiusValue": 12,
   "dankBarBorderEnabled": false,
   "dankBarBorderColor": "surfaceText",
   "dankBarBorderOpacity": 1,
   "dankBarBorderThickness": 1,
   "popupGapsAuto": true,
   "popupGapsManual": 4,
-  "dankBarPosition": 0,
+  "modalDarkenBackground": true,
   "lockScreenShowPowerActions": true,
   "enableFprint": false,
   "maxFprintTries": 3,
   "hideBrightnessSlider": false,
-  "widgetBackgroundColor": "s",
-  "surfaceBase": "s",
-  "wallpaperFillMode": "Fill",
-  "blurredWallpaperLayer": false,
-  "blurWallpaperOnOverview": false,
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,
@@ -242,19 +247,5 @@
   "showOnLastDisplay": {
     "dankBar": true
   },
-  "animationSpeed": 2,
-  "customAnimationDuration": 500,
-  "acMonitorTimeout": 3600,
-  "acLockTimeout": 1800,
-  "acSuspendTimeout": 0,
-  "acHibernateTimeout": 0,
-  "batteryMonitorTimeout": 0,
-  "batteryLockTimeout": 0,
-  "batterySuspendTimeout": 0,
-  "batteryHibernateTimeout": 0,
-  "lockBeforeSuspend": false,
-  "loginctlLockIntegration": true,
-  "launchPrefix": "",
-  "brightnessDevicePins": {},
   "configVersion": 1
 }
