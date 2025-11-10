@@ -81,7 +81,7 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": false,
+  "showWorkspaceIndex": true,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
   "showWorkspaceApps": false,
@@ -102,6 +102,10 @@
   "dankBarLeftWidgets": [
     {
       "id": "workspaceSwitcher",
+      "enabled": true
+    },
+    {
+      "id": "runningApps",
       "enabled": true
     },
     {
@@ -153,7 +157,7 @@
   "launcherLogoBrightness": 1,
   "launcherLogoContrast": 2,
   "launcherLogoSizeOffset": 12,
-  "fontFamily": "Inter Variable",
+  "fontFamily": "MesloLGS Nerd Font Mono",
   "monoFontFamily": "Fira Code",
   "fontWeight": 500,
   "fontScale": 1,
