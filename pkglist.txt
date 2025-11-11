@@ -3,12 +3,10 @@ adobe-source-code-pro-fonts
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
-alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
 amd-ucode
-android-tools
 awesome-terminal-fonts
 aylurs-gtk-shell-git
 base
@@ -85,9 +83,6 @@ github-cli
 glances
 gnome-system-monitor
 grimblast-git
-grub
-grub-btrfs-support
-grub-hook
 gst-libav
 gst-plugin-pipewire
 gst-plugins-bad
