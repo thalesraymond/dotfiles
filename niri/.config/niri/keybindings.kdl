@@ -9,7 +9,7 @@ binds {
         spawn "dms" "ipc" "call" "spotlight" "toggle"; 
     }
     
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock --clock --effect-blur 7x5 --fade-in 0.2 --indicator"; }
     Mod+E { spawn "thunar"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
