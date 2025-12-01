@@ -1,8 +1,9 @@
 layout {
-    background-color "transparent"
+    background-color "transparent" 
 
     focus-ring {
-        active-color   "#a5c8ff"
+        active-gradient from="#a5c8ff" to="#dabde2" angle=45
+        // active-color   "#a5c8ff"
         inactive-color "#8d9199"
         urgent-color   "#ffb4ab"
     }

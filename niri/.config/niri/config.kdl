@@ -6,7 +6,7 @@ include "./monitors.kdl"
 
 include "./layout.kdl"
 
-include "./dms/colors.kdl"
+include "./dms/niri-colors.kdl"
 
 include "./startupApps.kdl"
 
