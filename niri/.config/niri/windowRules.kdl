@@ -18,11 +18,14 @@ window-rule {
 window-rule {
     match app-id="Spotify"
     match app-id="ZapZap"
+    match app-id="com.github.th_ch.youtube_music"
     open-on-output "HDMI-A-1"
     open-focused false
     open-maximized false
     default-column-width { proportion 0.5; }
 }
+
+
 
 //PiP
 window-rule {
