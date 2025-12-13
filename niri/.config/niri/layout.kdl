@@ -1,6 +1,5 @@
 layout {
     gaps 10
-
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -18,4 +17,10 @@ layout {
         spread 5
         offset x=0 y=5
     }
+
+}
+
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
 }

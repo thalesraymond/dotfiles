@@ -1,0 +1,26 @@
+{
+  "wallpaperBing": {
+    "enabled": true
+  },
+  "wallpaperDiscovery": {
+    "enabled": true,
+    "api_wallhavencc": "6kVuA89yMwE48yu4ebVHE24YbH5DfWxQ",
+    "downloadLocation": "~/Pictures/wallpapers",
+    "api_unsplash": "zBjjmVO5Pc1HoKAIyKPly98GJW44jqVZ7_gPdguiKPQ",
+    "lastWallpaperUsed": "unsplash",
+    "api_pexels": "bk1AZ6NZZ60Ua0DQzO5DsaQ4R887WcSWq7cGOD1h16NjOXJs8D1sURvI"
+  },
+  "linuxWallpaperEngine": {
+    "enabled": true,
+    "monitorScenes": {},
+    "sceneSettings": {
+      "1226995046": {
+        "fps": 30,
+        "scaling": "fill"
+      }
+    }
+  },
+  "wallpaperShufflerPlugin": {
+    "enabled": false
+  }
+}

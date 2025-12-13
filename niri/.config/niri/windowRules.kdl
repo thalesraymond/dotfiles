@@ -16,12 +16,14 @@ window-rule {
 
 // Thunderbird/ZapZap/PiP no HDMI-A-1 
 window-rule {
-    match app-id="Spotify"
+    match app-id="spotify"
     match app-id="ZapZap"
     match app-id="com.github.th_ch.youtube_music"
+    match app-id="Thunderbird"
     open-on-output "HDMI-A-1"
     open-focused false
     open-maximized false
+    open-fullscreen false
     default-column-width { proportion 0.5; }
 }
 
@@ -66,3 +68,4 @@ window-rule {
     //default-floating-position x=400 y=500 relative-to="bottom-right"
 
 }
+
