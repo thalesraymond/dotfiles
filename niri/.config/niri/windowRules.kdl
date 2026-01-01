@@ -61,6 +61,7 @@ window-rule {
     open-on-output "DP-3"
     open-focused false
     open-fullscreen false
+    open-maximized false
 }
 
 // Thunar rename dialog
