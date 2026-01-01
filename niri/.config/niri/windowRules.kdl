@@ -49,6 +49,8 @@ window-rule {
     open-on-output "DP-3"
     open-maximized true
     open-focused true
+    open-fullscreen false
+
 }
 
 
@@ -58,6 +60,7 @@ window-rule {
     match app-id="lutris"
     open-on-output "DP-3"
     open-focused false
+    open-fullscreen false
 }
 
 // Thunar rename dialog
