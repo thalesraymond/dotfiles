@@ -127,8 +127,6 @@
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
   "niriOverviewOverlayEnabled": true,
-  "weatherLocation": "São Paulo, Região Sudeste",
-  "weatherCoordinates": "-23.5506507,-46.6333824",
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "auto",
@@ -355,7 +353,7 @@
       "spacing": 0,
       "innerPadding": 2,
       "bottomGap": -2,
-      "transparency": 0.21,
+      "transparency": 0.3,
       "widgetTransparency": 0.5,
       "squareCorners": false,
       "noBackground": false,
@@ -372,7 +370,8 @@
       "openOnOverview": false,
       "visible": true,
       "popupGapsAuto": true,
-      "popupGapsManual": 4
+      "popupGapsManual": 4,
+      "widgetOutlineEnabled": false
     }
   ],
   "desktopClockEnabled": false,
@@ -445,5 +444,5 @@
   "desktopWidgetPositions": {},
   "desktopWidgetGridSettings": {},
   "desktopWidgetInstances": [],
-  "configVersion": 4
+  "configVersion": 5
 }
