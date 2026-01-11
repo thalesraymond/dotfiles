@@ -8,7 +8,7 @@
   --arrowpanel-color: #e2e2e9 !important;
   --arrowpanel-background: #1e1f25 !important;
   --sidebar-text-color: #e2e2e9 !important;
-  --zen-main-browser-background: #121318 !important;
+/*  --zen-main-browser-background: #121318 !important; */
 }
 
 .sidebar-placesTree {
@@ -16,7 +16,7 @@
 }
 
 #zen-workspaces-button {
-  background-color: #c5c6d0 !important;
+  background-color: #1e1f25 !important;
 }
 
 #TabsToolbar {

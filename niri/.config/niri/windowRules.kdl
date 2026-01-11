@@ -17,7 +17,7 @@ window-rule {
 // Thunderbird/ZapZap/PiP no HDMI-A-1 
 window-rule {
     match app-id="spotify"
-    match app-id="ZapZap"
+    match app-id="com.rtosta.zapzap"
     match app-id="com.github.th_ch.youtube_music"
     match app-id="Thunderbird"
     open-on-output "HDMI-A-1"
@@ -57,7 +57,7 @@ window-rule {
 // Steam no DP-3 em novo workspace
 window-rule {
     match app-id="steam"
-    match app-id="lutris"
+    match app-id="net.lutris.Lutris"
     open-on-output "DP-3"
     open-focused false
     open-fullscreen false
