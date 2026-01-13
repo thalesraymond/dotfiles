@@ -1,123 +1,64 @@
-# Thales Raymond's Dotfiles
+# My Dotfiles
 
-A comprehensive collection of personal configuration files (dotfiles) designed to create a stunning, efficient, and highly customized desktop experience on Linux. This setup is centered around the **Hyprland** compositor, **Waybar** status bar, and a suite of other powerful tools that work together to deliver a seamless and visually consistent workflow.
+This repository contains my personal dotfiles for a Linux desktop environment. The setup is centered around Hyprland, DankMaterialShell, and a dynamic, wallpaper-based theming system.
 
-Whether you're a developer, a power user, or just someone who loves to tinker with their environment, these dotfiles provide a solid foundation for building your perfect desktop.
+## Management
 
----
+These dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/). To deploy them, clone this repository and then use `stow` to create symbolic links. For example, to deploy the `hypr` configuration, you would run:
 
-## 🌟 Features
+```bash
+stow hypr
+```
 
-- **Visually Stunning Themes**: A curated selection of themes for Waybar, Rofi, and other tools, with a focus on aesthetics and readability.
-- **Dynamic & Informative Waybar**: Custom modules for everything from system resources (CPU, RAM, disk) and network status to media playback and workspace indicators.
-- **Optimized Hyprland Configuration**: A finely-tuned Hyprland setup with smooth animations, intelligent window management, and a logical workspace layout.
-- **Powerful Shell Experience**: A customized Zsh environment with useful aliases, functions, and a prompt that's both informative and stylish.
-- **Effortless Management with GNU Stow**: Easily manage your dotfiles with GNU Stow, which creates symbolic links to keep your configurations in sync.
-- **Script-Enhanced Functionality**: A collection of helper scripts to automate common tasks, such as changing themes, managing wallpapers, and more.
+To stow all configurations, you can run:
+```bash
+stow */
+```
+**Note:** The `*/` does not work on zsh, you need to use `stow *` instead.
 
----
+## Core Components
 
-## 📦 What’s Inside
+This setup is built on a few key pieces of software that integrate to create a cohesive desktop experience.
 
-This repository is organized into the following directories, each containing the configuration for a specific tool:
+### Window Compositor
 
-- **`hypr/`**: Configuration files for the Hyprland compositor, including window rules, animations, and keybindings.
-- **`waybar/`**: A collection of themes, modules, and styles for the Waybar status bar.
-- **`rofi/`**: Themes and scripts for Rofi, a powerful application launcher and window switcher.
-- **`zshrc/`**: The main configuration file for the Zsh shell, including aliases, environment variables, and prompt settings.
-- **`gtk20/`, `gtk30/`, `gtk40/`**: GTK themes to ensure a consistent look and feel across all applications.
-- **`.github/`**: Workflow files for automating tasks on GitHub, such as creating releases.
-- **`scripts/`**: A variety of helper scripts to enhance the functionality of the desktop environment.
+*   **[Hyprland](https://hyprland.org/):** A dynamic tiling Wayland compositor. It is the primary compositor for this setup.
+*   **[Niri](https://github.com/YaLTeR/niri):** An alternative, scrollable-tiling Wayland compositor. Configurations are also included for Niri.
 
----
+### Desktop Shell
 
-## 🚀 Quick Setup
+*   **[DankMaterialShell (DMS)](https://github.com/danklammer/dank-material-shell):** This is the heart of the desktop UI. It provides the top status bar, widgets, notifications, and the control center. It also orchestrates the system-wide theming.
 
-There are two ways to install these dotfiles: using **GNU Stow** (recommended) or by manually creating symbolic links.
+### Dynamic Theming
 
-### Using GNU Stow (Recommended)
+The visual theme is generated on-the-fly from your current wallpaper.
 
-GNU Stow is a symlink farm manager that makes it easy to manage your dotfiles.
+*   **[Matugen](https://github.com/InioX/matugen):** This tool generates a Material You color palette from an image.
+*   **DankMaterialShell Integration:** DMS uses `matugen` to create a theme from the wallpaper and then applies it across the system. It uses a template system to update the configuration files for various applications with the new color scheme.
 
-1.  **Clone the repository:**
+## Configured Applications
 
-    ```bash
-    git clone https://github.com/thalesraymond/dotfiles ~/dotfiles
-    cd ~/dotfiles
-    ```
+The theming system applies to a variety of applications, ensuring a consistent look and feel. Configurations are included for:
 
-2.  **Back up or remove your existing configurations:**
+*   **Terminal:** Kitty
+*   **Application Launcher:** Rofi
+*   **GTK:** GTK2, GTK3, and GTK4 themes
+*   **Waybar:** While DMS provides the main bar, Waybar configs are also present.
+*   **And more...**
 
-    ```bash
-    # Example for backing up Waybar configuration
-    mv ~/.config/waybar ~/.config/waybar.bak
-    ```
+## Package Installation
 
-3.  **Use Stow to deploy the configurations:**
+To replicate this setup, you can use the provided package lists:
 
-    ```bash
-    # Deploy Waybar configuration
-    stow --target=$HOME/.config waybar
+*   `pkglist.txt`: A list of official Arch Linux repository packages.
+*   `aurlist.txt`: A list of packages from the Arch User Repository (AUR).
 
-    # Deploy Hyprland configuration
-    stow --target=$HOME/.config hypr
+You can install them using an AUR helper like `yay` or `paru`:
 
-    # Deploy all configurations
-    stow --target=$HOME .
-    ```
+```bash
+# pacman packages
+sudo pacman -S --needed - < pkglist.txt
 
-### Manual Installation
-
-If you prefer not to use Stow, you can manually create symbolic links to the configuration files.
-
-1.  **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/thalesraymond/dotfiles ~/dotfiles
-    cd ~/dotfiles
-    ```
-
-2.  **Create symbolic links:**
-
-    ```bash
-    # Example for Waybar
-    ln -s ~/dotfiles/waybar/config ~/.config/waybar
-
-    # Example for Hyprland
-    ln -s ~/dotfiles/hypr/config ~/.config/hypr
-    ```
-
----
-
-## ⌨️ Keybindings
-
-Here are some of the most important keybindings for Hyprland:
-
-| Keybinding                | Action                                  |
-| ------------------------- | --------------------------------------- |
-| `Super + Enter`           | Open a new terminal (Ghostty)           |
-| `Super + Q`               | Close the active window                 |
-| `Super + D`               | Open the application launcher (Rofi)    |
-| `Super + [1-9]`           | Switch to workspace 1-9                 |
-| `Super + Shift + [1-9]`   | Move the active window to workspace 1-9 |
-| `Super + H/J/K/L`         | Move focus between windows              |
-| `Super + Shift + H/J/K/L` | Move the active window                  |
-
-For a complete list of keybindings, please refer to the `hypr/configs/Keybinds.conf` file.
-
----
-
-## 🙏 Credits
-
-These dotfiles are a product of my own customization, but they are heavily inspired by the work of others in the Linux community. A special thanks to the creators of the following tools and themes:
-
-- **Hyprland**: A dynamic tiling Wayland compositor.
-- **Waybar**: A highly customizable Wayland bar for Sway and Wlroots-based compositors.
-- **Rofi**: A window switcher, run launcher, and dmenu replacement.
-- **Catppuccin Theme**: A soothing pastel theme for all the things.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+# AUR packages
+yay -S --needed - < aurlist.txt
+```

@@ -124,3 +124,6 @@ export PATH="$PATH:/home/thales/.lmstudio/bin"
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 #. "$HOME/.local/bin/env"
+
+# opencode
+export PATH=/home/thales/.opencode/bin:$PATH
