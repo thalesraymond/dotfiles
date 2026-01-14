@@ -1,0 +1,42 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.autoSave": "afterDelay",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "prettier.tabWidth": 4,
+    "git.confirmSync": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSave": true,
+    "diffEditor.codeLens": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "keyboard.dispatch": "keyCode",
+    "vsicons.dontShowNewVersionMessage": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.printWidth": 120,
+    "githubPullRequests.pushBranch": "always",
+    "geminicodeassist.project": "arched-dogfish-9fgnf",
+    "svelte.enable-ts-plugin": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "qt-core.additionalQtPaths": [
+        {
+            "name": "Qt-5.15.18-linux-g++_from_PATH",
+            "path": "/usr/bin/qmake"
+        }
+    ]
+}
