@@ -39,3 +39,6 @@ output_path = '~/.config/btop/themes/matugen.theme'
 input_path = '~/.config/matugen/templates/niri-colors.kdl'
 output_path = '~/.config/niri/dms/niri-colors.kdl'
 
+[templates.vscode]
+input_path = '~/.config/matugen/templates/vscode.json'
+output_path = '~/.config/Code/User/settings.json'
