@@ -1,6 +1,6 @@
 {
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "workbench.iconTheme": "catppuccin-macchiato",
     "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
     "git.enableSmartCommit": true,
     "git.autofetch": true,
@@ -38,5 +38,5 @@
             "name": "Qt-5.15.18-linux-g++_from_PATH",
             "path": "/usr/bin/qmake"
         }
-    ]
+    ],
 }
