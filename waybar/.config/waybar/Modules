@@ -154,7 +154,7 @@
 
 "cpu": {
 	"format": "{usage}% 󰍛",
-	"interval": 1,
+	"interval": 5, // Optimized by Bolt
 	"min-length": 5,
 	"format-alt-click": "click",
 	"format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
@@ -285,7 +285,7 @@
 },
 
 "network#speed": {
-	"interval": 1,
+	"interval": 2, // Optimized by Bolt
 	"format": "{ifname}",
 	"format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
 	"format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
