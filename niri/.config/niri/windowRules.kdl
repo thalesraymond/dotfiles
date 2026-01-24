@@ -72,12 +72,3 @@ window-rule {
     //default-floating-position x=400 y=500 relative-to="bottom-right"
 
 }
-
-// Steam games on DP-3, new workspace, fullscreen
-window-rule {
-    match app-id=r"^steam_app_"
-    open-on-output "DP-3"
-    open-maximized true
-    open-focused true
-    open-fullscreen true
-}
