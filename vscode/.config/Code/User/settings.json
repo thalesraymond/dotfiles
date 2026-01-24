@@ -8,13 +8,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "files.autoSave": "afterDelay",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 4,
-    "prettier.tabWidth": 4,
     "git.confirmSync": false,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "editor.formatOnSave": true,
     "diffEditor.codeLens": true,
     "github.copilot.enable": {
@@ -24,13 +18,7 @@
         "scminput": false
     },
     "keyboard.dispatch": "keyCode",
-    "vsicons.dontShowNewVersionMessage": true,
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "prettier.printWidth": 120,
     "githubPullRequests.pushBranch": "always",
-    "geminicodeassist.project": "arched-dogfish-9fgnf",
     "svelte.enable-ts-plugin": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "qt-core.additionalQtPaths": [
@@ -39,4 +27,9 @@
             "path": "/usr/bin/qmake"
         }
     ],
+    "geminicodeassist.project": "arched-dogfish-9fgnf",
+    "http.systemCertificatesNode": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
