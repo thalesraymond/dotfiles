@@ -1,35 +1,44 @@
 {
-    "workbench.colorTheme": "Catppuccin Macchiato",
-    "workbench.iconTheme": "catppuccin-macchiato",
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+
+  "files.autoSave": "afterDelay",
+  "git.confirmSync": false,
+  "editor.formatOnSave": true,
+  "diffEditor.codeLens": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+  },
+  "githubPullRequests.pushBranch": "always",
+  "svelte.enable-ts-plugin": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "qt-core.additionalQtPaths": [
+    {
+      "name": "Qt-5.15.18-linux-g++_from_PATH",
+      "path": "/usr/bin/qmake",
     },
-    "files.autoSave": "afterDelay",
-    "git.confirmSync": false,
-    "editor.formatOnSave": true,
-    "diffEditor.codeLens": true,
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
-    "keyboard.dispatch": "keyCode",
-    "githubPullRequests.pushBranch": "always",
-    "svelte.enable-ts-plugin": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "qt-core.additionalQtPaths": [
-        {
-            "name": "Qt-5.15.18-linux-g++_from_PATH",
-            "path": "/usr/bin/qmake"
-        }
-    ],
-    "geminicodeassist.project": "arched-dogfish-9fgnf",
-    "http.systemCertificatesNode": true,
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+  ],
+  "geminicodeassist.project": "arched-dogfish-9fgnf",
+  "http.systemCertificatesNode": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.tabSize": 2,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "keyboard.dispatch": "keyCode",
+  "window.menuBarVisibility": "compact",
 }
