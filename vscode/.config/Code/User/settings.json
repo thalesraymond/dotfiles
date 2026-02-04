@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
   "git.enableSmartCommit": true,
@@ -39,6 +39,5 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "keyboard.dispatch": "keyCode",
-  "window.menuBarVisibility": "compact",
+  "window.menuBarVisibility": "visible",
 }
