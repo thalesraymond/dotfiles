@@ -3,7 +3,7 @@ input {
     keyboard {
         xkb {
             layout "us"
-            variant "alt-intl"
+            variant "intl"
         }
 
         numlock
