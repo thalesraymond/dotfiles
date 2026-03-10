@@ -1,0 +1,38 @@
+include "./environment.kdl"
+
+include "./input.kdl"
+
+include "./monitors.kdl"
+
+include "./layout.kdl"
+
+include "./dms/niri-colors.kdl"
+
+include "./startupApps.kdl"
+
+include "./windowRules.kdl"
+
+include "./keybindings.kdl"
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+animations {
+    // Uncomment to turn off all animations.
+    // off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+}
