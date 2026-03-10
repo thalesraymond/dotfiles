@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.colorTheme": "Catppuccin Macchiato",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
   "git.enableSmartCommit": true,
@@ -7,11 +7,12 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-
+  "python.languageServer": "Pylance",
   "files.autoSave": "afterDelay",
   "git.confirmSync": false,
   "editor.formatOnSave": true,
   "diffEditor.codeLens": true,
+  "jestrunner.enableTestExplorer": true,
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
@@ -40,4 +41,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "window.menuBarVisibility": "visible",
+  "workbench.editor.showTabs": "none",
 }

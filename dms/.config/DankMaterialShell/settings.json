@@ -30,10 +30,12 @@
   "nightModeEnabled": false,
   "animationSpeed": 2,
   "customAnimationDuration": 500,
+  "syncComponentAnimationSpeeds": true,
   "popoutAnimationSpeed": 1,
   "popoutCustomAnimationDuration": 150,
   "modalAnimationSpeed": 1,
   "modalCustomAnimationDuration": 150,
+  "enableRippleEffects": true,
   "wallpaperFillMode": "Fill",
   "blurredWallpaperLayer": false,
   "blurWallpaperOnOverview": false,
@@ -113,8 +115,8 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": true,
-  "showWorkspaceName": false,
+  "showWorkspaceIndex": false,
+  "showWorkspaceName": true,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
   "showWorkspaceApps": true,
@@ -138,6 +140,7 @@
   "scrollTitleEnabled": true,
   "audioVisualizerEnabled": true,
   "audioScrollMode": "volume",
+  "audioWheelScrollAmount": 5,
   "clockCompactMode": false,
   "focusedWindowCompactMode": false,
   "runningAppsCompactMode": true,
@@ -181,7 +184,7 @@
       "type": "regex"
     }
   ],
-  "centeringMode": "index",
+  "centeringMode": "geometric",
   "clockDateFormat": "ddd d MMM yyyy",
   "lockDateFormat": "",
   "mediaSize": 1,
@@ -204,6 +207,7 @@
   "dankLauncherV2BorderThickness": 2,
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
+  "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "auto",
@@ -301,8 +305,8 @@
   "dockGroupByApp": true,
   "dockOpenOnOverview": false,
   "dockPosition": 1,
-  "dockSpacing": 11,
-  "dockBottomGap": -30,
+  "dockSpacing": 12,
+  "dockBottomGap": -18,
   "dockMargin": 0,
   "dockIconSize": 34,
   "dockIndicatorStyle": "line",
@@ -322,6 +326,8 @@
   "dockMaxVisibleRunningApps": 0,
   "dockShowOverflowBadge": true,
   "notificationOverlayEnabled": false,
+  "notificationPopupShadowEnabled": true,
+  "notificationPopupPrivacyMode": false,
   "modalDarkenBackground": true,
   "lockScreenShowPowerActions": true,
   "lockScreenShowSystemIcons": true,
@@ -331,6 +337,7 @@
   "lockScreenShowPasswordField": true,
   "lockScreenShowMediaPlayer": true,
   "lockScreenPowerOffMonitorsOnLock": false,
+  "lockAtStartup": false,
   "enableFprint": false,
   "maxFprintTries": 3,
   "lockScreenActiveMonitor": "all",
@@ -342,12 +349,15 @@
   "notificationTimeoutCritical": 0,
   "notificationCompactMode": false,
   "notificationPopupPosition": 0,
+  "notificationAnimationSpeed": 1,
+  "notificationCustomAnimationDuration": 400,
   "notificationHistoryEnabled": true,
   "notificationHistoryMaxCount": 50,
   "notificationHistoryMaxAgeDays": 7,
   "notificationHistorySaveLow": true,
   "notificationHistorySaveNormal": true,
   "notificationHistorySaveCritical": true,
+  "notificationRules": [],
   "osdAlwaysShowValue": true,
   "osdPosition": 5,
   "osdVolumeEnabled": true,
@@ -413,20 +423,12 @@
         {
           "name": "DP-3",
           "model": "LG ULTRAWIDE"
-        },
-        {
-          "name": "HDMI-A-1",
-          "model": "LG HDR WFHD"
         }
       ],
       "showOnLastDisplay": true,
       "leftWidgets": [
         {
           "id": "workspaceSwitcher",
-          "enabled": true
-        },
-        {
-          "id": "focusedWindow",
           "enabled": true
         }
       ],
@@ -435,26 +437,24 @@
           "id": "music",
           "enabled": true
         },
-        "clock",
-        "weather"
+        {
+          "id": "clock",
+          "enabled": true,
+          "clockCompactMode": false
+        },
+        {
+          "id": "weather",
+          "enabled": true
+        }
       ],
       "rightWidgets": [
         {
           "id": "diskUsage",
-          "enabled": true
-        },
-        {
-          "id": "cpuUsage",
-          "enabled": true
-        },
-        {
-          "id": "memUsage",
           "enabled": true,
-          "showSwap": false,
-          "minimumWidth": true
+          "mountPath": "/"
         },
         {
-          "id": "notificationButton",
+          "id": "systemTray",
           "enabled": true
         },
         {
@@ -462,28 +462,20 @@
           "enabled": true
         },
         {
-          "id": "systemTray",
-          "enabled": true
-        },
-        {
           "id": "wallpaperDiscovery",
-          "enabled": true
-        },
-        {
-          "id": "wallpaperShufflerPlugin",
           "enabled": true
         }
       ],
       "spacing": 0,
-      "innerPadding": 2,
-      "bottomGap": -3,
-      "transparency": 0.3,
-      "widgetTransparency": 0.85,
+      "innerPadding": 0,
+      "bottomGap": -1,
+      "transparency": 0.5,
+      "widgetTransparency": 0.7,
       "squareCorners": false,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
-      "gothCornerRadiusValue": 12,
+      "gothCornerRadiusValue": 3,
       "borderEnabled": false,
       "borderColor": "surfaceText",
       "borderOpacity": 1,
@@ -495,7 +487,8 @@
       "visible": true,
       "popupGapsAuto": true,
       "popupGapsManual": 4,
-      "widgetOutlineEnabled": false
+      "widgetOutlineEnabled": false,
+      "shadowIntensity": 0
     }
   ],
   "desktopClockEnabled": false,
@@ -619,6 +612,7 @@
       "trigger": "?"
     }
   },
+  "clipboardEnterToPaste": false,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],
   "configVersion": 5

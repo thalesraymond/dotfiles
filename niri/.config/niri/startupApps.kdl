@@ -5,7 +5,7 @@ spawn-sh-at-startup "qs"
 spawn-sh-at-startup "killall swaync"
 
 //spawn-at-startup "waybar"
-spawn-sh-at-startup "dms run"
+//spawn-sh-at-startup "dms run"
 
 spawn-at-startup "zapzap" 
 spawn-sh-at-startup "discord --start-minimized" 

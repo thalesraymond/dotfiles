@@ -1,3 +1,12 @@
+workspace "games" {
+    open-on-output "DP-3"
+}
+
+workspace "home" {
+    open-on-output "DP-3"
+}
+
+
 window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
@@ -34,6 +43,33 @@ window-rule {
     default-column-width { proportion 0.5; }
 }
 
+window-rule {
+    match app-id="dev.zed.Zed"
+    open-focused false
+    open-maximized false
+    open-fullscreen false
+    open-maximized-to-edges false
+    default-column-width { proportion 0.7; }
+}
+
+window-rule {
+    match app-id="obsidian"
+    open-focused false
+    open-maximized false
+    open-fullscreen false
+    open-maximized-to-edges false
+    default-column-width { proportion 0.7; }
+}
+
+window-rule {
+    match app-id="code"
+    open-focused false
+    open-maximized false
+    open-fullscreen false
+    open-maximized-to-edges false
+    default-column-width { proportion 0.7; }
+}
+
 //PiP
 window-rule {
     match title="Picture-in-Picture"
@@ -51,22 +87,23 @@ window-rule {
 window-rule {
     match app-id="zen"
     exclude title="Picture-in-Picture"
-    open-on-output "DP-3"
+    open-on-workspace "home"
     open-maximized true
     open-focused true
     open-fullscreen false
-
+    open-maximized-to-edges false
 }
 
 
-// Steam no DP-3 em novo workspace
+// Steam, Lutris, Gamescope, Steam Apps on "games" workspace
 window-rule {
-    match app-id="steam"
-    match app-id="net.lutris.Lutris"
-    open-on-output "DP-3"
+    match app-id=r"^(steam|net\.lutris\.Lutris|gamescope|steam_app_.*)$"
+    open-on-workspace "games"
     open-focused false
     open-fullscreen false
     open-maximized false
+    open-maximized-to-edges false
+    default-column-width { proportion 0.5; }
 }
 
 // Thunar rename dialog
@@ -75,5 +112,5 @@ window-rule {
     match title=r"^Rename"
     open-floating true
     //default-floating-position x=400 y=500 relative-to="bottom-right"
-
 }
+
