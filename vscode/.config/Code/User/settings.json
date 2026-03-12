@@ -41,5 +41,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "window.menuBarVisibility": "visible",
-  "workbench.editor.showTabs": "none",
+  "workbench.editor.showTabs": "single",
 }
