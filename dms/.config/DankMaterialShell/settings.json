@@ -28,8 +28,8 @@
   "useFahrenheit": false,
   "windSpeedUnit": "kmh",
   "nightModeEnabled": false,
-  "animationSpeed": 2,
-  "customAnimationDuration": 500,
+  "animationSpeed": 4,
+  "customAnimationDuration": 200,
   "syncComponentAnimationSpeeds": true,
   "popoutAnimationSpeed": 1,
   "popoutCustomAnimationDuration": 150,
@@ -213,7 +213,7 @@
   "networkPreference": "auto",
   "iconTheme": "Reversal-dark",
   "cursorSettings": {
-    "theme": "System Default",
+    "theme": "Bibata-Modern-Ice",
     "size": 24,
     "niri": {
       "hideWhenTyping": false,
@@ -462,6 +462,10 @@
           "enabled": true
         },
         {
+          "id": "wallpaperBing",
+          "enabled": true
+        },
+        {
           "id": "wallpaperDiscovery",
           "enabled": true
         }
@@ -469,17 +473,17 @@
       "spacing": 0,
       "innerPadding": 0,
       "bottomGap": -1,
-      "transparency": 0.5,
-      "widgetTransparency": 0.7,
-      "squareCorners": false,
-      "noBackground": false,
+      "transparency": 0.7,
+      "widgetTransparency": 1,
+      "squareCorners": true,
+      "noBackground": true,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
       "gothCornerRadiusValue": 3,
       "borderEnabled": false,
       "borderColor": "surfaceText",
       "borderOpacity": 1,
-      "borderThickness": 1,
+      "borderThickness": 3,
       "fontScale": 1.0999999999999992,
       "autoHide": false,
       "autoHideDelay": 250,
@@ -488,7 +492,14 @@
       "popupGapsAuto": true,
       "popupGapsManual": 4,
       "widgetOutlineEnabled": false,
-      "shadowIntensity": 0
+      "shadowIntensity": 50,
+      "removeWidgetPadding": false,
+      "maximizeWidgetText": false,
+      "maximizeWidgetIcons": true,
+      "maximizeDetection": false,
+      "iconScale": 1,
+      "shadowColorMode": "secondary",
+      "shadowOpacity": 50
     }
   ],
   "desktopClockEnabled": false,
