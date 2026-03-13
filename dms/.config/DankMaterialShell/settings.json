@@ -1,6 +1,6 @@
 {
   "currentThemeName": "dynamic",
-  "currentThemeCategory": "generic",
+  "currentThemeCategory": "dynamic",
   "customThemeFile": "",
   "registryThemeVariants": {},
   "matugenScheme": "scheme-tonal-spot",
@@ -449,6 +449,16 @@
       ],
       "rightWidgets": [
         {
+          "id": "cpuUsage",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
+          "id": "memUsage",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
           "id": "diskUsage",
           "enabled": true,
           "mountPath": "/"
@@ -459,10 +469,6 @@
         },
         {
           "id": "systemUpdate",
-          "enabled": true
-        },
-        {
-          "id": "wallpaperBing",
           "enabled": true
         },
         {

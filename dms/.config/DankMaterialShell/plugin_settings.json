@@ -11,14 +11,45 @@
     "api_pexels": "bk1AZ6NZZ60Ua0DQzO5DsaQ4R887WcSWq7cGOD1h16NjOXJs8D1sURvI"
   },
   "linuxWallpaperEngine": {
-    "enabled": true,
-    "monitorScenes": {},
+    "enabled": false,
+    "monitorScenes": {
+      "DP-3": "1767354809",
+      "HDMI-A-1": "1767354809"
+    },
     "sceneSettings": {
+      "1127087659": {
+        "screenshotDelay": 150
+      },
       "1226995046": {
         "fps": 30,
         "scaling": "fill"
+      },
+      "1425503532": {
+        "scaling": "default"
+      },
+      "1449131353": {
+        "scaling": "fill"
+      },
+      "1591111709": {
+        "scaling": "default"
+      },
+      "1782903294": {
+        "screenshotDelay": 30
+      },
+      "1897083090": {
+        "scaling": "fill"
+      },
+      "2320445113": {
+        "scaling": "fill"
+      },
+      "2376437903": {
+        "fps": 20,
+        "scaling": "default"
       }
-    }
+    },
+    "generateStaticWallpaper": true,
+    "monitorPlaylists": {},
+    "playlistIntervalMinutes": 1
   },
   "wallpaperShufflerPlugin": {
     "enabled": false
