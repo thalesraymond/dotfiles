@@ -1,64 +1,35 @@
-# My Dotfiles
+# Dotfiles
 
-This repository contains my personal dotfiles for a Linux desktop environment. The setup is centered around Hyprland, DankMaterialShell, and a dynamic, wallpaper-based theming system.
+My personal Linux desktop configuration files, managed with GNU Stow.
 
-## Management
+## Components overview
 
-These dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/). To deploy them, clone this repository and then use `stow` to create symbolic links. For example, to deploy the `hypr` configuration, you would run:
+- **Compositors:** [Hyprland](https://hyprland.org/) (primary) and [Niri](https://github.com/YaLTeR/niri)
+- **Desktop Shell & UI:** [DankMaterialShell](https://github.com/danklammer/dank-material-shell), Waybar, Rofi, Quickshell
+- **Terminals:** Kitty, Ghostty
+- **Theming:** Dynamic wallpaper-based material theming using Matugen and Wallust, with support for GTK applications
+- **Other utilities:** Zsh, VS Code, Swaylock
 
-```bash
-stow hypr
-```
+## How to replicate
 
-To stow all configurations, you can run:
-```bash
-stow */
-```
-**Note:** The `*/` does not work on zsh, you need to use `stow *` instead.
+1. **Install dependencies:**
+   The required packages are listed in `pkglist.txt` (Arch official repos) and `aurlist.txt` (AUR). Install them using pacman and an AUR helper (e.g., yay or paru):
 
-## Core Components
+   ```bash
+   sudo pacman -S --needed - < pkglist.txt
+   yay -S --needed - < aurlist.txt
+   ```
 
-This setup is built on a few key pieces of software that integrate to create a cohesive desktop experience.
+2. **Clone the repository:**
+   ```bash
+   git clone https://github.com/thalesraymond/dotfiles.git ~/dotfiles
+   cd ~/dotfiles
+   ```
 
-### Window Compositor
+3. **Deploy configurations:**
+   Use GNU Stow to create symbolic links in your home directory. To deploy all configurations:
 
-*   **[Hyprland](https://hyprland.org/):** A dynamic tiling Wayland compositor. It is the primary compositor for this setup.
-*   **[Niri](https://github.com/YaLTeR/niri):** An alternative, scrollable-tiling Wayland compositor. Configurations are also included for Niri.
-
-### Desktop Shell
-
-*   **[DankMaterialShell (DMS)](https://github.com/danklammer/dank-material-shell):** This is the heart of the desktop UI. It provides the top status bar, widgets, notifications, and the control center. It also orchestrates the system-wide theming.
-
-### Dynamic Theming
-
-The visual theme is generated on-the-fly from your current wallpaper.
-
-*   **[Matugen](https://github.com/InioX/matugen):** This tool generates a Material You color palette from an image.
-*   **DankMaterialShell Integration:** DMS uses `matugen` to create a theme from the wallpaper and then applies it across the system. It uses a template system to update the configuration files for various applications with the new color scheme.
-
-## Configured Applications
-
-The theming system applies to a variety of applications, ensuring a consistent look and feel. Configurations are included for:
-
-*   **Terminal:** Kitty
-*   **Application Launcher:** Rofi
-*   **GTK:** GTK2, GTK3, and GTK4 themes
-*   **Waybar:** While DMS provides the main bar, Waybar configs are also present.
-*   **And more...**
-
-## Package Installation
-
-To replicate this setup, you can use the provided package lists:
-
-*   `pkglist.txt`: A list of official Arch Linux repository packages.
-*   `aurlist.txt`: A list of packages from the Arch User Repository (AUR).
-
-You can install them using an AUR helper like `yay` or `paru`:
-
-```bash
-# pacman packages
-sudo pacman -S --needed - < pkglist.txt
-
-# AUR packages
-yay -S --needed - < aurlist.txt
-```
+   ```bash
+   stow *
+   ```
+   *(Note: To stow individual components, specify the folder name, e.g., `stow hypr`)*
