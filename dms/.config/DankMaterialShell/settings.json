@@ -474,6 +474,10 @@
         {
           "id": "wallpaperDiscovery",
           "enabled": true
+        },
+        {
+          "id": "wallpaperBing",
+          "enabled": true
         }
       ],
       "spacing": 0,
