@@ -1,6 +1,7 @@
 {
   "wallpaperBing": {
-    "enabled": true
+    "enabled": true,
+    "enableDailyRefresh": false
   },
   "wallpaperDiscovery": {
     "enabled": true,
@@ -11,10 +12,10 @@
     "api_pexels": "bk1AZ6NZZ60Ua0DQzO5DsaQ4R887WcSWq7cGOD1h16NjOXJs8D1sURvI"
   },
   "linuxWallpaperEngine": {
-    "enabled": false,
+    "enabled": true,
     "monitorScenes": {
-      "DP-3": "1767354809",
-      "HDMI-A-1": "1767354809"
+      "DP-3": "1403160205",
+      "HDMI-A-1": "1135365216"
     },
     "sceneSettings": {
       "1127087659": {
