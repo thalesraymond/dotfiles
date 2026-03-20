@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.colorTheme": "Tokyo Night",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
   "git.enableSmartCommit": true,
@@ -42,4 +42,11 @@
   },
   "window.menuBarVisibility": "visible",
   "workbench.editor.showTabs": "multiple",
+  "workbench.colorCustomizations": {
+    "[Tokyo Night]": {
+      "activityBar.foreground": "#ffffffa4",
+      "activityBar.inactiveForeground": "#9099abac",
+      "activityBar.background": "#16161e",
+    },
+  },
 }
