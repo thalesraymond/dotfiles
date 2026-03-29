@@ -18,6 +18,6 @@ input {
 }
 
 cursor {
-    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
 }
