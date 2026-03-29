@@ -121,7 +121,7 @@
   "workspaceScrolling": false,
   "showWorkspaceApps": true,
   "workspaceDragReorder": true,
-  "maxWorkspaceIcons": 3,
+  "maxWorkspaceIcons": 10,
   "workspaceAppIconSizeOffset": 0,
   "groupWorkspaceApps": true,
   "workspaceFollowFocus": false,
@@ -224,7 +224,7 @@
   "networkPreference": "auto",
   "iconTheme": "Reversal-dark",
   "cursorSettings": {
-    "theme": "Bibata-Modern-Ice",
+    "theme": "System Default",
     "size": 24,
     "niri": {
       "hideWhenTyping": false,
@@ -496,7 +496,7 @@
       ],
       "spacing": 4,
       "innerPadding": 0,
-      "bottomGap": 0,
+      "bottomGap": -3,
       "transparency": 0.7,
       "widgetTransparency": 1,
       "squareCorners": false,
