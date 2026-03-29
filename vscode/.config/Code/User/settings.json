@@ -13,12 +13,6 @@
   "editor.formatOnSave": true,
   "diffEditor.codeLens": true,
   "jestrunner.enableTestExplorer": true,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false,
-  },
   "githubPullRequests.pushBranch": "always",
   "svelte.enable-ts-plugin": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -48,5 +42,13 @@
       "activityBar.inactiveForeground": "#9099abac",
       "activityBar.background": "#16161e",
     },
+  },
+  "explorer.confirmDragAndDrop": false,
+  "geminicodeassist.inlineSuggestions.enableAuto": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
   },
 }

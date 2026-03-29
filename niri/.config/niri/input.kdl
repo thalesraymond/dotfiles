@@ -16,3 +16,8 @@ input {
     
     focus-follows-mouse max-scroll-amount="20%"
 }
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+}
