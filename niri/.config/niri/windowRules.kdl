@@ -95,15 +95,23 @@ window-rule {
 }
 
 
-// Steam, Lutris, Gamescope, Steam Apps on "games" workspace
+// Steam client, Lutris, Gamescope on "games" workspace (side by side)
 window-rule {
-    match app-id=r"^(steam|net\.lutris\.Lutris|gamescope|steam_app_.*)$"
+    match app-id=r"^(steam|net\.lutris\.Lutris|gamescope)$"
     open-on-workspace "games"
     open-focused false
     open-fullscreen false
     open-maximized false
     open-maximized-to-edges false
     default-column-width { proportion 0.5; }
+}
+
+// Steam game processes on "games" workspace (fullscreen)
+window-rule {
+    match app-id=r"^steam_app_.*$"
+    open-on-workspace "games"
+    open-focused true
+    open-fullscreen true
 }
 
 // Thunar rename dialog
