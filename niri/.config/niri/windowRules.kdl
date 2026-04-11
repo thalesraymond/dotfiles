@@ -25,7 +25,7 @@ window-rule {
 
 // Thunderbird/ZapZap/PiP no HDMI-A-1 
 window-rule {
-    match app-id="spotify"
+    match app-id="[Ss]potify"
     open-on-output "HDMI-A-1"
     open-focused false
     open-maximized false
@@ -95,15 +95,23 @@ window-rule {
 }
 
 
-// Steam client, Lutris, Gamescope on "games" workspace (side by side)
+// Steam client and Lutris on "games" workspace (side by side)
 window-rule {
-    match app-id=r"^(steam|net\.lutris\.Lutris|gamescope)$"
+    match app-id=r"^(steam|net\.lutris\.Lutris)$"
     open-on-workspace "games"
     open-focused false
     open-fullscreen false
     open-maximized false
     open-maximized-to-edges false
     default-column-width { proportion 0.5; }
+}
+
+// Gamescope-launched windows on "games" workspace (fullscreen)
+window-rule {
+    match app-id=r"^gamescope$"
+    open-on-workspace "games"
+    open-focused true
+    open-fullscreen true
 }
 
 // Steam game processes on "games" workspace (fullscreen)
