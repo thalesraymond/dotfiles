@@ -51,4 +51,7 @@
     "markdown": true,
     "scminput": false,
   },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
 }
