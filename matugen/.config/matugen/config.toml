@@ -42,3 +42,15 @@ output_path = '~/.config/niri/dms/niri-colors.kdl'
 [templates.ghostty]
 input_path = '~/.config/matugen/templates/ghostty'
 output_path = '~/.config/ghostty/themes/matugen'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/qt5ct.conf'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
