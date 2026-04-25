@@ -21,6 +21,19 @@ window-rule {
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true    
+    opacity 0.85
+    background-effect {
+        blur true
+    }
+    draw-border-with-background false
+}
+
+layer-rule {
+    match namespace="^dms:bar$"
+
+    background-effect {
+        blur true
+    }
 }
 
 // Thunderbird/ZapZap/PiP no HDMI-A-1 

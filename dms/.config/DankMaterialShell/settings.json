@@ -494,12 +494,12 @@
           "enabled": true
         }
       ],
-      "spacing": 4,
+      "spacing": 0,
       "innerPadding": 0,
       "bottomGap": -3,
-      "transparency": 0.7,
-      "widgetTransparency": 1,
-      "squareCorners": false,
+      "transparency": 0.41,
+      "widgetTransparency": 0.56,
+      "squareCorners": true,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
@@ -524,7 +524,8 @@
       "iconScale": 1,
       "shadowColorMode": "secondary",
       "shadowOpacity": 50,
-      "widgetPadding": 8
+      "widgetPadding": 8,
+      "widgetOutlineOpacity": 1
     }
   ],
   "desktopClockEnabled": false,
