@@ -21,7 +21,7 @@ window-rule {
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true    
-    opacity 0.85
+    opacity 0.83
     background-effect {
         blur true
     }
@@ -29,7 +29,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^dms:bar$"
+    match namespace="^(dms:bar)$"
 
     background-effect {
         blur true
