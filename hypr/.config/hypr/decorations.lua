@@ -10,7 +10,7 @@ require("colors")
 hl.config({
     general = {
         border_size = 2,
-        gaps_in     = 2,
+        gaps_in     = 5,
         gaps_out    = 10,
 
         col = {
@@ -29,7 +29,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 5,
+        rounding       = 10,
         rounding_power = 2,
 
         active_opacity   = 0.95,
@@ -42,8 +42,9 @@ hl.config({
 
         shadow = {
             enabled      = true,
-            range        = 3,
-            render_power = 1,
+            range        = 30,
+            render_power = 3,
+            offset       = "0 5",
 
             color          = colors.primary_container,
             color_inactive = colors.surface_variant,
