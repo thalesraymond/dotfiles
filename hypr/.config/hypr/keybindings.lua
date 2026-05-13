@@ -11,85 +11,78 @@ local scriptsDir = os.getenv("HOME") .. "/.config/hypr/scripts"
 ---- APPLICATION ----
 ---------------------
 
--- Launcher (DMS Material Shell)
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("dms ipc call spotlight toggle"))
-
--- Terminal
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(term))
-
--- Floating Terminal
-hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd("[float; move 15% 5%; size 70% 60%] " .. term))
-
--- File Manager
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(files))
-
--- Default Browser
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd('xdg-open "https://"'))
+local apps = {
+    { "SPACE", hl.dsp.exec_cmd("dms ipc call spotlight toggle") },
+    { "Return", hl.dsp.exec_cmd(term) },
+    { "SHIFT + Return", hl.dsp.exec_cmd("[float; move 15% 5%; size 70% 60%] " .. term) },
+    { "E", hl.dsp.exec_cmd(files) },
+    { "B", hl.dsp.exec_cmd('xdg-open "https://"') },
+}
+for _, bind in ipairs(apps) do
+    hl.bind(mainMod .. " + " .. bind[1], bind[2])
+end
 
 ------------------
 ---- WINDOWS ----
 ------------------
 
--- Close active window
-hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-
--- Kill active window (force)
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(
-    "kill $(hyprctl activewindow | grep -o 'pid: [0-9]*' | cut -d' ' -f2)"))
-
--- Fullscreen
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen({ mode = 1 })) -- fake/maximized
-
--- Toggle floating
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-
--- Toggle split (horizontal/vertical) — dwindle
-hl.bind(mainMod .. " + SHIFT + I", hl.dsp.layout("togglesplit"))
-
--- Exit
+local win_binds = {
+    { "Q", hl.dsp.window.close() },
+    { "SHIFT + Q", hl.dsp.exec_cmd("kill $(hyprctl activewindow | grep -o 'pid: [0-9]*' | cut -d' ' -f2)") },
+    { "SHIFT + F", hl.dsp.window.fullscreen() },
+    { "F", hl.dsp.window.fullscreen({ mode = 1 }) },
+    { "V", hl.dsp.window.float({ action = "toggle" }) },
+    { "SHIFT + I", hl.dsp.layout("togglesplit") },
+}
+for _, bind in ipairs(win_binds) do
+    hl.bind(mainMod .. " + " .. bind[1], bind[2])
+end
 hl.bind("CTRL + ALT + Delete", hl.dsp.exit())
 
 ---------------------
 ---- FOCUS / NAV ----
 ---------------------
 
--- Universal focus (Niri style: HJKL and arrows)
-hl.bind(mainMod .. " + left",  hl.dsp.exec_cmd(scriptsDir .. "/focus_window.sh l"))
-hl.bind(mainMod .. " + right", hl.dsp.exec_cmd(scriptsDir .. "/focus_window.sh r"))
-hl.bind(mainMod .. " + H",     hl.dsp.exec_cmd(scriptsDir .. "/focus_window.sh l"))
-hl.bind(mainMod .. " + L",     hl.dsp.exec_cmd(scriptsDir .. "/focus_window.sh r"))
-hl.bind(mainMod .. " + J",     hl.dsp.exec_cmd(scriptsDir .. "/focus_window.sh d"))
-hl.bind(mainMod .. " + K",     hl.dsp.exec_cmd(scriptsDir .. "/focus_window.sh u"))
+local dir_keys = {
+    l = { "left", "H" },
+    r = { "right", "L" },
+    u = { "up", "K" },
+    d = { "down", "J" }
+}
 
--- Move/swap windows
-hl.bind(mainMod .. " + ALT + left",  hl.dsp.window.swap({ direction = "l" }))
-hl.bind(mainMod .. " + ALT + right", hl.dsp.window.swap({ direction = "r" }))
-hl.bind(mainMod .. " + ALT + up",    hl.dsp.window.swap({ direction = "u" }))
-hl.bind(mainMod .. " + ALT + down",  hl.dsp.window.swap({ direction = "d" }))
-
--- Move windows (layout-aware, Niri style)
-hl.bind(mainMod .. " + CTRL + left",  hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh l"), { repeating = true })
-hl.bind(mainMod .. " + CTRL + right", hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh r"), { repeating = true })
-hl.bind(mainMod .. " + CTRL + H",     hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh l"), { repeating = true })
-hl.bind(mainMod .. " + CTRL + L",     hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh r"), { repeating = true })
-hl.bind(mainMod .. " + CTRL + J",     hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh d"), { repeating = true })
-hl.bind(mainMod .. " + CTRL + K",     hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh u"), { repeating = true })
-hl.bind(mainMod .. " + CTRL + down",  hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh d"), { repeating = true })
-hl.bind(mainMod .. " + CTRL + up",    hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh u"), { repeating = true })
+for dir, keys in pairs(dir_keys) do
+    for _, key in ipairs(keys) do
+        -- Focus
+        hl.bind(mainMod .. " + " .. key, hl.dsp.exec_cmd(scriptsDir .. "/focus_window.sh " .. dir))
+        -- Move windows (layout-aware, Niri style)
+        hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.exec_cmd(scriptsDir .. "/move_window.sh " .. dir), { repeating = true })
+        -- Move/swap windows
+        hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.swap({ direction = dir }))
+    end
+end
 
 -- Resize windows (regular tiling)
-hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.resize({ x = -50, y = 0 }),  { repeating = true })
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = 50,  y = 0 }),  { repeating = true })
-hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.resize({ x = 0,   y = -50 }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.resize({ x = 0,   y = 50 }),  { repeating = true })
+local resize_keys = {
+    left = { -50, 0 },
+    right = { 50, 0 },
+    up = { 0, -50 },
+    down = { 0, 50 }
+}
+for key, offsets in pairs(resize_keys) do
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.resize({ x = offsets[1], y = offsets[2] }), { repeating = true })
+end
 
 -- Resize windows (Scrolling layout, Niri style)
-hl.bind(mainMod .. " + minus",         hl.dsp.layout("colresize -0.1"), { repeating = true })
-hl.bind(mainMod .. " + equal",         hl.dsp.layout("colresize +0.1"), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50 }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50 }),  { repeating = true })
-hl.bind(mainMod .. " + C",             hl.dsp.layout("togglefit"))
+local scroll_resize = {
+    { "minus", hl.dsp.layout("colresize -0.1"), { repeating = true } },
+    { "equal", hl.dsp.layout("colresize +0.1"), { repeating = true } },
+    { "SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50 }), { repeating = true } },
+    { "SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50 }), { repeating = true } },
+    { "C", hl.dsp.layout("togglefit") }
+}
+for _, bind in ipairs(scroll_resize) do
+    hl.bind(mainMod .. " + " .. bind[1], bind[2], bind[3])
+end
 
 -- Move/resize windows with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -108,56 +101,57 @@ for i = 1, 10 do
 end
 
 -- Workspace Navigation (Niri style)
-hl.bind(mainMod .. " + down",      hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + up",        hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + Page_Down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + Page_Up",   hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + U",         hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + I",         hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + period",    hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + comma",     hl.dsp.focus({ workspace = "e-1" }))
-
--- Scroll workspaces with mouse wheel
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+local ws_nav = {
+    ["e+1"] = { "down", "Page_Down", "U", "period", "mouse_down" },
+    ["e-1"] = { "up", "Page_Up", "I", "comma", "mouse_up" }
+}
+for ws, keys in pairs(ws_nav) do
+    for _, key in ipairs(keys) do
+        hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = ws }))
+    end
+end
 
 -- Move window to adjacent workspace (Niri style)
-hl.bind(mainMod .. " + CTRL + Page_Down", hl.dsp.window.move({ workspace = "e+1" }))
-hl.bind(mainMod .. " + CTRL + Page_Up",   hl.dsp.window.move({ workspace = "e-1" }))
-hl.bind(mainMod .. " + CTRL + U",         hl.dsp.window.move({ workspace = "e+1" }))
-hl.bind(mainMod .. " + CTRL + I",         hl.dsp.window.move({ workspace = "e-1" }))
+local ws_move = {
+    ["e+1"] = { "Page_Down", "U" },
+    ["e-1"] = { "Page_Up", "I" }
+}
+for ws, keys in pairs(ws_move) do
+    for _, key in ipairs(keys) do
+        hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = ws }))
+    end
+end
 
 ------------------
 ---- UTILS -------
 ------------------
 
--- Screenshot
-hl.bind(mainMod .. " + P",         hl.dsp.exec_cmd(
-    'HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m output'))
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(
-    'HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m region'))
-hl.bind(mainMod .. " + CTRL + P",  hl.dsp.exec_cmd(
-    'HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m window'))
-
--- Lock screen
-hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("swaylock"))
+local utils_binds = {
+    { "P", hl.dsp.exec_cmd('HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m output') },
+    { "SHIFT + P", hl.dsp.exec_cmd('HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m region') },
+    { "CTRL + P", hl.dsp.exec_cmd('HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m window') },
+    { "ALT + L", hl.dsp.exec_cmd("swaylock") },
+}
+for _, bind in ipairs(utils_binds) do
+    hl.bind(mainMod .. " + " .. bind[1], bind[2])
+end
 
 ----------------------
 ---- MEDIA KEYS ------
 ----------------------
 
--- Volume controls (via DMS)
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("dms ipc call audio increment 5"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("dms ipc call audio decrement 5"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("dms ipc call audio mute"),         { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("dms ipc call audio micmute"),      { locked = true, repeating = true })
-
--- Brightness
-hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
-
--- Media (requires playerctl)
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+local media_binds = {
+    { "XF86AudioRaiseVolume", hl.dsp.exec_cmd("dms ipc call audio increment 5"), { locked = true, repeating = true } },
+    { "XF86AudioLowerVolume", hl.dsp.exec_cmd("dms ipc call audio decrement 5"), { locked = true, repeating = true } },
+    { "XF86AudioMute",        hl.dsp.exec_cmd("dms ipc call audio mute"),         { locked = true, repeating = true } },
+    { "XF86AudioMicMute",     hl.dsp.exec_cmd("dms ipc call audio micmute"),      { locked = true, repeating = true } },
+    { "XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true } },
+    { "XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true } },
+    { "XF86AudioNext",        hl.dsp.exec_cmd("playerctl next"),       { locked = true } },
+    { "XF86AudioPause",       hl.dsp.exec_cmd("playerctl play-pause"), { locked = true } },
+    { "XF86AudioPlay",        hl.dsp.exec_cmd("playerctl play-pause"), { locked = true } },
+    { "XF86AudioPrev",        hl.dsp.exec_cmd("playerctl previous"),   { locked = true } },
+}
+for _, bind in ipairs(media_binds) do
+    hl.bind(bind[1], bind[2], bind[3])
+end
