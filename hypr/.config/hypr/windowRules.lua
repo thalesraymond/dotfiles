@@ -179,7 +179,7 @@ hl.window_rule({
     size             = "1219 686",
     float            = true,
     pin              = true,
-    move             = "((monitor_w*0.51)) (-(monitor_h*0.65))",
+    move             = "100%-w-50 100%-h-50",
     match            = { title = "^(Picture-in-Picture)$" },
 })
 

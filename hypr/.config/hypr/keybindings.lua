@@ -71,18 +71,13 @@ for dir, keys in pairs(dir_keys) do
         
         -- Move/swap windows
         hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.swap({ direction = dir }))
+        
+        -- Focus monitor
+        hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.focus({ monitor = dir }))
+        
+        -- Move window to monitor
+        hl.bind(mainMod .. " + SHIFT + CTRL + " .. key, hl.dsp.window.move({ monitor = dir }))
     end
-end
-
--- Resize windows (regular tiling)
-local resize_keys = {
-    left = { -50, 0 },
-    right = { 50, 0 },
-    up = { 0, -50 },
-    down = { 0, 50 }
-}
-for key, offsets in pairs(resize_keys) do
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.resize({ x = offsets[1], y = offsets[2] }), { repeating = true })
 end
 
 -- Resize windows (Scrolling layout, Niri style)
@@ -94,8 +89,14 @@ local scroll_resize = {
     { "C", hl.dsp.layout("togglefit") }
 }
 for _, bind in ipairs(scroll_resize) do
-    hl.bind(mainMod .. " + " .. bind[1], bind[2], bind[3])
+    if bind[3] then
+        hl.bind(mainMod .. " + " .. bind[1], bind[2], bind[3])
+    else
+        hl.bind(mainMod .. " + " .. bind[1], bind[2])
+    end
 end
+
+hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("pkill orca || exec orca"))
 
 -- Move/resize windows with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
