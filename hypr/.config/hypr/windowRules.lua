@@ -107,10 +107,11 @@ hl.window_rule({
 -----------------------------
 
 local workspace_assignments = {
-    { name = "gamestore", workspace = "1 silent", match = { tag = "gamestore*" } },
-    { name = "messaging", workspace = "9 silent", opacity = 0.94, match = { tag = "im*" } },
-    { name = "games", workspace = "1", no_blur = true, fullscreen = true, match = { tag = "games*" } },
-    { name = "multimedia", workspace = "9 silent", opacity = 0.94, match = { tag = "multimedia*" } },
+    { name = "gamestore",  workspace = "1 silent",                                                   match = { tag = "gamestore*" } },
+    { name = "messaging",  workspace = "9 silent", opacity = "0.94 override",                         match = { tag = "im*" } },
+    { name = "games",      workspace = "1",         no_blur = true, fullscreen = true,
+                           idle_inhibit = "always",  confine_pointer = true,                          match = { tag = "games*" } },
+    { name = "multimedia", workspace = "9 silent", opacity = "0.94 override",                         match = { tag = "multimedia*" } },
 }
 
 for _, rule in ipairs(workspace_assignments) do
@@ -128,9 +129,9 @@ local float_dialogs = {
     { name = "dialogs-3", match = { class = "^(com.heroicgameslauncher.hgl)$", title = "negative:(Heroic Games Launcher)" } },
     { name = "dialogs-steam", match = { class = "^([Ss]team)$", title = "negative:^([Ss]team)$" } },
     { name = "dialogs-thunar", match = { class = "([Tt]hunar)", title = "negative:(.*[Tt]hunar.*)" } },
-    { name = "dialogs-4", size = "(monitor_w*0.7) (monitor_h*0.6)", center = true, match = { title = "^(Add Folder to Workspace)$" } },
-    { name = "dialog-save-as", size = "(monitor_w*0.7) (monitor_h*0.6)", center = true, match = { title = "^(Save As)$" } },
-    { name = "dialog-open-files", size = "(monitor_w*0.7) (monitor_h*0.6)", match = { initial_title = "(Open Files)" } }
+    { name = "dialogs-4",       size = { "monitor_w*0.7", "monitor_h*0.6" }, center = true, match = { title = "^(Add Folder to Workspace)$" } },
+    { name = "dialog-save-as",   size = { "monitor_w*0.7", "monitor_h*0.6" }, center = true, match = { title = "^(Save As)$" } },
+    { name = "dialog-open-files",size = { "monitor_w*0.7", "monitor_h*0.6" }, match = { initial_title = "(Open Files)" } }
 }
 
 for _, dialog in ipairs(float_dialogs) do
@@ -142,24 +143,26 @@ end
 ---- OPACITY ----
 -----------------
 
+-- Opacities use "override" so they are absolute values, not multipliers stacked
+-- on top of decoration.active_opacity / decoration.inactive_opacity.
 local tag_opacities = {
-    ["browser*"]       = 0.96,
-    ["projects*"]      = 0.98,
-    ["file-manager*"]  = 0.9,
-    ["terminal*"]      = 0.8,
-    ["settings*"]      = 0.8,
-    ["viewer*"]        = 0.82,
-    ["wallpaper*"]     = 0.9,
+    ["browser*"]       = "0.96 override",
+    ["projects*"]      = "0.98 override",
+    ["file-manager*"]  = "0.9 override",
+    ["terminal*"]      = "0.8 override",
+    ["settings*"]      = "0.8 override",
+    ["viewer*"]        = "0.82 override",
+    ["wallpaper*"]     = "0.9 override",
 }
 for tag, op in pairs(tag_opacities) do
     hl.window_rule({ name = "blur-" .. tag:gsub("%*", ""), opacity = op, match = { tag = tag } })
 end
 
 local class_opacities = {
-    ["^(gedit|org.gnome.TextEditor|mousepad)$"] = 0.8,
-    ["^(deluge)$"] = 0.9,
-    ["^(seahorse)$"] = 0.9,
-    ["^(code)$"] = 0.97,
+    ["^(gedit|org.gnome.TextEditor|mousepad)$"] = "0.8 override",
+    ["^(deluge)$"]                              = "0.9 override",
+    ["^(seahorse)$"]                            = "0.9 override",
+    ["^(code)$"]                                = "0.97 override",
 }
 for class, op in pairs(class_opacities) do
     -- Generate a safe string name
@@ -171,15 +174,22 @@ end
 ---- PICTURE-IN-PICTURE ----
 ---------------------------
 
+-- Step 1: Force it to HDMI output via workspace BEFORE pinning
 hl.window_rule({
-    name             = "rule-for-pip",
-    opaque           = true,
+    name             = "rule-for-pip-output",
     workspace        = "9 silent",
-    keep_aspect_ratio = true,
-    size             = "1219 686",
     float            = true,
+    match            = { title = "^(Picture-in-Picture)$" },
+})
+
+-- Step 2: Size, position, and pin the window
+hl.window_rule({
+    name             = "rule-for-pip-state",
+    opaque           = true,
+    keep_aspect_ratio = true,
+    size             = { 1219, 686 },
     pin              = true,
-    move             = "100%-w-50 100%-h-50",
+    move             = { "monitor_w - window_w - 50", "monitor_h - window_h - 50" },
     match            = { title = "^(Picture-in-Picture)$" },
 })
 
@@ -188,7 +198,8 @@ hl.window_rule({
 --------------------------
 
 -- Avoid stealing focus for IntelliJ Products' popup windows
-hl.window_rule({ name = "windowrule-67", no_initial_focus = true, match = { class = "^(jetbrains-*)" } })
+-- Note: RE2 uses .+ not glob-style *, so jetbrains-.+ means "jetbrains-" followed by one or more chars
+hl.window_rule({ name = "windowrule-67", no_initial_focus = true, match = { class = "^(jetbrains-.+)" } })
 hl.window_rule({ name = "windowrule-68", no_initial_focus = true, match = { title = "^(wind.*)$" } })
 
 ----------------------------
@@ -201,10 +212,13 @@ local app_workspaces = {
     { ws = "9 silent", class = "^([Dd]iscord)$" },
     { ws = "9 silent", class = "^([Ss]potify)$" },
     { ws = "9 silent", class = "^([Tt]hunderbird)$" },
-    { ws = "2", maximize = true, class = "^(zen-alpha|zen)$" },
+    { ws = "2", maximize = true, class = "^(zen-alpha|zen)$", title = "negative:^(Picture-in-Picture)$" },
 }
 for i, app in ipairs(app_workspaces) do
-    local rule = { name = "app-workspace-" .. i, workspace = app.ws, match = { class = app.class } }
+    local match = { class = app.class }
+    if app.title then match.title = app.title end
+    
+    local rule = { name = "app-workspace-" .. i, workspace = app.ws, match = match }
     if app.maximize then rule.maximize = true end
     hl.window_rule(rule)
 end
