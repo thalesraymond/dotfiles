@@ -7,8 +7,8 @@
 set = true
 
 [templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
+input_path = '~/.config/matugen/templates/hyprland-colors.lua'
+output_path = '~/.config/hypr/colors.lua'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
