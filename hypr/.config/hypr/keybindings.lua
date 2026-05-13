@@ -77,7 +77,7 @@ local scroll_resize = {
     { "equal", hl.dsp.layout("colresize +0.1"), { repeating = true } },
     { "SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50 }), { repeating = true } },
     { "SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50 }), { repeating = true } },
-    { "C", hl.dsp.layout("togglefit") }
+    { "C", hl.dsp.layout("fit") }
 }
 for _, bind in ipairs(scroll_resize) do
     if bind[3] then

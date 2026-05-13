@@ -41,10 +41,9 @@ hl.config({
         dim_special  = 0.8,
 
         shadow = {
-            enabled      = true,
-            range        = 30,
-            render_power = 3,
-            offset       = "0 5",
+            enabled      = false,
+            range        = 1,
+            render_power = 2,
 
             color          = colors.primary_container,
             color_inactive = colors.surface_variant,
