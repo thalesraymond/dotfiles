@@ -43,15 +43,6 @@ hl.bind("CTRL + ALT + Delete", hl.dsp.exit())
 ---- FOCUS / NAV ----
 ---------------------
 
--- Determine layout once at load time to avoid spawning bash/jq on every keystroke
-local layout = "dwindle"
-local f = io.popen("hyprctl getoption general:layout -j")
-if f then
-    local out = f:read("*a")
-    f:close()
-    layout = out:match('"str":%s*"([^"]+)"') or "dwindle"
-end
-
 local dir_keys = {
     l = { "left", "H" },
     r = { "right", "L" },
@@ -61,13 +52,13 @@ local dir_keys = {
 
 for dir, keys in pairs(dir_keys) do
     for _, key in ipairs(keys) do
-        -- Focus (layout-aware)
-        local focus_cmd = layout == "dwindle" and ("hyprctl dispatch movefocus " .. dir) or ("hyprctl dispatch layoutmsg focus " .. dir)
-        hl.bind(mainMod .. " + " .. key, hl.dsp.exec_cmd(focus_cmd))
+        -- Focus windows (skip Up/Down arrows since they are reserved for workspaces)
+        if key ~= "up" and key ~= "down" then
+            hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ direction = dir }))
+        end
         
-        -- Move windows (layout-aware, Niri style)
-        local move_cmd = layout == "dwindle" and ("hyprctl dispatch movewindow " .. dir) or ("hyprctl dispatch layoutmsg movewindowto " .. dir)
-        hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.exec_cmd(move_cmd), { repeating = true })
+        -- Move windows
+        hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ direction = dir }), { repeating = true })
         
         -- Move/swap windows
         hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.swap({ direction = dir }))
