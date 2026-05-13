@@ -28,9 +28,9 @@ end
 
 local win_binds = {
     { "Q", hl.dsp.window.close() },
-    { "SHIFT + Q", hl.dsp.exec_cmd("kill $(hyprctl activewindow | grep -o 'pid: [0-9]*' | cut -d' ' -f2)") },
+    { "SHIFT + Q", hl.dsp.window.kill() },
     { "SHIFT + F", hl.dsp.window.fullscreen() },
-    { "F", hl.dsp.window.fullscreen({ mode = 1 }) },
+    { "F", hl.dsp.window.fullscreen({ mode = "maximized" }) },
     { "V", hl.dsp.window.float({ action = "toggle" }) },
     { "SHIFT + I", hl.dsp.layout("togglesplit") },
 }
