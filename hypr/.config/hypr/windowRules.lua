@@ -89,10 +89,10 @@ end
 
 -- Disable blur and force full opacity for multimedia video
 hl.window_rule({
-    name     = "special-override-for-multimedia",
-    no_blur  = true,
-    opacity  = 1.0,
-    match    = { tag = "multimedia_video*" },
+    name    = "special-override-for-multimedia",
+    no_blur = true,
+    opacity = 1.0,
+    match   = { tag = "multimedia_video*" },
 })
 
 -- Disable idle inhibit for fullscreen apps
@@ -107,11 +107,18 @@ hl.window_rule({
 -----------------------------
 
 local workspace_assignments = {
-    { name = "gamestore",  workspace = "1 silent",                                                   match = { tag = "gamestore*" } },
-    { name = "messaging",  workspace = "9 silent", opacity = "0.94 override",                         match = { tag = "im*" } },
-    { name = "games",      workspace = "1",         no_blur = true, fullscreen = true,
-                           idle_inhibit = "always",  confine_pointer = true,                          match = { tag = "games*" } },
-    { name = "multimedia", workspace = "9 silent", opacity = "0.94 override",                         match = { tag = "multimedia*" } },
+    { name = "gamestore", workspace = "1 silent", match = { tag = "gamestore*" } },
+    { name = "messaging", workspace = "9 silent", opacity = "0.94 override",     match = { tag = "im*" } },
+    {
+        name = "games",
+        workspace = "1",
+        no_blur = true,
+        fullscreen = true,
+        idle_inhibit = "always",
+        confine_pointer = true,
+        match = { tag = "games*" }
+    },
+    { name = "multimedia", workspace = "9 silent", opacity = "0.94 override", match = { tag = "multimedia*" } },
 }
 
 for _, rule in ipairs(workspace_assignments) do
@@ -124,14 +131,14 @@ end
 --------------------
 
 local float_dialogs = {
-    { name = "dialogs", center = true, match = { title = "^(Authentication Required)$" } },
-    { name = "dialogs-vs-code", match = { class = "(codium|codium-url-handler|VSCodium)", title = "negative:(.*codium.*|.*VSCodium.*)" } },
-    { name = "dialogs-3", match = { class = "^(com.heroicgameslauncher.hgl)$", title = "negative:(Heroic Games Launcher)" } },
-    { name = "dialogs-steam", match = { class = "^([Ss]team)$", title = "negative:^([Ss]team)$" } },
-    { name = "dialogs-thunar", match = { class = "([Tt]hunar)", title = "negative:(.*[Tt]hunar.*)" } },
-    { name = "dialogs-4",       size = { "monitor_w*0.7", "monitor_h*0.6" }, center = true, match = { title = "^(Add Folder to Workspace)$" } },
-    { name = "dialog-save-as",   size = { "monitor_w*0.7", "monitor_h*0.6" }, center = true, match = { title = "^(Save As)$" } },
-    { name = "dialog-open-files",size = { "monitor_w*0.7", "monitor_h*0.6" }, match = { initial_title = "(Open Files)" } }
+    { name = "dialogs",           center = true,                                                                                           match = { title = "^(Authentication Required)$" } },
+    { name = "dialogs-vs-code",   match = { class = "(codium|codium-url-handler|VSCodium)", title = "negative:(.*codium.*|.*VSCodium.*)" } },
+    { name = "dialogs-3",         match = { class = "^(com.heroicgameslauncher.hgl)$", title = "negative:(Heroic Games Launcher)" } },
+    { name = "dialogs-steam",     match = { class = "^([Ss]team)$", title = "negative:^([Ss]team)$" } },
+    { name = "dialogs-thunar",    match = { class = "([Tt]hunar)", title = "negative:(.*[Tt]hunar.*)" } },
+    { name = "dialogs-4",         size = { "monitor_w*0.7", "monitor_h*0.6" },                                                             center = true,                                    match = { title = "^(Add Folder to Workspace)$" } },
+    { name = "dialog-save-as",    size = { "monitor_w*0.7", "monitor_h*0.6" },                                                             center = true,                                    match = { title = "^(Save As)$" } },
+    { name = "dialog-open-files", size = { "monitor_w*0.7", "monitor_h*0.6" },                                                             match = { initial_title = "(Open Files)" } }
 }
 
 for _, dialog in ipairs(float_dialogs) do
@@ -146,13 +153,13 @@ end
 -- Opacities use "override" so they are absolute values, not multipliers stacked
 -- on top of decoration.active_opacity / decoration.inactive_opacity.
 local tag_opacities = {
-    ["browser*"]       = "0.96 override",
-    ["projects*"]      = "0.98 override",
-    ["file-manager*"]  = "0.9 override",
-    ["terminal*"]      = "0.8 override",
-    ["settings*"]      = "0.8 override",
-    ["viewer*"]        = "0.82 override",
-    ["wallpaper*"]     = "0.9 override",
+    ["browser*"]      = "0.96 override",
+    ["projects*"]     = "0.98 override",
+    ["file-manager*"] = "0.9 override",
+    ["terminal*"]     = "0.8 override",
+    ["settings*"]     = "0.8 override",
+    ["viewer*"]       = "0.82 override",
+    ["wallpaper*"]    = "0.9 override",
 }
 for tag, op in pairs(tag_opacities) do
     hl.window_rule({ name = "blur-" .. tag:gsub("%*", ""), opacity = op, match = { tag = tag } })
@@ -176,21 +183,21 @@ end
 
 -- Step 1: Force it to HDMI output via workspace BEFORE pinning
 hl.window_rule({
-    name             = "rule-for-pip-output",
-    workspace        = "9 silent",
-    float            = true,
-    match            = { title = "^(Picture-in-Picture)$" },
+    name      = "rule-for-pip-output",
+    workspace = "9 silent",
+    float     = true,
+    match     = { title = "^(Picture-in-Picture)$" },
 })
 
 -- Step 2: Size, position, and pin the window
 hl.window_rule({
-    name             = "rule-for-pip-state",
-    opaque           = true,
+    name              = "rule-for-pip-state",
+    opaque            = true,
     keep_aspect_ratio = true,
-    size             = { 1219, 686 },
-    pin              = true,
-    move             = { "monitor_w - window_w - 50", "monitor_h - window_h - 50" },
-    match            = { title = "^(Picture-in-Picture)$" },
+    size              = { 1219, 686 },
+    pin               = true,
+    move              = { "monitor_w - window_w - 50", "monitor_h - window_h - 50" },
+    match             = { title = "^(Picture-in-Picture)$" },
 })
 
 --------------------------
@@ -212,12 +219,12 @@ local app_workspaces = {
     { ws = "9 silent", class = "^([Dd]iscord)$" },
     { ws = "9 silent", class = "^([Ss]potify)$" },
     { ws = "9 silent", class = "^([Tt]hunderbird)$" },
-    { ws = "2", maximize = true, class = "^(zen-alpha|zen)$", title = "negative:^(Picture-in-Picture)$" },
+    { ws = "2",        maximize = true,                                             class = "^(zen-alpha|zen)$", title = "negative:^(Picture-in-Picture)$" },
 }
 for i, app in ipairs(app_workspaces) do
     local match = { class = app.class }
     if app.title then match.title = app.title end
-    
+
     local rule = { name = "app-workspace-" .. i, workspace = app.ws, match = match }
     if app.maximize then rule.maximize = true end
     hl.window_rule(rule)
@@ -236,9 +243,9 @@ hl.window_rule({
 
 -- Fix some dragging issues with XWayland
 hl.window_rule({
-    name      = "windowrule-2",
-    no_focus  = true,
-    match     = {
+    name     = "windowrule-2",
+    no_focus = true,
+    match    = {
         class      = "^$",
         title      = "^$",
         xwayland   = true,

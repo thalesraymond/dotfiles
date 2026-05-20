@@ -9,11 +9,11 @@ require("colors")
 
 hl.config({
     general = {
-        border_size = 2,
-        gaps_in     = 5,
-        gaps_out    = 10,
+        border_size      = 2,
+        gaps_in          = 5,
+        gaps_out         = 10,
 
-        col = {
+        col              = {
             -- Active and inactive borders using matugen palette
             active_border   = { colors = { colors.primary, colors.secondary, colors.tertiary }, angle = 45 },
             inactive_border = { colors = { colors.primary_container, colors.secondary_container, colors.tertiary_container }, angle = 45 },
@@ -23,40 +23,40 @@ hl.config({
         resize_on_border = false,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before turning this on
-        allow_tearing = false,
+        allow_tearing    = false,
 
-        layout = "scrolling",
+        layout           = "scrolling",
     },
 
     decoration = {
-        rounding       = 10,
-        rounding_power = 2,
+        rounding           = 10,
+        rounding_power     = 2,
 
-        active_opacity   = 0.95,
-        inactive_opacity = 0.8,
+        active_opacity     = 0.95,
+        inactive_opacity   = 0.8,
         fullscreen_opacity = 1.0,
 
-        dim_inactive = true,
-        dim_strength = 0.1,
-        dim_special  = 0.8,
+        dim_inactive       = true,
+        dim_strength       = 0.1,
+        dim_special        = 0.8,
 
-        shadow = {
-            enabled      = false,
-            range        = 1,
-            render_power = 2,
+        shadow             = {
+            enabled        = false,
+            range          = 1,
+            render_power   = 2,
 
             color          = colors.primary_container,
             color_inactive = colors.surface_variant,
         },
 
-        blur = {
-            enabled          = true,
-            size             = 6,
-            passes           = 2,
-            ignore_opacity   = true,
+        blur               = {
+            enabled           = true,
+            size              = 6,
+            passes            = 2,
+            ignore_opacity    = true,
             new_optimizations = true,
-            special          = true,
-            popups           = true,
+            special           = true,
+            popups            = true,
         },
     },
 
@@ -90,17 +90,17 @@ hl.config({
     },
 
     input = {
-        kb_layout  = "us",
-        kb_variant = "intl",
-        kb_model   = "",
-        kb_options = "",
-        kb_rules   = "",
+        kb_layout    = "us",
+        kb_variant   = "intl",
+        kb_model     = "",
+        kb_options   = "",
+        kb_rules     = "",
 
         follow_mouse = 1,
 
-        sensitivity = -0.4, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity  = -0.4, -- -1.0 - 1.0, 0 means no modification.
 
-        touchpad = {
+        touchpad     = {
             natural_scroll = false,
         },
     },
