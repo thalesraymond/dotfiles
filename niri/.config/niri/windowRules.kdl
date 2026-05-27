@@ -16,12 +16,20 @@ window-rule {
 
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    match is-active=true
+    opacity 0.95
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.8
+}
+
+
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true    
-    opacity 0.83
     background-effect {
         blur true
     }
