@@ -102,6 +102,7 @@ window-rule {
     //min-width 1300
     max-height 1000 
     default-floating-position x=50 y=50 relative-to="bottom-right"
+    opacity 1.0
 }
 
 // Zen Browser no DP-3

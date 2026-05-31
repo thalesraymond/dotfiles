@@ -160,3 +160,9 @@ local media_binds = {
 for _, bind in ipairs(media_binds) do
     hl.bind(bind[1], bind[2], bind[3])
 end
+
+----------------------
+----- HYMISSION-------
+----------------------
+hl.bind(mainMod .. " + TAB", hl.plugin.hymission.toggle)
+hl.bind("mouse:275", hl.plugin.hymission.toggle)
