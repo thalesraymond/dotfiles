@@ -25,7 +25,7 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before turning this on
         allow_tearing    = false,
 
-        layout           = "scrolling",
+        layout           = "dwindle",
     },
 
     decoration = {
