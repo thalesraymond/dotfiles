@@ -5,8 +5,11 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     
     //Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -modi drun,filebrowser,run,window"; }
-        Mod+Space hotkey-overlay-title="Application Launcher" { 
-        spawn "dms" "ipc" "call" "spotlight" "toggle"; 
+    Mod+Space hotkey-overlay-title="Application Launcher" {
+        spawn "dms" "ipc" "call" "spotlight" "toggle";
+    }
+    Mod+Shift+W hotkey-overlay-title="Toggle Wallpaper Carousel" {
+        spawn "dms" "ipc" "call" "wallpaperCarousel" "toggle";
     }
     
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock --clock --effect-blur 7x5 --fade-in 0.2 --indicator"; }

@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Tokyo Night",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
   "git.enableSmartCommit": true,
@@ -34,7 +34,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "window.menuBarVisibility": "visible",
   "workbench.editor.showTabs": "multiple",
   "workbench.colorCustomizations": {
     "[Tokyo Night]": {
@@ -54,4 +53,7 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "go.toolsManagement.autoUpdate": true,
+  "chat.sessionSync.enabled": true,
+  "githubPullRequests.createOnPublishBranch": "never",
 }
