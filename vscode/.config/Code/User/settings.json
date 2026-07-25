@@ -7,6 +7,11 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "chat.promptFilesLocations": {
+    ".github/prompts": true,
+    "/Users/vscode/repos/prompts": true,
+    "~/.copilot/prompts": true,
+  },
   "python.languageServer": "Pylance",
   "files.autoSave": "afterDelay",
   "git.confirmSync": false,
@@ -61,6 +66,10 @@
       "approve": true,
       "matchCommandLine": true,
     },
+    "/^openspec status --change \"add-action-logs-and-outputs\" --json$/": {
+      "approve": true,
+      "matchCommandLine": true,
+    },
   },
   "vscode-pets.theme": "forest",
   "workbench.editorAssociations": {
@@ -68,4 +77,16 @@
     "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
     "*.qrc": "qt-core.qrcEditor",
   },
+  "json.schemaDownload.trustedDomains": {
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://models.dev": true,
+    "https://opencode.ai/config.json": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://www.schemastore.org/": true,
+  },
+  "chat.viewSessions.orientation": "stacked",
 }

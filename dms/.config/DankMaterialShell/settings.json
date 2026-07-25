@@ -671,6 +671,10 @@
         {
           "id": "wallpaperBing",
           "enabled": true
+        },
+        {
+          "id": "aiOverviewControl",
+          "enabled": true
         }
       ],
       "spacing": 0,
@@ -858,7 +862,7 @@
   "frameLauncherEmergeSide": "bottom",
   "frameLauncherArcExtender": false,
   "frameLauncherEdgeHover": false,
-  "frameMode": "separate",
+  "frameMode": "connected",
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
   "frameBarInsetPadding": -1,
