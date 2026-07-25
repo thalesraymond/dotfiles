@@ -56,4 +56,16 @@
   "go.toolsManagement.autoUpdate": true,
   "chat.sessionSync.enabled": true,
   "githubPullRequests.createOnPublishBranch": "never",
+  "chat.tools.terminal.autoApprove": {
+    "/^go test \\./\\.\\.\\.$/": {
+      "approve": true,
+      "matchCommandLine": true,
+    },
+  },
+  "vscode-pets.theme": "forest",
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
+    "*.qrc": "qt-core.qrcEditor",
+  },
 }
