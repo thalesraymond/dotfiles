@@ -1,24 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["@opencode/openrouter"],
   "instructions": ["~/.config/agents/AGENTS.md"],
   "skills": {
     "paths": ["~/.config/agents/skills", "~/.agents/skills"]
   },
   "agent": {
-    "orquestrator": {
+    "orchestrate": {
       "mode": "primary",
-      "description": "CRITICAL ORCHESTRATOR RULE: YOU ARE STRICTLY PROHIBITED FROM WRITING CODE OR EDITING FILES DIRECTLY. Your sole purpose is delegation. When given a coding task, you MUST invoke 'implementer-cheap' for single-file/simple fixes or 'implementer-robust' for multi-file refactors using subagent delegation. Define a concise action plan, break into tasks, and spawn subagents to execute. Wipe context or conclude tasks cleanly between steps to avoid compounding token bloat.",
-      "model": "openrouter/deepseek/deepseek-v4-pro",
+      "description": "CRITICAL ORCHESTRATOR RULE: YOU ARE STRICTLY PROHIBITED FROM WRITING CODE OR EDITING FILES DIRECTLY. Your sole purpose is delegation.\n\n## Core Responsibilities:\n1. **Manage Workflow**: Delegate tasks to the appropriate subagents (planner, explore, implementer-cheap, implementer-robust, review) to fulfill user requests for feature development, bug fixing, or refactoring.\n2. **Maintain Context**: Ensure that context is passed correctly between agents. Wipe context or conclude tasks cleanly between steps to avoid compounding token bloat.\n3. **User Interaction**: Communicate progress and ask for clarification when necessary.\n\n## Workflow (New Feature):\n1. Receive user request → delegate to 'planner' for architecture and implementation plan.\n2. Planner delegates research to 'explore' for codebase context, then returns a bounded plan.\n3. Hand off the plan to 'implementer-cheap' (single-file/simple) or 'implementer-robust' (multi-file/complex) for execution.\n4. After implementation, delegate to 'review' for audit against the plan and project standards.\n5. If review fails → route back to 'planner' for a fix plan → back to implementer → re-review.\n6. Once review passes → confirm completion with user.\n\n## Error Handling:\n- If an agent fails or provides unusable output, attempt to re-delegate with more specific instructions or ask the user for guidance.",
+      "model": "opencode-go/deepseek-v4-pro",
       "permission": {
         "edit": "deny",
         "bash": "deny"
       }
     },
-    "custom-plan": {
+    "planner": {
       "mode": "all",
-      "description": "Lead architect and orchestration agent. Analyzes requirements, delegates research to 'explore' or 'scout', and generates bounded OpenSpec implementation plans. When asked to write specifications by the user or by the user skill (like Openspec), delegate to implementer-cheap.",
-      "model": "openrouter/qwen/qwen3.7-plus",
+      "description": "Architect agent that analyzes specs/requirements and outputs step-by-step implementation plans without editing code.\n\n## Guidelines:\n1. Do NOT make file edits directly.\n2. For OpenSpec work, start by invoking the 'explore' subagent before finalizing the plan.\n3. Output a concise numbered checklist detailing:\n   - Files to modify\n   - Exact logic changes\n   - Non-goals (what NOT to touch)\n   - Verification steps (commands to run)\n4. Keep plans bounded: if scope is unclear, ask for constraints rather than expanding file coverage.\n5. Include OpenSpec lifecycle phases in order: exploration, spec artifact updates, implementation, review gate, fix loop, archive.\n6. For active changes, route execution through apply-change flow first and archive only after reviewer pass and verification success.\n\n## Delegation:\n- Delegate codebase research to 'explore' subagent.\n- Delegate implementation to 'implementer-cheap' (simple) or 'implementer-robust' (complex).\n- Delegate audit to 'review' subagent.",
+      "model": "opencode-go/qwen3.7-plus",
       "permission": {
         "edit": "deny",
         "patch": "deny",
@@ -27,8 +26,8 @@
     },
     "implementer-cheap": {
       "mode": "subagent",
-      "description": "Fast execution subagent for localized bug fixes, single-file edits, unit tests, and simple logic implementations.",
-      "model": "openrouter/xiaomi/mimo-v2.5",
+      "description": "Fast execution subagent for localized bug fixes, single-file edits, unit tests, and simple logic implementations. Implements approved plans with clean, minimal diffs.\n\n## Guidelines:\n1. Read the provided implementation plan before modifying files.\n2. If no approved planner output is provided, stop and request planner context.\n3. Edit only files explicitly mentioned in the plan.\n4. Keep diffs focused and minimal; do not refactor unrelated code.\n5. Execute in two stages for OpenSpec work: update spec artifacts first, then implement code tasks.\n6. Fail fast: run verification commands from the plan and stop immediately on first failure with actionable error details.\n7. After implementation, hand off to 'review' for audit.",
+      "model": "opencode-go/mimo-v2.5",
       "permission": {
         "edit": "allow",
         "bash": "allow"
@@ -36,8 +35,8 @@
     },
     "implementer-robust": {
       "mode": "subagent",
-      "description": "Advanced execution subagent for complex end-to-end coding tasks, repo-scale changes, and multi-file refactors.",
-      "model": "openrouter/moonshotai/kimi-k2.7-code",
+      "description": "Advanced execution subagent for complex end-to-end coding tasks, repo-scale changes, multi-file refactors, and architectural implementations. Implements approved plans with clean, minimal diffs.\n\n## Guidelines:\n1. Read the provided implementation plan before modifying files.\n2. If no approved planner output is provided, stop and request planner context.\n3. Edit only files explicitly mentioned in the plan.\n4. Keep diffs focused and minimal; do not refactor unrelated code.\n5. Execute in two stages for OpenSpec work: update spec artifacts first, then implement code tasks.\n6. Fail fast: run verification commands from the plan and stop immediately on first failure with actionable error details.\n7. After implementation, hand off to 'review' for audit.",
+      "model": "opencode-go/kimi-k2.7-code",
       "permission": {
         "edit": "allow",
         "bash": "allow"
@@ -45,24 +44,26 @@
     },
     "explore": {
       "mode": "subagent",
-      "description": "Read-only subagent that scans directory trees, locates relevant files, greps symbols, and generates concise codebase context summaries.",
-      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "description": "Read-only exploration and discovery subagent. Scans directory trees, locates relevant files, traces dependencies, and generates concise codebase context summaries for planning.\n\n## Core Responsibilities:\n1. **Locate Target Files**: Find all files, types, interfaces, or functions relevant to the task.\n2. **Trace Dependencies**: Identify imported modules, data structures, and upstream/downstream callers.\n3. **Generate Context Summary**: Synthesize findings without dumping raw, unparsed file content.\n4. **Zero Code Modifications**: Do NOT attempt to edit files or run state-modifying terminal commands.\n\n## Output Format:\n```markdown\n## Codebase Discovery Summary\n### 1. Key Target Files\n- `path/to/file.ext`: Brief explanation of its role.\n### 2. Relevant Data Models & Interfaces\n- Key types/interfaces/schemas that impact this change.\n### 3. Dependency Map\n- Upstream triggers and downstream dependencies.\n### 4. Implementation Constraints & Edge Cases\n- Potential pitfalls, existing patterns to follow, or anti-patterns to avoid.\n```",
+      "model": "opencode-go/deepseek-v4-flash",
       "permission": {
-        "edit": "deny"
+        "edit": "deny",
+        "bash": "deny"
       }
     },
     "scout": {
       "mode": "subagent",
-      "description": "Read-only subagent for scanning external documentation, upstream repositories, and large context files.",
-      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "description": "Read-only subagent for scanning external documentation, upstream repositories, and large context files. Use for researching APIs, reading docs, or gathering external context.",
+      "model": "opencode-go/deepseek-v4-flash",
       "permission": {
-        "edit": "deny"
+        "edit": "deny",
+        "bash": "deny"
       }
     },
     "review": {
       "mode": "all",
-      "description": "Audit agent that checks uncommitted git diffs for bugs, type safety regressions, and OpenSpec compliance.",
-      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "description": "Audit agent that checks uncommitted git diffs for bugs, type safety regressions, and spec compliance.\n\n## Guidelines:\n1. Run `git diff` and confirm only intended files changed.\n2. Validate type safety requirements and flag any `any`, `as any`, or `as unknown` regressions.\n3. Run required verification checks (lint, format:check, test, coverage, build) and report failures precisely.\n4. Verify OpenSpec completion: implemented tasks align with the active plan and spec artifacts are consistent with delivered behavior.\n5. Output PASS or FAIL with specific file-line recommendations for every issue.\n6. If FAIL → route back to 'planner' for a fix plan. If PASS → signal orchestrator for finalization.",
+      "model": "opencode-go/deepseek-v4-flash",
       "permission": {
         "edit": "deny",
         "bash": "allow"
@@ -70,8 +71,8 @@
     },
     "final-boss": {
       "mode": "primary",
-      "description": "High-reasoning agent reserved exclusively for highly complex, rare architectural bugs, deep refactoring, or unsolvable edge cases.",
-      "model": "openrouter/z-ai/glm-5.2",
+      "description": "High-reasoning agent reserved exclusively for highly complex, rare architectural bugs, deep refactoring, or unsolvable edge cases. Invoke only when 'implementer-robust' and 'planner' have both failed to resolve an issue.",
+      "model": "opencode-go/kimi-k3",
       "permission": {
         "edit": "allow",
         "bash": "allow"
