@@ -1,0 +1,81 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["@opencode/openrouter"],
+  "instructions": ["~/.config/agents/AGENTS.md"],
+  "skills": {
+    "paths": ["~/.config/agents/skills", "~/.agents/skills"]
+  },
+  "agent": {
+    "orquestrator": {
+      "mode": "primary",
+      "description": "CRITICAL ORCHESTRATOR RULE: YOU ARE STRICTLY PROHIBITED FROM WRITING CODE OR EDITING FILES DIRECTLY. Your sole purpose is delegation. When given a coding task, you MUST invoke 'implementer-cheap' for single-file/simple fixes or 'implementer-robust' for multi-file refactors using subagent delegation. Define a concise action plan, break into tasks, and spawn subagents to execute. Wipe context or conclude tasks cleanly between steps to avoid compounding token bloat.",
+      "model": "openrouter/deepseek/deepseek-v4-pro",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    },
+    "custom-plan": {
+      "mode": "all",
+      "description": "Lead architect and orchestration agent. Analyzes requirements, delegates research to 'explore' or 'scout', and generates bounded OpenSpec implementation plans. When asked to write specifications by the user or by the user skill (like Openspec), delegate to implementer-cheap.",
+      "model": "openrouter/qwen/qwen3.7-plus",
+      "permission": {
+        "edit": "deny",
+        "patch": "deny",
+        "bash": "allow"
+      }
+    },
+    "implementer-cheap": {
+      "mode": "subagent",
+      "description": "Fast execution subagent for localized bug fixes, single-file edits, unit tests, and simple logic implementations.",
+      "model": "openrouter/xiaomi/mimo-v2.5",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "implementer-robust": {
+      "mode": "subagent",
+      "description": "Advanced execution subagent for complex end-to-end coding tasks, repo-scale changes, and multi-file refactors.",
+      "model": "openrouter/moonshotai/kimi-k2.7-code",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "explore": {
+      "mode": "subagent",
+      "description": "Read-only subagent that scans directory trees, locates relevant files, greps symbols, and generates concise codebase context summaries.",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "permission": {
+        "edit": "deny"
+      }
+    },
+    "scout": {
+      "mode": "subagent",
+      "description": "Read-only subagent for scanning external documentation, upstream repositories, and large context files.",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "permission": {
+        "edit": "deny"
+      }
+    },
+    "review": {
+      "mode": "all",
+      "description": "Audit agent that checks uncommitted git diffs for bugs, type safety regressions, and OpenSpec compliance.",
+      "model": "openrouter/deepseek/deepseek-v4-flash",
+      "permission": {
+        "edit": "deny",
+        "bash": "allow"
+      }
+    },
+    "final-boss": {
+      "mode": "primary",
+      "description": "High-reasoning agent reserved exclusively for highly complex, rare architectural bugs, deep refactoring, or unsolvable edge cases.",
+      "model": "openrouter/z-ai/glm-5.2",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    }
+  }
+}
