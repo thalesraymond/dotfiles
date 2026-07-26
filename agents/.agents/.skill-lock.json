@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "skills": {
+    "documentation-and-adrs": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/documentation-and-adrs/SKILL.md",
+      "skillFolderHash": "85f57bdd7dcddaa589c6f36e8ac87423005c3de0",
+      "installedAt": "2026-07-26T22:38:39.923Z",
+      "updatedAt": "2026-07-26T22:38:39.923Z"
+    }
+  },
+  "dismissed": {}
+}

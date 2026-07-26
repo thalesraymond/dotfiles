@@ -88,6 +88,6 @@
     "https://schemastore.azurewebsites.net/": true,
     "https://www.schemastore.org/": true,
   },
-  "chat.viewSessions.orientation": "stacked",
   "explorer.confirmPasteNative": false,
+  "chat.viewSessions.orientation": "stacked",
 }
