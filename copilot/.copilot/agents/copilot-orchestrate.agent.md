@@ -2,21 +2,38 @@
 name: copilot-orchestrate
 description: "Orchestrates GitHub Copilot agents for end-to-end feature development, similar to opencode-orquestrate."
 model:
-  - Claude Haiku 4.5 (copilot)
-  - Claude Sonnet 5 (copilot)
+  - GPT-5 mini (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, todo]
 handoffs:
-  - label: "Start Feature Development"
-    agent: copilot-planner
-    prompt: "Analyze the user request and create a detailed implementation plan."
+  - label: "Start Feature Development (Low)"
+    agent: copilot-planner-low
+    prompt: "Analyze the user request and create a detailed implementation plan for simple tasks."
+    send: true
+  - label: "Start Feature Development (Mid)"
+    agent: copilot-planner-mid
+    prompt: "Analyze the user request and create a detailed implementation plan for standard features."
+    send: true
+  - label: "Start Feature Development (High)"
+    agent: copilot-planner-high
+    prompt: "Analyze the user request and create a detailed implementation plan for complex architectural changes."
     send: true
   - label: "Review Changes"
     agent: copilot-reviewer
     prompt: "Audit the implemented changes for correctness and adherence to the plan."
     send: true
 ---
+
+# Agent Selection Strategy
+
+Since GitHub Copilot limits sub-agents to the cost tier of the main model, we split our agents into Low, Mid, and High tiers. As the orchestrator, you should choose the appropriate tier based on the task complexity:
+
+- **Low Tier (`copilot-planner-low` / `copilot-builder-low`)**: Use for simple bug fixes, minor UI tweaks, documentation updates, or straightforward file changes.
+- **Mid Tier (`copilot-planner-mid` / `copilot-builder-mid`)**: Use for standard feature implementation, moderate refactoring, or multi-file changes that require some planning.
+- **High Tier (`copilot-planner-high` / `copilot-builder-high`)**: Use for complex architectural changes, critical security fixes, or high-risk implementations requiring deep reasoning.
+
+Always prefer the lowest tier that can safely accomplish the task to conserve resources.
 
 # Copilot Orchestrator
 
