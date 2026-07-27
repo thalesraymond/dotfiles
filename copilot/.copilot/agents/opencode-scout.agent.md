@@ -8,7 +8,7 @@ disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]
 handoffs:
   - label: "Draft Spec with Planner"
-    agent: opencode-planner
+    agent: opencode-planner-low
     prompt: "Use the external research findings to draft a bounded OpenSpec implementation plan with explicit non-goals and verification steps."
     send: true
 ---

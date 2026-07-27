@@ -10,7 +10,7 @@ disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]
 handoffs:
   - label: "Draft Spec with Planner"
-    agent: copilot-planner
+    agent: copilot-planner-low
     prompt: "Use the discovery summary to draft a bounded OpenSpec implementation plan with explicit non-goals and verification steps."
     send: true
 ---
