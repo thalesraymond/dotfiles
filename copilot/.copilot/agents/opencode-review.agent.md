@@ -8,11 +8,11 @@ disable-model-invocation: false
 tools: [vscode, read, execute, agent, todo]
 handoffs:
   - label: "Plan Fixes From Review Findings"
-    agent: opencode-planner
+    agent: opencode-planner-low
     prompt: "Use this review output to create a constrained fix plan and hand off implementation to the builder. Preserve existing non-goals."
     send: true
   - label: "Finalize OpenSpec Archive"
-    agent: opencode-planner
+    agent: opencode-planner-low
     prompt: "All checks passed. Prepare the final OpenSpec closeout steps and run archive workflow instructions for the active change."
     send: true
 ---
