@@ -1,8 +1,7 @@
 ---
 name: opencode-scout
 description: "Read-only subagent for scanning external documentation, upstream repositories, and large context files. Uses OpenCode Go models for research tasks."
-model:
-  - DeepSeek V4 Flash (customendpoint)
+model: DeepSeek V4 Flash (customendpoint)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

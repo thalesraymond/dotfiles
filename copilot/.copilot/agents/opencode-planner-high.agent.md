@@ -1,8 +1,7 @@
 ---
 name: opencode-planner-high
 description: "High-capability architect agent for complex architectural changes and critical planning using OpenCode Go models."
-model:
-  - Qwen3.7 Max (customendpoint)
+model: Qwen3.7 Max (customendpoint)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

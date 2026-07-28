@@ -1,8 +1,7 @@
 ---
 name: opencode-builder-low
 description: "Fast execution agent for simple tasks, minor bug fixes, and straightforward implementations using OpenCode Go models."
-model:
-  - MiMo V2.5 (customendpoint)
+model: MiMo V2.5 (customendpoint)
 disable-model-invocation: false
 user-invocable: true
 tools: [vscode, execute, read, agent, edit, todo]

@@ -1,8 +1,7 @@
 ---
 name: copilot-planner-low
 description: "Fast architect agent for simple tasks and minor adjustments."
-model:
-  - Claude Haiku 4.5 (copilot)
+model: Claude Haiku 4.5 (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

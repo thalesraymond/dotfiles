@@ -1,8 +1,7 @@
 ---
 name: opencode-orchestrate
 description: "Primary orchestrator for managing end-to-end feature development, OpenSpec workflows, subagent delegation, and context handoffs using OpenCode Go models."
-model:
-  - Qwen3.7 Plus (customendpoint)
+model: DeepSeek V4 Flash (customendpoint)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, todo]
@@ -33,7 +32,7 @@ Since GitHub Copilot limits sub-agents to the cost tier of the main model, we sp
 
 - **Low Tier (`opencode-planner-low` / `opencode-builder-low`)**: Use for simple bug fixes, minor UI tweaks, documentation updates, or straightforward file changes.
 - **Mid Tier (`opencode-planner-mid` / `opencode-builder-mid`)**: Use for standard feature implementation, moderate refactoring, or multi-file changes that require some planning.
-- **High Tier (`opencode-planner-high` / `opencode-builder-high`)**: Use for complex architectural changes, critical security fixes, or high-risk implementations requiring deep reasoning.
+- **High Tier (`opencode-planner-high` / `opencode-builder-high`)**: Use for complex architectural changes, critical security fixes, or high-risk implementations requiring deep reasoning. Always evaluate if the task can be broken down into smaller, simpler tasks that a lower-tier agent can handle before escalating to a higher-tier agent. This is a last resort for complex tasks that cannot be safely handled by lower-tier agents. Ask the user for clarification if the task complexity is unclear.
 
 Always prefer the lowest tier that can safely accomplish the task to conserve resources.
 

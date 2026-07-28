@@ -1,8 +1,7 @@
 ---
 name: copilot-reviewer
 description: "Audit agent that checks uncommitted git diffs for bugs, type safety, and spec compliance."
-model:
-  - Claude Haiku 4.5 (copilot)
+model: Claude Haiku 4.5 (copilot)
 disable-model-invocation: false
 user-invocable: true
 tools: [vscode, read, execute, agent, todo]

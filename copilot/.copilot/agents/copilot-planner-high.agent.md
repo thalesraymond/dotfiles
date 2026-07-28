@@ -1,8 +1,7 @@
 ---
 name: copilot-planner-high
 description: "High-capability architect agent for complex architectural changes and critical planning."
-model:
-  - Claude Sonnet 5 (copilot)
+model: Claude Sonnet 5 (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

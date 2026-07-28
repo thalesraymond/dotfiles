@@ -1,8 +1,7 @@
 ---
 name: opencode-builder-mid
 description: "Balanced execution agent for standard feature implementation and moderate complexity using OpenCode Go models."
-model:
-  - Kimi K2.7 Code Open Code (customendpoint)
+model: Kimi K2.7 Code (customendpoint)
 disable-model-invocation: false
 user-invocable: true
 tools: [vscode, execute, read, agent, edit, todo]

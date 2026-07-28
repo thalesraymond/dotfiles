@@ -1,8 +1,7 @@
 ---
 name: opencode-explore
 description: "Read-only exploration and discovery subagent. Scans directory trees, locates relevant files, traces dependencies, and generates concise codebase context summaries for planning."
-model:
-  - DeepSeek V4 Flash (customendpoint)
+model: DeepSeek V4 Flash (customendpoint)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

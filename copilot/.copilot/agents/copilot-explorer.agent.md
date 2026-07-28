@@ -1,10 +1,7 @@
 ---
 name: copilot-explorer
 description: "Read-only subagent that scans directory trees, locates relevant files, greps symbols, and generates concise codebase context summaries for planning."
-model:
-  - Claude Haiku 4.5 (copilot)
-  - Gemini 3.6 Flash (copilot)
-  - GPT-5 mini (copilot)
+model: Claude Haiku 4.5 (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

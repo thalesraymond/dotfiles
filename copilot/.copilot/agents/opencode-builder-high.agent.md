@@ -1,8 +1,7 @@
 ---
 name: opencode-builder-high
 description: "High-capability execution agent for complex architectural changes, critical fixes, and high-risk implementations using OpenCode Go models."
-model:
-  - Kimi K3 (customendpoint)
+model: Kimi K3 (customendpoint)
 disable-model-invocation: false
 user-invocable: true
 tools: [vscode, execute, read, agent, edit, todo]
