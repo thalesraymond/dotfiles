@@ -1,8 +1,7 @@
 ---
 name: opencode-review
 description: "Audit agent that checks uncommitted git diffs for bugs, type safety regressions, and spec compliance using OpenCode Go models."
-model:
-  - DeepSeek V4 Flash (customendpoint)
+model: DeepSeek V4 Flash (customendpoint)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, execute, agent, todo]

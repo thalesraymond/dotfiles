@@ -1,8 +1,7 @@
 ---
 name: copilot-builder-high
 description: "High-capability execution agent for complex architectural changes, critical fixes, and high-risk implementations."
-model:
-  - Claude Sonnet 5 (copilot)
+model: Claude Sonnet 5 (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, execute, read, agent, edit, todo]

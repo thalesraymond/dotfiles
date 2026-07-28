@@ -1,8 +1,7 @@
 ---
 name: opencode-planner-mid
 description: "Balanced architect agent for standard feature implementation using OpenCode Go models."
-model:
-  - Qwen 3.7 Plus (customendpoint)
+model: Qwen3.7 Plus (customendpoint)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

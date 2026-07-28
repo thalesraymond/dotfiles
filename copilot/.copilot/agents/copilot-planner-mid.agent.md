@@ -1,8 +1,7 @@
 ---
 name: copilot-planner-mid
 description: "Balanced architect agent for standard feature implementation."
-model:
-  - GPT-5 mini (copilot)
+model: GPT-5 mini (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]

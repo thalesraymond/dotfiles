@@ -1,8 +1,7 @@
 ---
 name: copilot-builder-low
 description: "Fast execution agent for simple tasks, minor bug fixes, and straightforward implementations."
-model:
-  - Claude Haiku 4.5 (copilot)
+model: Claude Haiku 4.5 (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, execute, read, agent, edit, todo]

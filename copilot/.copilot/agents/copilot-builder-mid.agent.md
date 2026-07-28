@@ -1,8 +1,7 @@
 ---
 name: copilot-builder-mid
 description: "Balanced execution agent for standard feature implementation and moderate complexity."
-model:
-  - Kimi K2.7 Code (copilot)
+model: Kimi K2.7 Code (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, execute, read, agent, edit, todo]

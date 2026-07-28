@@ -1,8 +1,7 @@
 ---
 name: copilot-orchestrate
 description: "Orchestrates GitHub Copilot agents for end-to-end feature development, similar to opencode-orquestrate."
-model:
-  - GPT-5 mini (copilot)
+model: GPT-5 mini (copilot)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, todo]
@@ -31,7 +30,7 @@ Since GitHub Copilot limits sub-agents to the cost tier of the main model, we sp
 
 - **Low Tier (`copilot-planner-low` / `copilot-builder-low`)**: Use for simple bug fixes, minor UI tweaks, documentation updates, or straightforward file changes.
 - **Mid Tier (`copilot-planner-mid` / `copilot-builder-mid`)**: Use for standard feature implementation, moderate refactoring, or multi-file changes that require some planning.
-- **High Tier (`copilot-planner-high` / `copilot-builder-high`)**: Use for complex architectural changes, critical security fixes, or high-risk implementations requiring deep reasoning.
+- **High Tier (`copilot-planner-high` / `copilot-builder-high`)**: Use for complex architectural changes, critical security fixes, or high-risk implementations requiring deep reasoning. Always evaluate if the task can be broken down into smaller, simpler tasks that a lower-tier agent can handle before escalating to a higher-tier agent. This is a last resort for complex tasks that cannot be safely handled by lower-tier agents. Ask the user for clarification if the task complexity is unclear.
 
 Always prefer the lowest tier that can safely accomplish the task to conserve resources.
 

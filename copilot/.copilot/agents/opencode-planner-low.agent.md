@@ -1,8 +1,7 @@
 ---
 name: opencode-planner-low
 description: "Fast architect agent for simple tasks and minor adjustments using OpenCode Go models."
-model:
-  - Qwen3.5 Plus (customendpoint)
+model: Qwen3.5 Plus (customendpoint)
 user-invocable: true
 disable-model-invocation: false
 tools: [vscode, read, agent, search, todo]
