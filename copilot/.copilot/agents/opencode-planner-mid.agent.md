@@ -18,11 +18,15 @@ handoffs:
     agent: opencode-builder-mid
     prompt: "Implement the active OpenSpec plan step-by-step. First update spec artifacts if needed, then implement code tasks, and do not deviate from non-goals."
     send: true
-  - label: "Execute Plan with High Complexity Builder"
-    agent: opencode-builder-high
-    prompt: "Implement the active OpenSpec plan step-by-step. First update spec artifacts if needed, then implement code tasks, and do not deviate from non-goals."
-    send: true
 ---
+
+## Compact Trigger
+
+After 3-4 turns in a session, pause and ask the user to run `/compact` before continuing. This prevents token bloat that inflates costs.
+
+## Context Budget
+
+Each agent turn adds ~4K tokens of context. After 10 cumulative turns, context exceeds 40K. If you've exceeded a reasonable window, complete the current work and recommend the user start a fresh session.
 
 ## Cost Efficiency:
 
