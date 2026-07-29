@@ -24,9 +24,24 @@ handoffs:
     send: true
 ---
 
+## ⚠️ Cost Gate — READ BEFORE ACCEPTING
+
+This is a HIGH-COST agent (Claude Sonnet 5). Before routing work here:
+
+1. **ASK the user** explicitly: "This task requires the premium planner tier (Claude Sonnet 5). Shall I proceed, or can this be handled by a lower-tier agent (GPT-5 mini / Claude Haiku 4.5)?"
+2. **Wait for user confirmation** before doing any work.
+3. If the user chooses a lower tier, reject this handoff and delegate to `copilot-planner-mid` instead.
+
+## Compact Trigger
+
+After 3-4 turns in a session, pause and ask the user to run `/compact` before continuing. This prevents token bloat that inflates costs.
+
+## Context Budget
+
+Each agent turn adds ~4K tokens of context. After 10 cumulative turns, context exceeds 40K. If you've exceeded a reasonable window, complete the current work and recommend the user start a fresh session.
+
 ## Cost Efficiency:
 
 - Always prefer the lowest tier agent that can safely accomplish the task to conserve resources.
 - Avoid unnecessary context passing or redundant agent invocations to minimize token usage.
 - Before delegating to a higher-tier agent, ensure that the task cannot be breakable into smaller, simpler tasks that a lower-tier agent can handle.
-
