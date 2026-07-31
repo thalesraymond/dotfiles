@@ -14,15 +14,15 @@ Personal Arch/CachyOS Linux desktop configuration managed with GNU Stow.
 
 Several config files are generated from templates. Do **not** hand-edit the output files—edit the templates/sources and rerun the generator.
 
-| Output file | Generator / source | Template location |
-|-------------|--------------------|-------------------|
-| `hypr/.config/hypr/colors.lua` | Matugen | `matugen/.config/matugen/templates/hyprland-colors.lua` |
-| `niri/.config/niri/dms-theme-sync.kdl` | DMS Theme Sync plugin | controlled from DMS settings |
-| `niri/.config/niri/colors.kdl` | Wallust | `wallust/.config/wallust/templates/niri_colors.kdl` |
-| `quickshell/.config/quickshell/qml_color.json` | Wallust | `wallust/.config/wallust/templates/qml_color.json` |
-| `rofi/.config/rofi/wallust/colors-rofi.rasi` | Wallust | `wallust/.config/wallust/templates/colors-rofi.rasi` |
-| `waybar/.config/waybar/wallust/colors-waybar.css` | Wallust | `wallust/.config/wallust/templates/colors-waybar.css` |
-| `kitty`, `ghostty`, `btop`, `cava`, GTK, Qt, etc. colored outputs | Matugen / Wallust | `matugen/.config/matugen/templates/*` / `wallust/.config/wallust/templates/*` |
+| Output file                                                       | Generator / source    | Template location                                                             |
+| ----------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------- |
+| `hypr/.config/hypr/colors.lua`                                    | Matugen               | `matugen/.config/matugen/templates/hyprland-colors.lua`                       |
+| `niri/.config/niri/dms-theme-sync.kdl`                            | DMS Theme Sync plugin | controlled from DMS settings                                                  |
+| `niri/.config/niri/colors.kdl`                                    | Wallust               | `wallust/.config/wallust/templates/niri_colors.kdl`                           |
+| `quickshell/.config/quickshell/qml_color.json`                    | Wallust               | `wallust/.config/wallust/templates/qml_color.json`                            |
+| `rofi/.config/rofi/wallust/colors-rofi.rasi`                      | Wallust               | `wallust/.config/wallust/templates/colors-rofi.rasi`                          |
+| `waybar/.config/waybar/wallust/colors-waybar.css`                 | Wallust               | `wallust/.config/wallust/templates/colors-waybar.css`                         |
+| `kitty`, `ghostty`, `btop`, `cava`, GTK, Qt, etc. colored outputs | Matugen / Wallust     | `matugen/.config/matugen/templates/*` / `wallust/.config/wallust/templates/*` |
 
 Wallust map: `wallust/.config/wallust/wallust.toml`.  
 Matugen map: `matugen/.config/matugen/config.toml`.
@@ -39,7 +39,7 @@ Matugen map: `matugen/.config/matugen/config.toml`.
 
 - `fix-cedilla`: a standalone helper script at repo root. Run/inspect directly; it is **not** symlinked by `stow *`.
 - `pkglist.txt` / `aurlist.txt`: Arch package lists (official repos and AUR).
-- `agents/.config/agents/AGENTS.md`: the user's universal agent profile for this workspace; changes here affect future OpenCode behavior.
+- `agents/.agents/AGENTS.md`: the user's universal agent profile for this workspace; changes here affect future OpenCode behavior.
 
 ## Verification
 

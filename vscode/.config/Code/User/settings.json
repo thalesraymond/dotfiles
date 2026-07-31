@@ -90,4 +90,12 @@
   },
   "explorer.confirmPasteNative": false,
   "chat.viewSessions.orientation": "stacked",
+  "chat.tools.urls.autoApprove": {
+    "https://code.visualstudio.com": true,
+    "https://github.com/microsoft/vscode/wiki/*": true,
+    "https://opencode.ai": {
+      "approveRequest": false,
+      "approveResponse": true,
+    },
+  },
 }
