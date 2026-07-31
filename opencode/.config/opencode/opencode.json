@@ -19,7 +19,7 @@
     "opencode-planner-low": {
       "name": "opencode-planner-low",
       "description": "Fast architect agent for simple tasks and minor adjustments.",
-      "model": "opencode/qwen3.5-plus",
+      "model": "opencode/qwen3.6-plus",
       "tools": {
         "read": true,
         "search": true,
