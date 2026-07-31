@@ -18,6 +18,195 @@
       "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
       "installedAt": "2026-07-31T20:36:26.170Z",
       "updatedAt": "2026-07-31T20:36:26.170Z"
+    },
+    "unity-abstract-factory": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-abstract-factory/SKILL.md",
+      "skillFolderHash": "b16f9edbcacf5f07a727e822dd00a66d07417af6",
+      "installedAt": "2026-07-31T23:15:02.626Z",
+      "updatedAt": "2026-07-31T23:15:02.626Z"
+    },
+    "unity-assembly-management": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-assembly-management/SKILL.md",
+      "skillFolderHash": "cf729377f60bcf6eae1cf295483d7681fff6564d",
+      "installedAt": "2026-07-31T23:15:02.627Z",
+      "updatedAt": "2026-07-31T23:15:02.627Z"
+    },
+    "unity-builder-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-builder-pattern/SKILL.md",
+      "skillFolderHash": "29a30e0cfc8054d3db331aa90a0688c8442f6ded",
+      "installedAt": "2026-07-31T23:15:02.627Z",
+      "updatedAt": "2026-07-31T23:15:02.627Z"
+    },
+    "unity-code-reviewer": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-code-reviewer/SKILL.md",
+      "skillFolderHash": "992025379bf98a962ab84c99f64654cbd29d6dbe",
+      "installedAt": "2026-07-31T23:15:02.628Z",
+      "updatedAt": "2026-07-31T23:15:02.628Z"
+    },
+    "unity-command-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-command-pattern/SKILL.md",
+      "skillFolderHash": "a6b57100dd46293a98d72e5b8e01ea929903aed0",
+      "installedAt": "2026-07-31T23:15:02.628Z",
+      "updatedAt": "2026-07-31T23:15:02.628Z"
+    },
+    "unity-composition-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-composition-pattern/SKILL.md",
+      "skillFolderHash": "fed4d166f0e7d571f747e3db4e80ac2db7d882ff",
+      "installedAt": "2026-07-31T23:15:02.628Z",
+      "updatedAt": "2026-07-31T23:15:02.628Z"
+    },
+    "unity-data-persistence": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-data-persistence/SKILL.md",
+      "skillFolderHash": "bc462e28eb06ea77fbbc716ebb8f2b41b986b1a1",
+      "installedAt": "2026-07-31T23:15:02.628Z",
+      "updatedAt": "2026-07-31T23:15:02.628Z"
+    },
+    "unity-decorator-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-decorator-pattern/SKILL.md",
+      "skillFolderHash": "fbced018dfaae1c8134ca6da5e7d95a7f9b7db1a",
+      "installedAt": "2026-07-31T23:15:02.629Z",
+      "updatedAt": "2026-07-31T23:15:02.629Z"
+    },
+    "unity-ecs-patterns": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-ecs-patterns/SKILL.md",
+      "skillFolderHash": "62cea4f9fc103637e428fd8603a2274fb4465521",
+      "installedAt": "2026-07-31T23:15:02.629Z",
+      "updatedAt": "2026-07-31T23:15:02.629Z"
+    },
+    "unity-event-bus": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-event-bus/SKILL.md",
+      "skillFolderHash": "9b600ed13755f4511955f0fb2125a119b6bc98c3",
+      "installedAt": "2026-07-31T23:15:02.629Z",
+      "updatedAt": "2026-07-31T23:15:02.629Z"
+    },
+    "unity-fsm": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-fsm/SKILL.md",
+      "skillFolderHash": "6d74ad5baf8e21bfb80bc50f2fe26caa20afbcd5",
+      "installedAt": "2026-07-31T23:15:02.630Z",
+      "updatedAt": "2026-07-31T23:15:02.630Z"
+    },
+    "unity-interaction": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-interaction/SKILL.md",
+      "skillFolderHash": "45f4a4a33960a02673cd2092530e75dc31c89b1e",
+      "installedAt": "2026-07-31T23:15:02.630Z",
+      "updatedAt": "2026-07-31T23:15:02.630Z"
+    },
+    "unity-memento-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-memento-pattern/SKILL.md",
+      "skillFolderHash": "890e7378124de0168a12af4db9c842c92cd5deaa",
+      "installedAt": "2026-07-31T23:15:02.630Z",
+      "updatedAt": "2026-07-31T23:15:02.630Z"
+    },
+    "unity-mvc-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-mvc-pattern/SKILL.md",
+      "skillFolderHash": "df2ee01459ec006c3ac75e697d1b9205f7ccda67",
+      "installedAt": "2026-07-31T23:15:02.630Z",
+      "updatedAt": "2026-07-31T23:15:02.630Z"
+    },
+    "unity-observer-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-observer-pattern/SKILL.md",
+      "skillFolderHash": "95cb00cd10e2f8b60c5efb6be9d1349af8b07148",
+      "installedAt": "2026-07-31T23:15:02.631Z",
+      "updatedAt": "2026-07-31T23:15:02.631Z"
+    },
+    "unity-singleton-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-singleton-pattern/SKILL.md",
+      "skillFolderHash": "988ae920c2f9d052a7e9515bc7d409fd05086259",
+      "installedAt": "2026-07-31T23:15:02.631Z",
+      "updatedAt": "2026-07-31T23:15:02.631Z"
+    },
+    "unity-so-prefab-manager": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-so-prefab-manager/SKILL.md",
+      "skillFolderHash": "55760b2168f5c2add688b29862d494ba0ec7982b",
+      "installedAt": "2026-07-31T23:15:02.631Z",
+      "updatedAt": "2026-07-31T23:15:02.631Z"
+    },
+    "unity-strategy-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-strategy-pattern/SKILL.md",
+      "skillFolderHash": "0295330645f88b11debcc02408d23c93a2a640e8",
+      "installedAt": "2026-07-31T23:15:02.632Z",
+      "updatedAt": "2026-07-31T23:15:02.632Z"
+    },
+    "unity-ui-data-binding": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-ui-data-binding/SKILL.md",
+      "skillFolderHash": "156d26934ba20d61c156db64baae423b3da1972a",
+      "installedAt": "2026-07-31T23:15:02.632Z",
+      "updatedAt": "2026-07-31T23:15:02.632Z"
+    },
+    "unity-ui-procedural": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-ui-procedural/SKILL.md",
+      "skillFolderHash": "8084c95d4b5df943beb90ed14b694635b4211276",
+      "installedAt": "2026-07-31T23:15:02.632Z",
+      "updatedAt": "2026-07-31T23:15:02.632Z"
+    },
+    "unity-visitor-pattern": {
+      "source": "MuharremTozan/unity-agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MuharremTozan/unity-agent-skills.git",
+      "skillPath": "unity-visitor-pattern/SKILL.md",
+      "skillFolderHash": "ed0c74da985cf145a9dfe3554f914336e7ad515e",
+      "installedAt": "2026-07-31T23:15:02.633Z",
+      "updatedAt": "2026-07-31T23:15:02.633Z"
     }
   },
   "dismissed": {
