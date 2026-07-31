@@ -42,6 +42,23 @@
 
 ## 4. Additional Rules
 
-> Additional specific rules can be found in the $HOME/.config/agents/rules directory.
+> Additional specific rules can be found in the $HOME/.agents/rules directory.
 
 - `ponytail.md`: Lazy senior dev mode (efficient, not careless). Follow the ladder of questions before writing code.
+
+---
+
+## 5. Communication — Caveman Mode (Token Efficiency)
+
+Enable the `caveman` skill by default for all conversational replies to reduce input/output token usage (~65-75%).
+
+- Full rules: `~/.agents/skills/caveman/SKILL.md`. Default intensity: `full` (switch with `/caveman lite|full|ultra`).
+- Technical substance stays exact: code, symbols, API names, CLI commands, error strings, commit keywords verbatim.
+- Reply in the user's dominant language.
+
+### Exemptions — Always Normal Prose
+
+Never apply caveman to written output artifacts; they stay in normal, complete prose:
+
+- **OpenSpec artifacts**: specs, tasks, proposals, designs (`openspec/spec/**`, `openspec/changes/**/proposal.md`, `design.md`, `tasks.md`).
+- Code, code comments, commit messages, PR descriptions, documentation, ADRs, and any other file content.
