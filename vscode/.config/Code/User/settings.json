@@ -70,6 +70,10 @@
       "approve": true,
       "matchCommandLine": true,
     },
+    "/^hyprctl getoption general:layout -j; echo ---; hyprctl dispatchers \\| grep -iE 'resize\\|layoutmsg'$/": {
+      "approve": true,
+      "matchCommandLine": true,
+    },
   },
   "vscode-pets.theme": "forest",
   "workbench.editorAssociations": {
@@ -97,5 +101,6 @@
       "approveRequest": false,
       "approveResponse": true,
     },
+    "https://wiki.hypr.land": true,
   },
 }

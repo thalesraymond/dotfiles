@@ -12,3 +12,5 @@ require("decorations")
 require("keybindings")
 require("windowRules")
 require("startupApps")
+
+require("dms-theme-sync")
