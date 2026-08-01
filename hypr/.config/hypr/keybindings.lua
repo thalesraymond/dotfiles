@@ -23,7 +23,7 @@ end
 ---- APPLICATION ----
 ---------------------
 
-local apps       = {
+local apps = {
     { "SPACE",          hl.dsp.exec_cmd("dms ipc call spotlight toggle") },
     { "Return",         hl.dsp.exec_cmd(term) },
     { "SHIFT + Return", hl.dsp.exec_cmd("[float; move 15% 5%; size 70% 60%] " .. term) },
@@ -97,24 +97,22 @@ end
 
 -- Horizontal resize:
 --   Scrolling → colresize (column width)
---   Dwindle   → resizeactive (pixel-based)
+--   Dwindle   → splitratio (ratio-based)
 local resize_binds = {
-    { "minus",         layout_cmd("splitratio -0.1", "colresize -0.1"),  { repeating = true } },
-    { "equal",         layout_cmd("splitratio +0.1",  "colresize +0.1"),  { repeating = true } },
+    { "minus",         hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { repeating = true } },
+    { "equal",         hl.dsp.window.resize({ x = 50, y = 0, relative = true }),  { repeating = true } },
+    { "SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50, relative = true }) },
+    { "SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50, relative = true }) },
 }
 for _, bind in ipairs(resize_binds) do
     hl.bind(mainMod .. " + " .. bind[1], bind[2], bind[3])
 end
 
--- Vertical resize (same on both layouts — pixel-based)
-hl.bind(mainMod .. " + SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50 }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50 }),  { repeating = true })
-
 -- Fit column to screen (scrolling-only, harmless no-op on dwindle)
 hl.bind(mainMod .. " + C", hl.dsp.layout("fit"))
 
--- Split ratio (dwindle: adjust split, scrolling: harmless)
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprctl dispatch splitratio 0.3"))
+-- -- Split ratio (dwindle: adjust split, scrolling: harmless)
+-- hl.bind(mainMod .. " + M", hl.dsp.layout("splitratio 0.3"))
 
 hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("pkill orca || exec orca"))
 
@@ -160,11 +158,22 @@ end
 ---- UTILS -------
 ------------------
 
+-- local screenshot_binds = {
+--     { "Print",         hl.dsp.exec_cmd("dms screenshot") },
+--     { "CTRL + Print",  hl.dsp.exec_cmd("dms screenshot full") },
+--     { "ALT + Print",   hl.dsp.exec_cmd("dms screenshot scroll") },
+--     { "SHIFT + Print", hl.dsp.exec_cmd("dms screenshot --no-file") },
+-- }
+-- for _, bind in ipairs(screenshot_binds) do
+--     hl.bind(mainMod .. " + " .. bind[1], bind[2])
+-- end
+
+hl.bind("Print",
+    hl.dsp.exec_cmd(
+        'grim -g "$(slurp)" - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
+
 local utils_binds = {
-    { "P",         hl.dsp.exec_cmd('HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m output') },
-    { "SHIFT + P", hl.dsp.exec_cmd('HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m region') },
-    { "CTRL + P",  hl.dsp.exec_cmd('HYPRSHOT_DIR="$HOME/Pictures/Screenshots" hyprshot -m window') },
-    { "ALT + L",   hl.dsp.exec_cmd("swaylock") },
+    { "ALT + L", hl.dsp.exec_cmd("swaylock --clock --effect-blur 7x5 --fade-in 0.2 --indicator") },
 }
 for _, bind in ipairs(utils_binds) do
     hl.bind(mainMod .. " + " .. bind[1], bind[2])
