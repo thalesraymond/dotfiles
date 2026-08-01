@@ -74,6 +74,10 @@
       "approve": true,
       "matchCommandLine": true,
     },
+    "/^hyprctl binds \\| sed -n '840,1010p'$/": {
+      "approve": true,
+      "matchCommandLine": true,
+    },
   },
   "vscode-pets.theme": "forest",
   "workbench.editorAssociations": {

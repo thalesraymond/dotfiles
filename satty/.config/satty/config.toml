@@ -1,0 +1,86 @@
+# ~/.config/satty/config.toml
+# Satty — modern screenshot annotation tool (https://github.com/Satty-org/Satty)
+# Deployed via stow: `stow satty` from the dotfiles repo root.
+
+[general]
+# Start Satty in fullscreen mode so the whole image is always visible
+fullscreen = false
+# Resize the window smartly to fit the captured image
+resize = { mode = "smart" }
+# Try to enforce floating (mileage may vary depending on the compositor)
+floating-hack = false
+
+# Exit directly after the copy/save actions complete
+early-exit = ["all"]
+
+# Draw rectangle corners round (0 disables rounded corners)
+corner-roundness = 12
+
+# Tool selected on startup
+initial-tool = "brush"
+
+# Command called on copy
+copy-command = "wl-copy"
+
+# File to save to (supports strftime specifiers and ~ for home dir)
+output-filename = "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"
+
+# Automatically copy to clipboard after every annotation change
+auto-copy = false
+
+# Hide toolbars by default
+default-hide-toolbars = false
+
+# Toggle toolbars based on window focus (does not affect initial state)
+focus-toggles-toolbars = false
+
+# Fill shapes by default
+default-fill-shapes = false
+
+# Primary highlighter, secondary is accessible holding CTRL
+primary-highlighter = "block"
+
+# Show notification daemon notifications
+disable-notifications = false
+
+# Actions to trigger on Enter key (order is important)
+actions-on-enter = ["save-to-clipboard", "save-to-file"]
+# Actions to trigger on Escape key (order is important)
+actions-on-escape = ["exit"]
+# Actions to trigger on right-click (order is important)
+actions-on-right-click = ["exit"]
+
+# Disable the window decoration (title bar, borders, ...)
+no-window-decoration = true
+
+# Brush input smoothing history size (0 disables smoothing)
+brush-smooth-history-size = 5
+
+# Pan / zoom / text movement settings
+# pan-step-size = 50.0
+# zoom-factor = 1.1
+# text-move-length = 50.0
+# input-scale = 1.0
+
+# Window title and app_id (must match D-Bus well-known name format)
+title = "Satty"
+app-id = "org.satty.satty"
+
+# Font to use for text annotations
+[font]
+family = "Adwaita Sans"
+style = "Regular"
+
+# Tool selection keyboard shortcuts
+[keybinds]
+pointer = "p"
+crop = "c"
+brush = "b"
+line = "i"
+arrow = "z"
+rectangle = "r"
+ellipse = "e"
+text = "t"
+marker = "m"
+blur = "u"
+highlight = "g"
