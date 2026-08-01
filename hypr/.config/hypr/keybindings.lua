@@ -10,18 +10,13 @@ local term       = "ghostty"
 local files      = "thunar"
 local scriptsDir = os.getenv("HOME") .. "/.config/hypr/scripts"
 
--- Helper: build a shell one-liner that checks the current layout
--- and dispatches accordingly.
+-- Helper: choose a command based on the active layout configured in Lua.
 local function layout_cmd(dwindle_cmd, scrolling_cmd)
-    return hl.dsp.exec_cmd(
-        'LAYOUT=$(hyprctl getoption general:layout -j | jq -r .str);'
-        .. ' if [ "$LAYOUT" = "scrolling" ]; then'
-        .. '   hyprctl dispatch ' .. scrolling_cmd .. ';'
-        .. ' else'
-        .. '   hyprctl dispatch ' .. scrolling_cmd .. ' 2>/dev/null'
-        .. '   || hyprctl dispatch ' .. dwindle_cmd .. ';'
-        .. ' fi'
-    )
+    if hl.get_config("general.layout") == "scrolling" then
+        return hl.dsp.layout(scrolling_cmd)
+    else
+        return hl.dsp.layout(dwindle_cmd)
+    end
 end
 
 ---------------------
@@ -104,8 +99,8 @@ end
 --   Scrolling → colresize (column width)
 --   Dwindle   → resizeactive (pixel-based)
 local resize_binds = {
-    { "minus",         layout_cmd("resizeactive -50 0", "layoutmsg colresize -0.1"),  { repeating = true } },
-    { "equal",         layout_cmd("resizeactive 50 0",  "layoutmsg colresize +0.1"),  { repeating = true } },
+    { "minus",         layout_cmd("splitratio -0.1", "colresize -0.1"),  { repeating = true } },
+    { "equal",         layout_cmd("splitratio +0.1",  "colresize +0.1"),  { repeating = true } },
 }
 for _, bind in ipairs(resize_binds) do
     hl.bind(mainMod .. " + " .. bind[1], bind[2], bind[3])

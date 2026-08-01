@@ -25,7 +25,7 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before turning this on
         allow_tearing    = false,
 
-        layout           = "scrolling", -- "dwindle" or "scrolling"
+        layout           = "dwindle", -- "dwindle" or "scrolling"
     },
 
     decoration = {
@@ -74,6 +74,7 @@ hl.config({
 
     dwindle = {
         preserve_split = true, -- You probably want this
+        smart_resizing   = true, 
     },
 
     master = {
