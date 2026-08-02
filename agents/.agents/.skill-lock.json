@@ -207,6 +207,420 @@
       "skillFolderHash": "ed0c74da985cf145a9dfe3554f914336e7ad515e",
       "installedAt": "2026-07-31T23:15:02.633Z",
       "updatedAt": "2026-07-31T23:15:02.633Z"
+    },
+    "golang-benchmark": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-benchmark/SKILL.md",
+      "skillFolderHash": "80847552c6a1adee0cd437f94502e5155047420f",
+      "installedAt": "2026-08-02T14:59:30.383Z",
+      "updatedAt": "2026-08-02T14:59:30.383Z"
+    },
+    "golang-cli": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-cli/SKILL.md",
+      "skillFolderHash": "863ac197f8994987b68ccff265d61b0c0edc8481",
+      "installedAt": "2026-08-02T14:59:30.384Z",
+      "updatedAt": "2026-08-02T14:59:30.384Z"
+    },
+    "golang-code-style": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-code-style/SKILL.md",
+      "skillFolderHash": "77a4f1448571cf897601b49ef6636bf2de6cf4d5",
+      "installedAt": "2026-08-02T14:59:30.385Z",
+      "updatedAt": "2026-08-02T14:59:30.385Z"
+    },
+    "golang-concurrency": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-concurrency/SKILL.md",
+      "skillFolderHash": "4d51cc1897c4ac6f89f77c907fc01cf11a052120",
+      "installedAt": "2026-08-02T14:59:30.385Z",
+      "updatedAt": "2026-08-02T14:59:30.385Z"
+    },
+    "golang-context": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-context/SKILL.md",
+      "skillFolderHash": "80c0cda7cf45f8e13b207c005ad7bf4383caf2c5",
+      "installedAt": "2026-08-02T14:59:30.386Z",
+      "updatedAt": "2026-08-02T14:59:30.386Z"
+    },
+    "golang-continuous-integration": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-continuous-integration/SKILL.md",
+      "skillFolderHash": "4e6f0461867264c10328943417438ace26521553",
+      "installedAt": "2026-08-02T14:59:30.386Z",
+      "updatedAt": "2026-08-02T14:59:30.386Z"
+    },
+    "golang-data-structures": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-data-structures/SKILL.md",
+      "skillFolderHash": "c778323b9a06ad2a29ad7c5b8925557ecf0bf4b0",
+      "installedAt": "2026-08-02T14:59:30.387Z",
+      "updatedAt": "2026-08-02T14:59:30.387Z"
+    },
+    "golang-database": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-database/SKILL.md",
+      "skillFolderHash": "026d9b44a2554c21e42b4532b63ab3f2abf0b70d",
+      "installedAt": "2026-08-02T14:59:30.390Z",
+      "updatedAt": "2026-08-02T14:59:30.390Z"
+    },
+    "golang-dependency-injection": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-dependency-injection/SKILL.md",
+      "skillFolderHash": "8ddd8f838133c7f6e6b2c0000b613f9388ade8a3",
+      "installedAt": "2026-08-02T14:59:30.396Z",
+      "updatedAt": "2026-08-02T14:59:30.396Z"
+    },
+    "golang-dependency-management": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-dependency-management/SKILL.md",
+      "skillFolderHash": "5dd9fcfa88c51b0842f803bb512c949febb304c8",
+      "installedAt": "2026-08-02T14:59:30.397Z",
+      "updatedAt": "2026-08-02T14:59:30.397Z"
+    },
+    "golang-design-patterns": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-design-patterns/SKILL.md",
+      "skillFolderHash": "96fcb3546dd8c8423b8d3f1abd3cade8f84ac5b9",
+      "installedAt": "2026-08-02T14:59:30.397Z",
+      "updatedAt": "2026-08-02T14:59:30.397Z"
+    },
+    "golang-documentation": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-documentation/SKILL.md",
+      "skillFolderHash": "8cb0e0e830f5621aea73572e14b2c3f2a80cf76c",
+      "installedAt": "2026-08-02T14:59:30.397Z",
+      "updatedAt": "2026-08-02T14:59:30.397Z"
+    },
+    "golang-google-wire": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-google-wire/SKILL.md",
+      "skillFolderHash": "12d1089dc690b87643a45a20b1040cef64a7d8a2",
+      "installedAt": "2026-08-02T14:59:30.398Z",
+      "updatedAt": "2026-08-02T14:59:30.398Z"
+    },
+    "golang-error-handling": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-error-handling/SKILL.md",
+      "skillFolderHash": "711d446cf0f3ca649378cc4871252690f9983c09",
+      "installedAt": "2026-08-02T14:59:30.398Z",
+      "updatedAt": "2026-08-02T14:59:30.398Z"
+    },
+    "golang-gopls": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-gopls/SKILL.md",
+      "skillFolderHash": "a6a508f6a006059d384373829e1a230b17c04cb2",
+      "installedAt": "2026-08-02T14:59:30.398Z",
+      "updatedAt": "2026-08-02T14:59:30.398Z"
+    },
+    "golang-graphql": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-graphql/SKILL.md",
+      "skillFolderHash": "3d0911cf3e8afaf151ede88eb3edea77246d6123",
+      "installedAt": "2026-08-02T14:59:30.399Z",
+      "updatedAt": "2026-08-02T14:59:30.399Z"
+    },
+    "golang-grpc": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-grpc/SKILL.md",
+      "skillFolderHash": "594b3388c51cc05d0caa5543d2779541270aabb2",
+      "installedAt": "2026-08-02T14:59:30.399Z",
+      "updatedAt": "2026-08-02T14:59:30.399Z"
+    },
+    "golang-how-to": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-how-to/SKILL.md",
+      "skillFolderHash": "9f75f80a1de51675ded551a79d69387d469db979",
+      "installedAt": "2026-08-02T14:59:30.399Z",
+      "updatedAt": "2026-08-02T14:59:30.399Z"
+    },
+    "golang-lint": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-lint/SKILL.md",
+      "skillFolderHash": "0506c6eb4f7e6fa46017147fe008169b593235df",
+      "installedAt": "2026-08-02T14:59:30.400Z",
+      "updatedAt": "2026-08-02T14:59:30.400Z"
+    },
+    "golang-modernize": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-modernize/SKILL.md",
+      "skillFolderHash": "01c23bea926c8a391507cb9404ab57450cfe8d67",
+      "installedAt": "2026-08-02T14:59:30.400Z",
+      "updatedAt": "2026-08-02T14:59:30.400Z"
+    },
+    "golang-naming": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-naming/SKILL.md",
+      "skillFolderHash": "e37421d502424b5dacea031dd0910e31fea0baa0",
+      "installedAt": "2026-08-02T14:59:30.401Z",
+      "updatedAt": "2026-08-02T14:59:30.401Z"
+    },
+    "golang-observability": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-observability/SKILL.md",
+      "skillFolderHash": "94e4fe96a8d02b034f07ae1913ef5d0205903f83",
+      "installedAt": "2026-08-02T14:59:30.401Z",
+      "updatedAt": "2026-08-02T14:59:30.401Z"
+    },
+    "golang-performance": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-performance/SKILL.md",
+      "skillFolderHash": "fc1089fb443467ee9fa224d12742efc991226533",
+      "installedAt": "2026-08-02T14:59:30.401Z",
+      "updatedAt": "2026-08-02T14:59:30.401Z"
+    },
+    "golang-pkg-go-dev": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-pkg-go-dev/SKILL.md",
+      "skillFolderHash": "4985e29e9d694d85a6b92d04b1458f7216e24267",
+      "installedAt": "2026-08-02T14:59:30.402Z",
+      "updatedAt": "2026-08-02T14:59:30.402Z"
+    },
+    "golang-popular-libraries": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-popular-libraries/SKILL.md",
+      "skillFolderHash": "791058c7988115a8dfdd2cb4e7b9bedbe0c71520",
+      "installedAt": "2026-08-02T14:59:30.402Z",
+      "updatedAt": "2026-08-02T14:59:30.402Z"
+    },
+    "golang-project-layout": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-project-layout/SKILL.md",
+      "skillFolderHash": "7a724d95e5aa00866fa4be46c0d41add5bf26ab6",
+      "installedAt": "2026-08-02T14:59:30.402Z",
+      "updatedAt": "2026-08-02T14:59:30.402Z"
+    },
+    "golang-refactoring": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-refactoring/SKILL.md",
+      "skillFolderHash": "b3b5200cff68728b07d74047cd6394e79c6a00f6",
+      "installedAt": "2026-08-02T14:59:30.403Z",
+      "updatedAt": "2026-08-02T14:59:30.403Z"
+    },
+    "golang-safety": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-safety/SKILL.md",
+      "skillFolderHash": "814c3b09b5c8975dbd8e00ccf4394376ebbe8359",
+      "installedAt": "2026-08-02T14:59:30.403Z",
+      "updatedAt": "2026-08-02T14:59:30.403Z"
+    },
+    "golang-samber-do": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-samber-do/SKILL.md",
+      "skillFolderHash": "6a376cf5542b4aa5d9f506661112add3483940d3",
+      "installedAt": "2026-08-02T14:59:30.403Z",
+      "updatedAt": "2026-08-02T14:59:30.403Z"
+    },
+    "golang-samber-hot": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-samber-hot/SKILL.md",
+      "skillFolderHash": "175c266e4312326bf6c9b7c03e1ffba2aa4d1c6c",
+      "installedAt": "2026-08-02T14:59:30.404Z",
+      "updatedAt": "2026-08-02T14:59:30.404Z"
+    },
+    "golang-samber-lo": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-samber-lo/SKILL.md",
+      "skillFolderHash": "5bee7f855a1435d7688d8d5941e31f8ee693d7c0",
+      "installedAt": "2026-08-02T14:59:30.404Z",
+      "updatedAt": "2026-08-02T14:59:30.404Z"
+    },
+    "golang-samber-mo": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-samber-mo/SKILL.md",
+      "skillFolderHash": "ff04763a09299e67d56c2b12faeb35779716e14e",
+      "installedAt": "2026-08-02T14:59:30.405Z",
+      "updatedAt": "2026-08-02T14:59:30.405Z"
+    },
+    "golang-samber-oops": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-samber-oops/SKILL.md",
+      "skillFolderHash": "e2748d6053d83b5828b0871268d68072f000b301",
+      "installedAt": "2026-08-02T14:59:30.405Z",
+      "updatedAt": "2026-08-02T14:59:30.405Z"
+    },
+    "golang-samber-ro": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-samber-ro/SKILL.md",
+      "skillFolderHash": "d7bc31df19966fa615b6b991c34c963aba5f0f48",
+      "installedAt": "2026-08-02T14:59:30.406Z",
+      "updatedAt": "2026-08-02T14:59:30.406Z"
+    },
+    "golang-samber-slog": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-samber-slog/SKILL.md",
+      "skillFolderHash": "200b1d336d8112a8d85858928985d17a3affd3cd",
+      "installedAt": "2026-08-02T14:59:30.406Z",
+      "updatedAt": "2026-08-02T14:59:30.406Z"
+    },
+    "golang-security": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-security/SKILL.md",
+      "skillFolderHash": "d3fd90dd2b30d15ea6c77830d3eef0e5d3049675",
+      "installedAt": "2026-08-02T14:59:30.406Z",
+      "updatedAt": "2026-08-02T14:59:30.406Z"
+    },
+    "golang-spf13-cobra": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-spf13-cobra/SKILL.md",
+      "skillFolderHash": "3812f0861701fa1010c396d61688d5aab395a8d8",
+      "installedAt": "2026-08-02T14:59:30.407Z",
+      "updatedAt": "2026-08-02T14:59:30.407Z"
+    },
+    "golang-spf13-viper": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-spf13-viper/SKILL.md",
+      "skillFolderHash": "1e2c74e7bbf88bb762007712f7d974922f9c3f2e",
+      "installedAt": "2026-08-02T14:59:30.407Z",
+      "updatedAt": "2026-08-02T14:59:30.407Z"
+    },
+    "golang-stay-updated": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-stay-updated/SKILL.md",
+      "skillFolderHash": "d3bf179f977f67b517399cd32d755c08cf034b00",
+      "installedAt": "2026-08-02T14:59:30.408Z",
+      "updatedAt": "2026-08-02T14:59:30.408Z"
+    },
+    "golang-stretchr-testify": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-stretchr-testify/SKILL.md",
+      "skillFolderHash": "0191c956e3f0e62fd16af585ee553b818e6b2191",
+      "installedAt": "2026-08-02T14:59:30.408Z",
+      "updatedAt": "2026-08-02T14:59:30.408Z"
+    },
+    "golang-structs-interfaces": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-structs-interfaces/SKILL.md",
+      "skillFolderHash": "68d5f2863d756e53fa7e0a0fd30c5f5b2081eee2",
+      "installedAt": "2026-08-02T14:59:30.409Z",
+      "updatedAt": "2026-08-02T14:59:30.409Z"
+    },
+    "golang-swagger": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-swagger/SKILL.md",
+      "skillFolderHash": "1d9f8a760281c8822aacdd8f43364b95b4e631bd",
+      "installedAt": "2026-08-02T14:59:30.409Z",
+      "updatedAt": "2026-08-02T14:59:30.409Z"
+    },
+    "golang-testing": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-testing/SKILL.md",
+      "skillFolderHash": "d9684bf2a7286b987a2cf0217780ba221d358b5e",
+      "installedAt": "2026-08-02T14:59:30.410Z",
+      "updatedAt": "2026-08-02T14:59:30.410Z"
+    },
+    "golang-troubleshooting": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-troubleshooting/SKILL.md",
+      "skillFolderHash": "2fa548467241c1478cd7795ae36b7c1bb692a359",
+      "installedAt": "2026-08-02T14:59:30.410Z",
+      "updatedAt": "2026-08-02T14:59:30.410Z"
+    },
+    "golang-uber-dig": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-uber-dig/SKILL.md",
+      "skillFolderHash": "ebe62ff270c90771b6367e6233052cbfda365cb2",
+      "installedAt": "2026-08-02T14:59:30.411Z",
+      "updatedAt": "2026-08-02T14:59:30.411Z"
+    },
+    "golang-uber-fx": {
+      "source": "samber/cc-skills-golang",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/samber/cc-skills-golang.git",
+      "skillPath": "skills/golang-uber-fx/SKILL.md",
+      "skillFolderHash": "8a32bce3fba41e4b6a4ef3718c2e1e1d4c3c7069",
+      "installedAt": "2026-08-02T14:59:30.412Z",
+      "updatedAt": "2026-08-02T14:59:30.412Z"
     }
   },
   "dismissed": {
