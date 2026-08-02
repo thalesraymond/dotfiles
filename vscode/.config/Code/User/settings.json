@@ -107,4 +107,7 @@
     },
     "https://wiki.hypr.land": true,
   },
+  "github.copilot.chat.summarizeAgentConversationHistory.enabled": true,
+  "github.copilot.chat.summarizeAgentConversationHistoryThreshold": 0.7,
+  "workbench.activityBar.location": "top",
 }
