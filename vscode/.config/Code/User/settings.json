@@ -109,5 +109,8 @@
   },
   "github.copilot.chat.summarizeAgentConversationHistory.enabled": true,
   "github.copilot.chat.summarizeAgentConversationHistoryThreshold": 0.7,
+  "chat.agent.sandbox.enabled": "off",
+  "window.newWindowProfile": "Default",
+  "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "top",
 }
