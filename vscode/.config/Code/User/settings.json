@@ -39,7 +39,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "workbench.editor.showTabs": "multiple",
   "workbench.colorCustomizations": {
     "[Tokyo Night]": {
       "activityBar.foreground": "#ffffffa4",
@@ -113,4 +112,5 @@
   "window.newWindowProfile": "Default",
   "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "top",
+  "telemetry.telemetryLevel": "error",
 }
