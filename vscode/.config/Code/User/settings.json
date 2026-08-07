@@ -110,7 +110,8 @@
   "github.copilot.chat.summarizeAgentConversationHistoryThreshold": 0.7,
   "chat.agent.sandbox.enabled": "off",
   "window.newWindowProfile": "Default",
-  "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "top",
   "telemetry.telemetryLevel": "error",
+  "githubPullRequests.pullBranch": "never",
+  "workbench.sideBar.location": "right",
 }
