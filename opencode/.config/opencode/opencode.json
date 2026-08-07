@@ -4,7 +4,7 @@
   "skills": {
     "paths": ["~/.config/agents/skills", "~/.agents/skills"]
   },
-  "plugin": ["@zenobius/opencode-skillful", "opencode-plugin-openspec"],
+  "plugin": ["opencode-plugin-openspec"],
   "agent": {
     "opencode-explore": {
       "name": "opencode-explore",
