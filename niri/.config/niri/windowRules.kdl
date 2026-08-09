@@ -144,11 +144,17 @@ window-rule {
     open-fullscreen true
 }
 
-// Thunar rename dialog
+// Thunar window
 window-rule {
     match app-id="Thunar"
-    match title=r"^Rename"
-    open-floating true
+    open-floating false
     //default-floating-position x=400 y=500 relative-to="bottom-right"
+}
+
+// thunar rename dialog 
+window-rule {
+    match app-id="Thunar" title="Rename"
+    open-floating true
+    default-floating-position x=400 y=500 relative-to="bottom-right"
 }
 
