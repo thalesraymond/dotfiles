@@ -53,6 +53,7 @@
     "plaintext": false,
     "markdown": true,
     "scminput": false,
+    "go": true,
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -114,4 +115,10 @@
   "telemetry.telemetryLevel": "error",
   "githubPullRequests.pullBranch": "never",
   "workbench.sideBar.location": "right",
+  "git.replaceTagsWhenPull": true,
+  "codeium.enableConfig": {
+    "*": true,
+    "Log": true,
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
 }
