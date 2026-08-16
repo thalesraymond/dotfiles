@@ -6,7 +6,7 @@
 -- Resize/navigation adapts based on the active layout at runtime.
 
 local mainMod    = "SUPER"
-local term       = "ghostty"
+local term       = "kitty"
 local files      = "thunar"
 local scriptsDir = os.getenv("HOME") .. "/.config/hypr/scripts"
 
