@@ -4,6 +4,7 @@
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace,'MesloLGMDZ Nerd Font'",
   "git.enableSmartCommit": true,
   "git.autofetch": true,
+  "git.detectWorktrees": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
