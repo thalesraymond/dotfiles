@@ -116,6 +116,16 @@ window-rule {
     open-maximized-to-edges false
 }
 
+window-rule {
+    match app-id="obsidian"
+    open-on-workspace "home"
+    open-focused false
+    open-maximized false
+    open-fullscreen false
+    open-maximized-to-edges false
+    default-column-width { proportion 0.7; }
+}
+
 
 // Steam client and Lutris on "games" workspace (side by side)
 window-rule {

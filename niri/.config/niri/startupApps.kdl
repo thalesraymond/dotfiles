@@ -7,12 +7,17 @@ spawn-sh-at-startup "qs"
 spawn-sh-at-startup "killall swaync"
 
 //spawn-at-startup "waybar"
-//spawn-sh-at-startup "dms run"
+
+
+spawn-sh-at-startup "dms run"
+//spawn-at-startup "noctalia"
+
 
 spawn-at-startup "zapzap" 
 spawn-sh-at-startup "discord --start-minimized" 
 spawn-at-startup "sleep 4 &&thunderbird" 
 spawn-at-startup "zen-browser" 
+spawn-sh-at-startup "sleep 3 && obsidian"
 spawn-sh-at-startup "sleep 3 && spotify"
 spawn-at-startup "lutris" 
 spawn-at-startup "steam" 
