@@ -1,5 +1,5 @@
 # Media server stack — qBittorrent + FlareSolverr + Prowlarr + Sonarr +
-# Radarr + Bazarr + Maintainerr + Jellyfin
+# Radarr + Bazarr + Maintainerr + Jellyfin + Portainer
 #
 #   Run:            docker compose up -d        (from this directory)
 #   Stop:           docker compose down
@@ -150,3 +150,22 @@ services:
       - /mnt/media_storage/media/tv:/data/tvshows
       - /mnt/media_storage/media/movies:/data/movies
     restart: unless-stopped
+
+  portainer:
+    # Container manager web UI. Mounts the host docker socket, so it manages
+    # ALL containers on this daemon — media stack AND dev containers
+    # (databases, web servers, etc.) — not just this compose project.
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    # Security note: /var/run/docker.sock grants root-equivalent access to the
+    # host. Acceptable on a single-user machine, which this is.
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    ports:
+      - "8000:8000"        # Edge agent / tunnel
+      - "9443:9443"        # HTTPS WebUI
+    restart: unless-stopped
+
+volumes:
+  portainer_data:
