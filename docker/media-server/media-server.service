@@ -1,0 +1,28 @@
+# Media server Docker Compose stack (qBittorrent, FlareSolverr, Prowlarr,
+# Sonarr, Radarr, Bazarr, Maintainerr, Jellyfin)
+#
+# Install (adjust WorkingDirectory if this repo lives somewhere else):
+#   sudo systemctl link /home/thales/dotfiles/docker/media-server/media-server.service
+#   sudo systemctl enable --now media-server.service
+#
+# Individual containers additionally self-restart via restart: unless-stopped.
+
+[Unit]
+Description=Media server Docker Compose stack (qBittorrent, FlareSolverr, Prowlarr, Sonarr, Radarr, Bazarr, Maintainerr, Jellyfin)
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+# Ensure the media HDD is mounted before containers start
+RequiresMountsFor=/mnt/media_storage
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+Restart=on-failure
+RestartSec=10
+WorkingDirectory=/home/thales/dotfiles/docker/media-server
+ExecStart=/usr/bin/docker compose up -d
+ExecStop=/usr/bin/docker compose down
+
+[Install]
+WantedBy=multi-user.target
