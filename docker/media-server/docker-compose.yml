@@ -1,0 +1,152 @@
+# Media server stack — qBittorrent + FlareSolverr + Prowlarr + Sonarr +
+# Radarr + Bazarr + Maintainerr + Jellyfin
+#
+#   Run:            docker compose up -d        (from this directory)
+#   Stop:           docker compose down
+#   Config state:   ./config/<service>/         (gitignored, back up separately)
+#
+# Storage layout (secondary HDD mounted at /mnt/media_storage):
+#   /mnt/media_storage/downloads        active/completed torrent downloads
+#   /mnt/media_storage/media/movies     Radarr-managed movies
+#   /mnt/media_storage/media/tv         Sonarr-managed TV shows
+#
+# All services run as PUID=1000/PGID=1000 (host user 1000) with
+# TZ=America/Sao_Paulo and restart: unless-stopped.
+
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./config/qbittorrent:/config
+      - /mnt/media_storage/downloads:/downloads
+    ports:
+      - "8080:8080"        # WebUI
+      - "6881:6881"        # TCP
+      - "6881:6881/udp"    # UDP
+    restart: unless-stopped
+
+  flaresolverr:
+    # Official image — LinuxServer retired their FlareSolverr build
+    # (lscr.io/linuxserver/flaresolverr no longer exists). Runs as non-root;
+    # the LSIO PUID/PGID/TZ env vars don't apply here.
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    # Resolves Cloudflare challenges for indexers. Internal only — no host
+    # port; Prowlarr → Settings → Indexers → FlareSolverr API URL:
+    #   http://flaresolverr:8191
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./config/prowlarr:/config
+    ports:
+      - "9696:9696"        # WebUI
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./config/sonarr:/config
+      - /mnt/media_storage/media/tv:/tv
+      - /mnt/media_storage/downloads:/downloads
+    ports:
+      - "8989:8989"        # WebUI
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./config/radarr:/config
+      - /mnt/media_storage/media/movies:/movies
+      - /mnt/media_storage/downloads:/downloads
+    ports:
+      - "7878:7878"        # WebUI
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./config/bazarr:/config
+      - /mnt/media_storage/media/movies:/movies
+      - /mnt/media_storage/media/tv:/tv
+    ports:
+      - "6767:6767"        # WebUI
+    restart: unless-stopped
+
+  maintainerr:
+    image: ghcr.io/maintainerr/maintainerr:latest
+    container_name: maintainerr
+    # Not an LSIO image — runs as `user:` (no PUID/PGID env vars). UID/GID
+    # 1000 must own the config dir AND the media for rule-based file deletion.
+    user: 1000:1000
+    environment:
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./config/maintainerr:/opt/data
+      # Mounted at the same container paths Sonarr/Radarr report, so the
+      # "leftover folder" cleanup can delete files from disk
+      - /mnt/media_storage/media/tv:/tv
+      - /mnt/media_storage/media/movies:/movies
+    ports:
+      - "6246:6246"        # WebUI
+    restart: unless-stopped
+
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+      # NVIDIA NVENC/NVDEC — LSIO images add the remaining driver env vars
+      # automatically; NVIDIA_VISIBLE_DEVICES can be a specific GPU UUID
+      # (nvidia-smi --query-gpu=gpu_name,gpu_uuid --format=csv)
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    ports:
+      - "8096:8096"        # HTTP WebUI / streaming
+      # Optional (LSIO): 8920:8920 (HTTPS), 7359:7359/udp (discovery),
+      # 1900:1900/udp (DLNA)
+    # No /dev/dri mapping needed: NVIDIA NVENC/NVDEC uses /dev/nvidia*,
+    # which nvidia-container-toolkit mounts via the GPU reservation below.
+    # Only add `devices: - /dev/dri:/dev/dri` on Intel/AMD hosts (VAAPI/QSV).
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, video]
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - ./config/jellyfin:/config
+      - /mnt/media_storage/media/tv:/data/tvshows
+      - /mnt/media_storage/media/movies:/data/movies
+    restart: unless-stopped

@@ -1,0 +1,3 @@
+# Everything under docker/ is excluded from stow — this is not a dotfile
+# package. It holds the local Docker media-server stack (see media-server/).
+.*

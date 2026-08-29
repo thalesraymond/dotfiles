@@ -3,3 +3,6 @@ vs-code
 .vscode/settings.json
 
 dms/.config/DankMaterialShell/plugin_settings.json
+
+# Docker media server — local runtime state (configs are machine-specific)
+docker/media-server/config/

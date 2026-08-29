@@ -8,7 +8,7 @@ Personal Arch/CachyOS Linux desktop configuration managed with GNU Stow.
   Top-level directories are Stow packages; top-level files (`fix-cedilla`, `pkglist.txt`, `aurlist.txt`, screenshots, etc.) are **not** deployed.
 - Deploy one package: `stow <dir>` (e.g. `stow hypr`).
 - Package layout mirrors the home directory: `hypr/.config/hypr/*` → `~/.config/hypr/*`, `zshrc/.zshrc` → `~/.zshrc`.
-  Packages that exist only for reference/backups are **not** stowed (e.g. `hypr_full_old`).
+  Packages that exist only for reference/backups are **not** stowed (e.g. `hypr_full_old`). `docker` is also **not** stowed — `docker/.stow-local-ignore` excludes it; it holds the local media-server compose stack, not dotfiles.
 
 ## Generated / auto-managed files
 
