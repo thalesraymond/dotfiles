@@ -1,12 +1,12 @@
 ---
 name: golang-samber-mo
-description: "Monadic types for Golang using samber/mo — Option, Result, Either, Future, IO, Task, and State types for type-safe nullable values, error handling, and functional composition with pipeline sub-packages. Apply when using or adopting samber/mo, when the codebase imports `github.com/samber/mo`, or when considering functional programming patterns as a safety design for Golang."
+description: "Monadic types for Golang using samber/mo — Option, Result, Either, Future, IO, Task, and State types for type-safe nullable values, error handling, and functional composition with pipeline sub-packages. Apply when using or adopting samber/mo, when the codebase imports `github.com/samber/mo`, or when considering functional programming patterns as a safety design for Golang. Not for nil-safety and zero-value design without this library (→ See `samber/cc-skills-golang@golang-safety` skill), nor for native error wrapping with fmt.Errorf, errors.Is and errors.As (→ See `samber/cc-skills-golang@golang-error-handling` skill)."
 user-invocable: true
 license: MIT
-compatibility: Designed for Claude Code or similar AI coding agents, and for projects using Golang.
+compatibility: Designed for Claude Code, Codex or similar harness, and for projects using Golang.
 metadata:
   author: samber
-  version: "1.0.7"
+  version: "1.1.2"
   openclaw:
     emoji: "🎭"
     homepage: https://github.com/samber/cc-skills-golang
@@ -16,11 +16,13 @@ metadata:
     install: []
     skill-library-version: "1.16.0"
 allowed-tools: Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent WebFetch mcp__context7__resolve-library-id mcp__context7__query-docs AskUserQuestion Bash(godig:*) Bash(gopls:*) LSP mcp__gopls__*
+paths:
+  - "**/*.go"
 ---
 
 **Persona:** You are a Go engineer bringing functional programming safety to Go. You use monads to make impossible states unrepresentable — nil checks become type constraints, error handling becomes composable pipelines.
 
-**Thinking mode:** Use `ultrathink` when designing multi-step Option/Result/Either pipelines. Wrong type choice creates unnecessary wrapping/unwrapping that defeats the purpose of monads.
+**Thinking mode:** Reason as thoroughly as possible when designing multi-step Option/Result/Either pipelines — wrong type choice creates unnecessary wrapping/unwrapping that defeats the purpose of monads. On Claude Code, use `ultrathink` to trigger extended thinking explicitly.
 
 # samber/mo — Monads and Functional Abstractions for Go
 
@@ -31,7 +33,11 @@ Go 1.18+ library providing type-safe monadic types with zero dependencies. Inspi
 - [pkg.go.dev/github.com/samber/mo](https://pkg.go.dev/github.com/samber/mo)
 - [github.com/samber/mo](https://github.com/samber/mo)
 
-This skill is not exhaustive. Please refer to library documentation and code examples for more information. For Go package docs, symbols, versions, importers, and known vulnerabilities, → See `samber/cc-skills-golang@golang-pkg-go-dev` skill (`godig`) — prefer it over Context7 for Go package facts. To navigate this library's usage in your own code (definitions, call sites, diagnostics), → See `samber/cc-skills-golang@golang-gopls` skill (`gopls`). Context7 remains a fallback for docs not indexed on pkg.go.dev.
+This skill is not exhaustive — refer to library documentation and code examples for more information:
+
+- For Go package docs, symbols, versions, importers, and known vulnerabilities, → See `samber/cc-skills-golang@golang-pkg-go-dev` skill (`godig`), preferred over Context7 for Go package facts.
+- To navigate this library's usage in your own code (definitions, call sites, diagnostics), → See `samber/cc-skills-golang@golang-gopls` skill (`gopls`).
+- Context7 remains a fallback for docs not indexed on pkg.go.dev.
 
 ```bash
 go get github.com/samber/mo
@@ -268,8 +274,8 @@ If you encounter a bug or unexpected behavior in samber/mo, open an issue at <ht
 
 ## Cross-References
 
-- -> See `samber/cc-skills-golang@golang-samber-lo` skill for functional collection transforms (Map, Filter, Reduce on slices) that compose with mo types
-- -> See `samber/cc-skills-golang@golang-error-handling` skill for idiomatic Go error handling patterns
-- -> See `samber/cc-skills-golang@golang-safety` skill for nil-safety and defensive Go coding
-- -> See `samber/cc-skills-golang@golang-database` skill for database access patterns
-- -> See `samber/cc-skills-golang@golang-design-patterns` skill for functional options and other Go patterns
+- → See `samber/cc-skills-golang@golang-samber-lo` skill for functional collection transforms (Map, Filter, Reduce on slices) that compose with mo types
+- → See `samber/cc-skills-golang@golang-error-handling` skill for idiomatic Go error handling patterns
+- → See `samber/cc-skills-golang@golang-safety` skill for nil-safety and defensive Go coding
+- → See `samber/cc-skills-golang@golang-database` skill for database access patterns
+- → See `samber/cc-skills-golang@golang-design-patterns` skill for functional options and other Go patterns

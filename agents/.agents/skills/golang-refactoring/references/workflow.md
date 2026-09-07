@@ -3,9 +3,21 @@
 - A refactor of any real size is a choreography problem before it is a coding problem.
 - This file covers: how to plan the sequence, order the steps so they don't collide, stage them as small human-reviewed PRs, and persist the plan itself — in the code, not just in a conversation that will eventually run out of context — for the intermediate states that are deliberately imperfect and for the ideas that would otherwise be lost.
 
+## Table of Contents
+
+- [1. The Planning Gate (mandatory, before any edit)](#1-the-planning-gate-mandatory-before-any-edit)
+- [2. Three Interacting Orderings](#2-three-interacting-orderings)
+  - [Parallel vs. sequential — decision checklist](#parallel-vs-sequential--decision-checklist)
+- [3. The Git Model](#3-the-git-model)
+- [4. Parallel vs. Sequential Execution](#4-parallel-vs-sequential-execution)
+- [5. The `// REFACTOR(step N): ...` Marker Convention](#5-the--refactorstep-n--marker-convention)
+- [6. Workflows (`ultracode`) vs. Human-in-the-Loop](#6-workflows-ultracode-vs-human-in-the-loop)
+- [7. Human Checkpoints](#7-human-checkpoints)
+- [Cross-References](#cross-references)
+
 ## 1. The Planning Gate (mandatory, before any edit)
 
-**Thinking mode:** use `ultrathink` here. A wrong ordering call does not surface as an obviously wrong plan — it surfaces later as a broken build or a conflict-riddled merge, once several PRs are already in flight. Getting the sequencing right up front is cheaper than untangling it after the fact.
+**Thinking mode:** reason as thoroughly as possible here — on Claude Code, use `ultrathink` to trigger extended thinking explicitly. A wrong ordering call does not surface as an obviously wrong plan — it surfaces later as a broken build or a conflict-riddled merge, once several PRs are already in flight. Getting the sequencing right up front is cheaper than untangling it after the fact.
 
 - Before touching a single line of code, map the blast radius with gopls:
   - find every reference to the symbols you intend to change
@@ -75,8 +87,8 @@ If any answer is yes, the two rows are sequential. Only when every answer is no 
 The shape:
 
 1. Create a long-lived `refactor/<topic>` branch off `main`, and seed it with `// REFACTOR(step N): ...` markers for the plan itself — see Step 5.
-2. For each atomic change in the inventory, in the order established in Step 2, **dispatch it to a sub-agent via the `Agent` tool** rather than executing it directly in the orchestrating session. The sub-agent, scoped to a fresh worktree, does the work:
-   - Enter a fresh worktree with `EnterWorktree`.
+2. For each atomic change in the inventory, in the order established in Step 2, **dispatch it to a sub-agent** rather than executing it directly in the orchestrating session. The sub-agent, scoped to a fresh worktree, does the work:
+   - Enter a fresh, isolated worktree.
    - Create a branch for that one change, based on the current tip of `refactor/<topic>`.
    - Apply the single change — and nothing else. If the inventory row is turning out larger than **~100–500 lines**, that's a signal it's actually two rows: split it before it grows into a diff nobody can review in one sitting.
    - Verify: `go build ./... && go vet ./... && go test ./...` (add `-race` or `benchstat`-backed `-bench` per the Risk Stratification table in `SKILL.md`).
@@ -146,13 +158,7 @@ grep -rn "REFACTOR(" .
 
 ## 7. Human Checkpoints
 
-Pause and get explicit sign-off before proceeding past any of the following, even mid-refactor after the planning gate has already been cleared once:
-
-- Any cross-package move or package split.
-- Any exported-API change or deprecation.
-- Any deletion of code, especially anything that might still have external callers you haven't found.
-- Introducing a new major version (`/vN`).
-- Touching code that has no tests — get sign-off on the characterization-test baseline (see [safety-net.md](safety-net.md)) before refactoring it, not after.
+The same triggers as `SKILL.md`'s "Pause for human sign-off before" list apply here — cross-package moves, exported-API changes, deletions, new major versions, untested code — and they're not one-time: get sign-off on each one again if it comes up mid-refactor, even after the planning gate has already been cleared once. For untested code specifically, that means sign-off on the characterization-test baseline (see [safety-net.md](safety-net.md)) before refactoring it, not after.
 
 Structural-only PRs are reversible and low-risk by construction (Beck's separation is the whole reason they're safe to move fast on) and can be fast-reviewed. Behavioral PRs — anything that changes what the code does, not just how it's shaped — get full scrutiny every time, regardless of how small the diff looks.
 

@@ -1,12 +1,12 @@
 ---
 name: golang-continuous-integration
-description: "CI/CD pipeline configuration using GitHub Actions for Golang projects — testing, linting, SAST, security scanning, code coverage, Dependabot, Renovate, GoReleaser, code review automation, and release pipelines. Use when setting up or improving Go project CI, configuring GitHub Actions workflows, adding linters or security scanners, automating dependency updates, or adding quality gates."
+description: "GitHub Actions CI/CD pipeline configuration for Golang projects — workflow files for test, lint, SAST, coverage and vulnerability-scan jobs, Dependabot and Renovate config files, GoReleaser release pipelines, Docker build/push, repository security settings, and AI-driven PR review. Use when setting up or improving Go project CI, writing or fixing `.github/workflows/*.yml`, adding a linter or security scanner as a pipeline job, wiring automated dependency-update bots, or adding quality gates. Covers wiring tools into a pipeline, not the analysis they perform: do NOT use for choosing or interpreting security findings (→ See `samber/cc-skills-golang@golang-security` skill) or for choosing, upgrading, or auditing dependency versions (→ See `samber/cc-skills-golang@golang-dependency-management` skill)."
 user-invocable: true
 license: MIT
-compatibility: Designed for Claude Code or similar AI coding agents, and for projects using Golang.
+compatibility: Designed for Claude Code, Codex or similar harness, and for projects using Golang.
 metadata:
   author: samber
-  version: "1.3.1"
+  version: "1.4.2"
   openclaw:
     emoji: "🚀"
     homepage: https://github.com/samber/cc-skills-golang
@@ -72,13 +72,16 @@ The versions in the examples below are reference versions that may be outdated. 
 Adapt the Go version matrix to match `go.mod`:
 
 ```
-go 1.23   → matrix: ["1.23", "1.24", "1.25", "1.26", "stable"]
-go 1.24   → matrix: ["1.24", "1.25", "1.26", "stable"]
-go 1.25   → matrix: ["1.25", "1.26", "stable"]
-go 1.26   → matrix: ["1.26", "stable"]
+go 1.23   → matrix: ["1.23", "1.24", "1.25", "1.26", "1.27", "stable"]
+go 1.24   → matrix: ["1.24", "1.25", "1.26", "1.27", "stable"]
+go 1.25   → matrix: ["1.25", "1.26", "1.27", "stable"]
+go 1.26   → matrix: ["1.26", "1.27", "stable"]
+go 1.27   → matrix: ["1.27", "stable"]
 ```
 
 Use `fail-fast: false` so a failure on one Go version doesn't cancel the others.
+
+Go 1.27 raises the Darwin floor to macOS 13 (Ventura). `macos-latest`/`macos-14`+ runners are unaffected; only pin an older `macos-12` runner if a project still needs it, and note it can no longer build with a Go 1.27 toolchain.
 
 Test flags:
 
@@ -115,7 +118,10 @@ Create `.golangci.yml` at the root of the project. See the `samber/cc-skills-gol
 
 `.github/workflows/security.yml` — see [security.yml](./assets/security.yml)
 
-CI MUST run `govulncheck`. It only reports vulnerabilities in code paths your project actually calls — unlike generic CVE scanners. CodeQL results appear in the repository's Security tab. Bearer is good at detecting sensitive data flow issues.
+CI MUST run `govulncheck` — it only reports vulnerabilities in code paths your project actually calls, unlike generic CVE scanners.
+
+- CodeQL results appear in the repository's Security tab.
+- Bearer is good at detecting sensitive data flow issues.
 
 ### CodeQL Configuration
 
@@ -224,6 +230,8 @@ Repository security settings (branch protection, workflow permissions, secrets, 
 Add AI agents as PR reviewers alongside traditional static analysis. When loaded with this skill plugin, the agent applies the relevant Go skills per review area — catching architectural drift, logic bugs, missing error context, and concurrency hazards that linters cannot detect.
 
 > **Cost note:** AI review agents run concurrently per PR. For cost control, remove jobs you don't need or raise the PR trigger filter to specific branches only.
+
+Each subsection below is a generated artifact targeting one specific reviewer — the linked asset file runs on a CI runner, not the developer's local harness, so its tool names and permission flags are deliberately literal rather than capability prose.
 
 ### Claude Code
 
