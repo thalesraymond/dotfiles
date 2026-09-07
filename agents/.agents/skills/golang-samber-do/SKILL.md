@@ -3,10 +3,10 @@ name: golang-samber-do
 description: "Dependency injection in Golang using samber/do — service containers, lifecycle management, scopes, health checks, graceful shutdown, and module organization. Apply when using or adopting samber/do, when the codebase imports github.com/samber/do or github.com/samber/do/v2, or when refactoring manual constructor injection into a DI container."
 user-invocable: true
 license: MIT
-compatibility: Designed for Claude Code or similar AI coding agents, and for projects using Golang.
+compatibility: Designed for Claude Code, Codex or similar harness, and for projects using Golang.
 metadata:
   author: samber
-  version: "1.2.5"
+  version: "1.3.2"
   openclaw:
     emoji: "💉"
     homepage: https://github.com/samber/cc-skills-golang
@@ -16,6 +16,8 @@ metadata:
     install: []
     skill-library-version: "2.0.0"
 allowed-tools: Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent WebFetch mcp__context7__resolve-library-id mcp__context7__query-docs Bash(godig:*) Bash(gopls:*) LSP mcp__gopls__*
+paths:
+  - "**/*.go"
 ---
 
 **Persona:** You are a Go architect setting up dependency injection. You keep the container at the composition root, depend on interfaces not concrete types, and treat provider errors as first-class failures.
@@ -30,9 +32,13 @@ Type-safe dependency injection toolkit for Go based on Go 1.18+ generics.
 - [do.samber.dev](https://do.samber.dev)
 - [github.com/samber/do/v2](https://github.com/samber/do)
 
-This skill is not exhaustive. Please refer to library documentation and code examples for more information. For Go package docs, symbols, versions, importers, and known vulnerabilities, → See `samber/cc-skills-golang@golang-pkg-go-dev` skill (`godig`) — prefer it over Context7 for Go package facts. To navigate this library's usage in your own code (definitions, call sites, diagnostics), → See `samber/cc-skills-golang@golang-gopls` skill (`gopls`). Context7 remains a fallback for docs not indexed on pkg.go.dev.
+This skill is not exhaustive — refer to library documentation and code examples for more information:
 
-DO NOT USE v1 OF THIS LIBRARY. INSTALL v2 INSTEAD:
+- For Go package docs, symbols, versions, importers, and known vulnerabilities, → See `samber/cc-skills-golang@golang-pkg-go-dev` skill (`godig`), preferred over Context7 for Go package facts.
+- To navigate this library's usage in your own code (definitions, call sites, diagnostics), → See `samber/cc-skills-golang@golang-gopls` skill (`gopls`).
+- Context7 remains a fallback for docs not indexed on pkg.go.dev.
+
+Install v2 — v1 is superseded and lacks the generics-based container, scopes, and lifecycle hooks documented below, so v1-era guidance misleads on every API in this skill:
 
 ```bash
 go get -u github.com/samber/do/v2
@@ -100,7 +106,11 @@ db, err := do.Invoke[Database](injector)
 db := do.MustInvoke[Database](injector)
 ```
 
-Inside a provider function, always use `do.MustInvoke` (or `MustInvokeAs`/`MustInvokeNamed`/`MustInvokeStruct`) rather than the error-returning variant. A provider already returns `(T, error)`, so propagating a dependency failure with `do.Invoke` costs an extra `if err != nil { return nil, err }` on every call. `do.MustInvoke` panics instead, but samber/do correctly catches and recovers that panic at the enclosing `Invoke` call and converts it back into a regular error — this recover happens inside the library itself, not in caller code, so `MustInvoke` is safe to use inside providers. The failure still surfaces as an error at the composition root, just without the manual boilerplate in every provider.
+Inside a provider function, always use `do.MustInvoke` (or `MustInvokeAs`/`MustInvokeNamed`/`MustInvokeStruct`) rather than the error-returning variant:
+
+- A provider already returns `(T, error)`, so propagating a dependency failure with `do.Invoke` costs an extra `if err != nil { return nil, err }` on every call.
+- `do.MustInvoke` panics instead, but samber/do correctly catches and recovers that panic at the enclosing `Invoke` call and converts it back into a regular error — this recover happens inside the library itself, not in caller code, so `MustInvoke` is safe to use inside providers.
+- The failure still surfaces as an error at the composition root, just without the manual boilerplate in every provider.
 
 ### 3. Service Dependencies
 
