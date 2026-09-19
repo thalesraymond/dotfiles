@@ -1,0 +1,22 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "calculator": {
+      "repo": "https://github.com/rochacbruno/DankCalculator",
+      "commit": "07d7c123a5aee9ac4fd4347bbae36d5957b021f9"
+    },
+    "dmsThemeSync": {
+      "repo": "https://github.com/arqueon/dms-theme-sync",
+      "commit": "2607942db4fbd00505199f665ee3137aa57a6d1d"
+    },
+    "wallpaperBing": {
+      "repo": "https://github.com/max72bra/DankPluginBingWallpaper",
+      "commit": "2958f72c9469c2cc2d8624036f348d4c1df4c0f2"
+    },
+    "wallpaperDiscovery": {
+      "repo": "https://github.com/lucyfire/dms-plugins",
+      "path": "wallpaperDiscovery",
+      "commit": "3a22c32e06d153d6a13bb18b10eb41615c564a05"
+    }
+  }
+}
