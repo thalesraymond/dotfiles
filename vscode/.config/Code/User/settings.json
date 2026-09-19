@@ -123,7 +123,6 @@
   "workbench.activityBar.location": "top",
   "telemetry.telemetryLevel": "error",
   "githubPullRequests.pullBranch": "never",
-  "workbench.sideBar.location": "right",
   "git.replaceTagsWhenPull": true,
   "codeium.enableConfig": {
     "*": true,
