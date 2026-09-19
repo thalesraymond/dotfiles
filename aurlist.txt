@@ -8,13 +8,11 @@ github-desktop-bin
 golangci-lint-bin
 greetd-dms-greeter-bin
 hyprwayland-scanner-git
-insomnium-bin
 jetbrains-toolbox
 lib32-sdl2-compat
 libastal-4-git
 libastal-git
 libastal-io-git
-linux-wallpaperengine-git
 lug-helper
 muffon-bin
 nexusmods-app-bin
@@ -26,7 +24,6 @@ sddm-conf
 sddm-silent-theme
 spicetify-cli
 spotify
-telegram-desktop-bin
 ttf-material-icons-git
 ttf-material-symbols-variable-git
 ttf-victor-mono
