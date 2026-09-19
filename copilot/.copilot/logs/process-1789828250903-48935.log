@@ -1,0 +1,9 @@
+2026-09-19T14:30:50.924Z [INFO] Starting CLI in server mode (stdio)
+2026-09-19T14:30:50.928Z [INFO] Starting CLI in stdio mode (Rust JSON-RPC engine)
+2026-09-19T14:30:50.929Z [INFO] CLI server ready (stdio mode, Rust JSON-RPC engine)
+2026-09-19T14:30:50.929Z [INFO] Server started, waiting for requests
+2026-09-19T14:30:50.933Z [INFO] Shell completions: installed fish completions to /home/thales/.config/fish/completions/copilot.fish
+2026-09-19T14:31:01.734Z [INFO] Preparing runtime for graceful shutdown
+2026-09-19T14:31:01.734Z [INFO] Starting graceful shutdown of CLI server
+2026-09-19T14:31:01.734Z [INFO] Destroying 0 active sessions
+2026-09-19T14:31:01.735Z [INFO] CLI server prepared for shutdown; transport remains open for RPC response
