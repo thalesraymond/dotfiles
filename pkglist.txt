@@ -125,7 +125,6 @@ hyprland
 hyprshot
 inetutils
 inotify-tools
-insomnium-bin
 inter-font
 iptables
 iwd
@@ -152,7 +151,6 @@ linux-cachyos-lts-headers
 linux-cachyos-lts-nvidia-open
 linux-cachyos-nvidia-open
 linux-firmware
-linux-wallpaperengine-git
 logrotate
 loupe
 lsb-release
