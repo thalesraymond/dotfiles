@@ -188,7 +188,6 @@ networkmanager-openvpn
 nexusmods-app-bin
 nfs-utils
 nilfs-utils
-niri-git
 notification-daemon
 noto-color-emoji-fontconfig
 noto-fonts
@@ -339,5 +338,4 @@ xwayland-satellite
 yad
 yay
 yt-dlp
-zapzap
 zen-browser-bin
