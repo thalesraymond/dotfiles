@@ -22,3 +22,8 @@ vscode/.config/Code/Code Cache/**
 vscode/.config/Code/CachedProfileData/**
 copilot/.copilot/logs/**
 vscode/.config/Code/agent-host/**
+vscode/.config/Code/logs/**
+vscode/.config/Code/User/globalStorage/**
+vscode/.config/Code/User/History/**
+vscode/.config/Code/User/workspaceStorage/**
+vscode/.config/Code/User/sync/**
