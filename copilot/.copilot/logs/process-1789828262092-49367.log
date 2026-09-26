@@ -1,5 +1,0 @@
-2026-09-19T14:31:02.114Z [INFO] Starting CLI in server mode (stdio)
-2026-09-19T14:31:02.118Z [INFO] Starting CLI in stdio mode (Rust JSON-RPC engine)
-2026-09-19T14:31:02.119Z [INFO] CLI server ready (stdio mode, Rust JSON-RPC engine)
-2026-09-19T14:31:02.119Z [INFO] Server started, waiting for requests
-2026-09-19T14:31:02.123Z [INFO] Shell completions: installed fish completions to /home/thales/.config/fish/completions/copilot.fish
