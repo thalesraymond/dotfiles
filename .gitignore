@@ -6,3 +6,19 @@ dms/.config/DankMaterialShell/plugin_settings.json
 
 # Docker media server — local runtime state (configs are machine-specific)
 docker/media-server/config/
+
+
+copilot/.copilot/logs/
+copilot/.copilot/logs/**
+copilot/.copilot/logs/ide/**
+vscode/.config/Code/Cache/**
+vscode/.config/Code/CachedData/**
+vscode/.config/Code/CachedConfigurations/**
+vscode/.config/Code/CachedExtensionVSIXs/**
+vscode/.config/Code/CachedExtensions/**
+vscode/.config/Code/CachedExtensionsVSIXs/**
+vscode/.config/Code/CachedExtensionVSIXs/**
+vscode/.config/Code/Code Cache/**
+vscode/.config/Code/CachedProfileData/**
+copilot/.copilot/logs/**
+vscode/.config/Code/agent-host/**
