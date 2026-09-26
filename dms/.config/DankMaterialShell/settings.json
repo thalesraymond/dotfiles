@@ -90,6 +90,11 @@
       "showOnLastDisplay": true,
       "leftWidgets": [
         {
+          "id": "spacer",
+          "enabled": true,
+          "size": 200
+        },
+        {
           "id": "workspaceSwitcher",
           "enabled": true
         }
@@ -131,19 +136,13 @@
         },
         {
           "id": "systemUpdate",
-          "enabled": true
+          "enabled": true,
+          "hideWhenIdle": false
         },
         {
-          "id": "wallpaperDiscovery",
-          "enabled": true
-        },
-        {
-          "id": "wallpaperBing",
-          "enabled": true
-        },
-        {
-          "id": "aiOverviewControl",
-          "enabled": true
+          "id": "spacer",
+          "enabled": true,
+          "size": 200
         }
       ],
       "spacing": 0,
