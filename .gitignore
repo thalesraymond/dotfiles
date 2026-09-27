@@ -11,19 +11,9 @@ docker/media-server/config/
 copilot/.copilot/logs/
 copilot/.copilot/logs/**
 copilot/.copilot/logs/ide/**
-vscode/.config/Code/Cache/**
-vscode/.config/Code/CachedData/**
-vscode/.config/Code/CachedConfigurations/**
-vscode/.config/Code/CachedExtensionVSIXs/**
-vscode/.config/Code/CachedExtensions/**
-vscode/.config/Code/CachedExtensionsVSIXs/**
-vscode/.config/Code/CachedExtensionVSIXs/**
-vscode/.config/Code/Code Cache/**
-vscode/.config/Code/CachedProfileData/**
+# Track only the portable VS Code user settings, never runtime state.
+vscode/.config/Code/*
+!vscode/.config/Code/User/
+vscode/.config/Code/User/*
+!vscode/.config/Code/User/settings.json
 copilot/.copilot/logs/**
-vscode/.config/Code/agent-host/**
-vscode/.config/Code/logs/**
-vscode/.config/Code/User/globalStorage/**
-vscode/.config/Code/User/History/**
-vscode/.config/Code/User/workspaceStorage/**
-vscode/.config/Code/User/sync/**
