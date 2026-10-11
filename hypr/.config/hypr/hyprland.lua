@@ -14,3 +14,6 @@ require("windowRules")
 require("startupApps")
 
 --require("dms-theme-sync")
+
+-- DMS Include Configs
+require("dms.layout")

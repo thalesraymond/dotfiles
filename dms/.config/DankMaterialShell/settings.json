@@ -6,6 +6,7 @@
   "animationSpeed": 4,
   "customAnimationDuration": 200,
   "barElevationEnabled": false,
+  "blurEnabled": true,
   "systemTrayIconTintMode": "primary",
   "showWorkspaceApps": true,
   "maxWorkspaceIcons": 10,
