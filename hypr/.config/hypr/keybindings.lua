@@ -99,8 +99,8 @@ end
 --   Scrolling → colresize (column width)
 --   Dwindle   → splitratio (ratio-based)
 local resize_binds = {
-    { "minus",         hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { repeating = true } },
-    { "equal",         hl.dsp.window.resize({ x = 50, y = 0, relative = true }),  { repeating = true } },
+    { "SHIFT + left",  hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { repeating = true } },
+    { "SHIFT + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),  { repeating = true } },
     { "SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50, relative = true }) },
     { "SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50, relative = true }) },
 }
