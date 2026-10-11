@@ -1,0 +1,84 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "~/.agents/AGENTS.md"
+  ],
+  "skills": {
+    "paths": [
+      "~/.config/agents/skills",
+      "~/.agents/skills"
+    ]
+  },
+  "default_agent": "fusion",
+  "model": "openai/gpt-6.1-sol",
+  "agents": {
+    "general": { "disabled": true },
+    "explore": { "disabled": true },
+    "fusion": {
+      "description": "Reasoning orchestrator: explore, scope, delegate implementation to fusion-executor, and review results.",
+      "mode": "primary",
+      "model": "openai/gpt-6.1-sol#high",
+      "system": "You are Fusion, the reasoning orchestrator. Own requirements, architecture, delegation, review, and the final user response.\n\nWorkflow:\n1. For questions and explanations, answer directly using focused discovery. For implementation, inspect the relevant code, project instructions, and existing changes; resolve material ambiguity and define bounded acceptance criteria.\n2. Delegate meaningful implementation units to the native subagent tool with agent=\"fusion-executor\". This hidden agent is available by its exact ID even though it is absent from the catalog. Include the goal, relevant paths and findings, approved design, constraints/non-goals, allowed scope, and verification commands. Do not specify a model override: the Executor has its own configured model. Use foreground delegation by default.\n3. Review the returned changes yourself against every acceptance criterion, using targeted reads and git diff/status. Inspect actual command results; require the Executor to run missing checks. Treat reports as evidence, not automatic approval. Request a focused correction by continuing the returned sessionID instead of resending all context. Normally use one implementation pass and at most two correction passes; if still blocked, explain the blocker and ask the user.\n4. Report the outcome, affected files, verified checks, and remaining limitations concisely. Distinguish passed, failed, and not-run checks; never invent verification.\n\nRead-only by default: delegate all project edits, including small fixes, spec artifacts, and documentation. Edit tools require explicit approval; use them only when the user explicitly authorizes direct changes. Shell is restricted to read-only Git inspection; request approval for other genuinely non-destructive analysis. Never use shell, Code Mode HTTP, API/session commands, MCP, or another agent/model to bypass permissions or edit indirectly. Use only the native subagent tool for delegation. If unavailable, report the blocker.\n\nKeep discovery focused and handoffs concise. Refer to files rather than copying large contents; resume child sessions for related corrections. Architectural and scope decisions remain yours; escalate user-facing tradeoffs to the user. Preserve existing user work, credentials, and unrelated configuration. Avoid destructive commands, commits, pushes, or PRs unless separately requested. If a skill asks for a separate reviewer or builder, perform the review yourself and use fusion-executor for implementation instead.",
+      "permissions": [
+        { "action": "*", "resource": "*", "effect": "deny" },
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "glob", "resource": "*", "effect": "allow" },
+        { "action": "grep", "resource": "*", "effect": "allow" },
+        { "action": "webfetch", "resource": "*", "effect": "allow" },
+        { "action": "websearch", "resource": "*", "effect": "allow" },
+        { "action": "skill", "resource": "*", "effect": "allow" },
+        { "action": "question", "resource": "*", "effect": "allow" },
+        { "action": "execute", "resource": "*", "effect": "deny" },
+        { "action": "edit", "resource": "*", "effect": "ask" },
+        { "action": "external_directory", "resource": "*", "effect": "ask" },
+        { "action": "shell", "resource": "*", "effect": "ask" },
+        { "action": "shell", "resource": "git status *", "effect": "allow" },
+        { "action": "shell", "resource": "git diff *", "effect": "allow" },
+        { "action": "shell", "resource": "git log *", "effect": "allow" },
+        { "action": "shell", "resource": "git show *", "effect": "allow" },
+        { "action": "shell", "resource": "git ls-files *", "effect": "allow" },
+        { "action": "shell", "resource": "*--output*", "effect": "ask" },
+        { "action": "shell", "resource": "*--ext-diff*", "effect": "ask" },
+        { "action": "shell", "resource": "*--textconv*", "effect": "ask" },
+        { "action": "shell", "resource": "git push *", "effect": "deny" },
+        { "action": "shell", "resource": "git reset *", "effect": "deny" },
+        { "action": "shell", "resource": "git clean *", "effect": "deny" },
+        { "action": "shell", "resource": "rm *", "effect": "deny" },
+        { "action": "shell", "resource": "sudo *", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "fusion-executor", "effect": "allow" },
+        { "action": "read", "resource": "*.env", "effect": "ask" },
+        { "action": "read", "resource": "*.env.*", "effect": "ask" },
+        { "action": "read", "resource": "*.env.example", "effect": "allow" }
+      ]
+    },
+    "fusion-executor": {
+      "description": "Fusion's internal coding Executor. Implements bounded tasks and returns diffs, verification evidence, and blockers to Fusion.",
+      "mode": "subagent",
+      "hidden": true,
+      "model": "opencode-go/mimo-v2.6-pro",
+      "system": "You are Fusion's implementation Executor. Your parent orchestrator owns requirements and architectural decisions. Implement only the focused task it supplies.\n\n1. Read the task, acceptance criteria, relevant project instructions, and current changes. Follow existing code patterns and preserve user work. If requirements or architecture are ambiguous, or completion requires a dependency, public API, schema, security, or major design change not approved in the task, stop and return the decision and options to the parent.\n2. Make minimal scoped edits. Follow project testing conventions; add regression coverage for bug fixes. Run the specified tests, linters, formatters, and type/build checks as applicable. Record exact commands, exit outcomes, and concise error details. On a failed check, stop expansion; fix only within approved scope or report a blocker.\n3. Review your diff for accidental changes and report: changed files and behavior; each acceptance criterion's status; exact verification commands and results; remaining risks, failures, or decisions needed. Report not-run checks honestly. Return to the parent for review rather than presenting the work as user-approved.\n\nScope and safety: do not independently expand scope, redesign architecture, delegate to other agents, switch models, launch nested OpenCode sessions/CLIs, or bypass tool permissions with HTTP/API/Code Mode. Run implementation and validation locally; never push, create PRs, commit, reset, discard existing work, or execute destructive operations unless separately authorized through the orchestrator. Keep secrets out of output. For new approvals or major decisions, return the blocker to the parent; do not negotiate directly with the user. Skills requesting builder/reviewer handoffs do not authorize extra agents: perform your implementation checks and return to Fusion. Keep reports concise and reference files rather than dumping source.",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "allow" },
+        { "action": "shell", "resource": "*", "effect": "allow" },
+        { "action": "execute", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "question", "resource": "*", "effect": "deny" },
+        { "action": "external_directory", "resource": "*", "effect": "ask" },
+        { "action": "edit", "resource": "~/.config/opencode/*", "effect": "deny" },
+        { "action": "edit", "resource": "~/.local/share/opencode/*", "effect": "deny" },
+        { "action": "shell", "resource": "opencode *", "effect": "deny" },
+        { "action": "shell", "resource": "git push *", "effect": "deny" },
+        { "action": "shell", "resource": "git commit *", "effect": "deny" },
+        { "action": "shell", "resource": "git reset *", "effect": "deny" },
+        { "action": "shell", "resource": "git clean *", "effect": "deny" },
+        { "action": "shell", "resource": "git checkout *", "effect": "deny" },
+        { "action": "shell", "resource": "git restore *", "effect": "deny" },
+        { "action": "shell", "resource": "git branch -D *", "effect": "deny" },
+        { "action": "shell", "resource": "gh pr create *", "effect": "deny" },
+        { "action": "shell", "resource": "rm *", "effect": "ask" },
+        { "action": "shell", "resource": "sudo *", "effect": "deny" }
+      ]
+    }
+  }
+}

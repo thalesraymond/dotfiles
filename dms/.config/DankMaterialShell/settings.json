@@ -140,6 +140,10 @@
           "hideWhenIdle": false
         },
         {
+          "id": "wallpaperDiscovery",
+          "enabled": true
+        },
+        {
           "id": "spacer",
           "enabled": true,
           "size": 200
@@ -215,7 +219,7 @@
         }
       ],
       "islandHomeCompactTight": false,
-      "islandSatellitesEnabled": true,
+      "islandSatellitesEnabled": false,
       "islandSatelliteBackground": true,
       "islandTransparency": 0.9,
       "islandCornerRadius": 14,
@@ -226,14 +230,14 @@
       "islandSatelliteSwoopRadius": 24,
       "islandSatellitePosition": "island",
       "islandHomeClockDisplay": "both",
-      "islandSatelliteTransparency": 0.9,
+      "islandSatelliteTransparency": 0.54,
       "islandSatelliteGap": 28,
       "islandInteractionMode": "click",
       "islandHoverOpenDelay": 200,
       "islandReducedMotion": false,
-      "island": false,
       "islandAlongOffset": 0,
-      "islandOuterGap": 6
+      "islandOuterGap": 6,
+      "island": false
     }
   ],
   "desktopClockCustomColor": {
@@ -247,7 +251,8 @@
     "hslHue": -1,
     "hslSaturation": 0,
     "hslLightness": 1,
-    "valid": true
+    "valid": true,
+    "rgba": -1
   },
   "systemMonitorCustomColor": {
     "r": 1,
@@ -260,7 +265,8 @@
     "hslHue": -1,
     "hslSaturation": 0,
     "hslLightness": 1,
-    "valid": true
+    "valid": true,
+    "rgba": -1
   },
   "desktopWidgetInstances": [
     {

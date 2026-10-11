@@ -25,12 +25,12 @@
   "qt-core.additionalQtPaths": [
     {
       "name": "Qt-5.15.18-linux-g++_from_PATH",
-      "path": "/usr/bin/qmake"
+      "path": "/usr/bin/qmake",
     },
     {
       "name": "Qt-5.15.19-linux-g++-x86_64_from_PATH",
-      "path": "/usr/bin/qtpaths"
-    }
+      "path": "/usr/bin/qtpaths",
+    },
   ],
   "geminicodeassist.project": "arched-dogfish-9fgnf",
   "http.systemCertificatesNode": true,
@@ -243,4 +243,5 @@
       "region": "EU",
     },
   ],
+  "workbench.sideBar.location": "right",
 }

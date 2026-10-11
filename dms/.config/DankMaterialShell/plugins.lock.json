@@ -13,6 +13,10 @@
       "repo": "https://github.com/max72bra/DankPluginBingWallpaper",
       "commit": "2958f72c9469c2cc2d8624036f348d4c1df4c0f2"
     },
+    "wallpaperCarousel": {
+      "repo": "https://github.com/motor-dev/wallpaperCarousel",
+      "commit": "761ecd1b7f347beee9f17909f8334d987c935a1a"
+    },
     "wallpaperDiscovery": {
       "repo": "https://github.com/lucyfire/dms-plugins",
       "path": "wallpaperDiscovery",
