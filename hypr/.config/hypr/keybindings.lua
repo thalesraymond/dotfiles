@@ -2,20 +2,25 @@
 -- Key bindings configuration
 -- https://wiki.hypr.land/Configuring/Basics/Binds/
 --
--- Layout-aware: works with both "dwindle" and "scrolling" layouts.
--- Resize/navigation adapts based on the active layout at runtime.
+-- Niri-style bindings for the native scrolling layout, with dwindle fallbacks.
+-- Whole-column transfers, workspace reordering, and window-height presets do
+-- not have native scrolling dispatchers; transfers below move one window.
 
 local mainMod    = "SUPER"
 local term       = "kitty"
 local files      = "thunar"
-local scriptsDir = os.getenv("HOME") .. "/.config/hypr/scripts"
-
--- Helper: choose a command based on the active layout configured in Lua.
-local function layout_cmd(dwindle_cmd, scrolling_cmd)
-    if hl.get_config("general.layout") == "scrolling" then
-        return hl.dsp.layout(scrolling_cmd)
-    else
-        return hl.dsp.layout(dwindle_cmd)
+-- Resolve the workspace layout when pressed, including workspace overrides.
+-- Floating windows retain normal directional navigation and resizing.
+local function layout_cmd(fallback, scrolling_cmd)
+    return function()
+        local workspace = hl.get_active_workspace()
+        local window = hl.get_active_window()
+        local layout = workspace and workspace.tiled_layout or hl.get_config("general.layout")
+        if layout == "scrolling" and window and not window.floating then
+            hl.dispatch(hl.dsp.layout(scrolling_cmd))
+        elseif fallback then
+            hl.dispatch(fallback)
+        end
     end
 end
 
@@ -29,6 +34,7 @@ local apps = {
     { "SHIFT + Return", hl.dsp.exec_cmd("[float; move 15% 5%; size 70% 60%] " .. term) },
     { "E",              hl.dsp.exec_cmd(files) },
     { "B",              hl.dsp.exec_cmd('xdg-open "https://"') },
+    { "SHIFT + W",      hl.dsp.exec_cmd("dms ipc call wallpaperCarousel toggle") },
 }
 for _, bind in ipairs(apps) do
     hl.bind(mainMod .. " + " .. bind[1], bind[2])
@@ -45,13 +51,18 @@ local win_binds = {
     { "F",         hl.dsp.window.fullscreen({ mode = "maximized" }) },
     { "V",         hl.dsp.window.float({ action = "toggle" }) },
 
-    -- Dwindle: toggle split direction | Scrolling: no-op (harmless)
-    { "SHIFT + I", hl.dsp.layout("togglesplit") },
+    -- Keep Shift+I available: Niri uses it to reorder workspaces.
+    { "ALT + I", layout_cmd(hl.dsp.layout("togglesplit"), "inhibit_scroll") },
 }
 for _, bind in ipairs(win_binds) do
     hl.bind(mainMod .. " + " .. bind[1], bind[2])
 end
 hl.bind("CTRL + ALT + Delete", hl.dsp.exit())
+hl.bind(mainMod .. " + SHIFT + V", function()
+    local window = hl.get_active_window()
+    if not window then return end
+    hl.dispatch(hl.dsp.window.cycle_next({ floating = not window.floating, tiled = window.floating }))
+end)
 
 -- Groups (works on either layout)
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("hyprctl dispatch togglegroup"))
@@ -73,12 +84,18 @@ local dir_keys = {
 
 for dir, keys in pairs(dir_keys) do
     for _, key in ipairs(keys) do
-        -- Focus windows in all directions
-        -- (dwindle uses all 4; scrolling mainly uses left/right but up/down still work)
-        hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ direction = dir }))
+        -- Niri uses Up/Down for workspaces, K/J for windows in a column.
+        if key ~= "up" and key ~= "down" then
+            hl.bind(mainMod .. " + " .. key,
+                layout_cmd(hl.dsp.focus({ direction = dir }), "focus " .. dir))
+        end
 
-        -- Move windows
-        hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ direction = dir }), { repeating = true })
+        -- Horizontal moves swap whole columns; vertical moves reorder windows.
+        local move = hl.dsp.window.move({ direction = dir })
+        if dir == "l" or dir == "r" then
+            move = layout_cmd(move, "swapcol " .. dir)
+        end
+        hl.bind(mainMod .. " + CTRL + " .. key, move, { repeating = true })
 
         -- Swap windows
         hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.swap({ direction = dir }))
@@ -92,27 +109,58 @@ for dir, keys in pairs(dir_keys) do
 end
 
 -----------------------------
----- RESIZE (layout-aware) --
+---- COLUMNS / RESIZE --------
 -----------------------------
 
--- Horizontal resize:
---   Scrolling → colresize (column width)
---   Dwindle   → splitratio (ratio-based)
+-- Percentages are fractions of the scrolling viewport; other layouts and
+-- floating windows use 50 logical pixel steps. Shift+arrows focus monitors.
 local resize_binds = {
-    { "SHIFT + left",  hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { repeating = true } },
-    { "SHIFT + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),  { repeating = true } },
+    { "minus", layout_cmd(hl.dsp.window.resize({ x = -50, y = 0, relative = true }), "colresize -0.1") },
+    { "equal", layout_cmd(hl.dsp.window.resize({ x = 50, y = 0, relative = true }), "colresize +0.1") },
     { "SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50, relative = true }) },
     { "SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50, relative = true }) },
 }
 for _, bind in ipairs(resize_binds) do
-    hl.bind(mainMod .. " + " .. bind[1], bind[2], bind[3])
+    hl.bind(mainMod .. " + " .. bind[1], bind[2], { repeating = true })
 end
 
--- Fit column to screen (scrolling-only, harmless no-op on dwindle)
-hl.bind(mainMod .. " + C", hl.dsp.layout("fit"))
+local column_binds = {
+    { "bracketleft", "consume_or_expel prev" },
+    { "bracketright", "consume_or_expel next" },
+    { "comma", "consume" },
+    { "period", "expel" },
+    { "R", "colresize +conf" },
+    { "C", "center" },
+    { "CTRL + F", "fit expand" },
+}
+for _, bind in ipairs(column_binds) do
+    hl.bind(mainMod .. " + " .. bind[1], layout_cmd(nil, bind[2]))
+end
 
--- -- Split ratio (dwindle: adjust split, scrolling: harmless)
--- hl.bind(mainMod .. " + M", hl.dsp.layout("splitratio 0.3"))
+-- Native scrolling has no first/last-column dispatcher. Focus an endpoint
+-- by its position on the tape; windows within a column share their x position.
+local function focus_endpoint(last)
+    return function()
+        local workspace = hl.get_active_workspace()
+        if not workspace or workspace.tiled_layout ~= "scrolling" then return end
+        local endpoint
+        for _, window in ipairs(hl.get_workspace_windows(workspace)) do
+            if window.mapped and not window.hidden and not window.floating then
+                if not endpoint or (last and window.at.x > endpoint.at.x)
+                    or (not last and window.at.x < endpoint.at.x) then
+                    endpoint = window
+                end
+            end
+        end
+        if endpoint then hl.dispatch(hl.dsp.focus({ window = endpoint })) end
+    end
+end
+hl.bind(mainMod .. " + Home", focus_endpoint(false))
+hl.bind(mainMod .. " + End", focus_endpoint(true))
+
+-- Niri's Ctrl+Home/End, Shift+R, Ctrl+R, Ctrl+C and Shift+Page_Up/Down
+-- have no direct equivalents. "fit visible" resizes columns rather than
+-- merely centering them, so it is deliberately not bound to Ctrl+C.
 
 hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("pkill orca || exec orca"))
 
@@ -125,7 +173,8 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 ------------------------
 
 -- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9].
+-- Unlike Niri, this moves one window rather than its whole column.
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
@@ -134,8 +183,8 @@ end
 
 -- Workspace Navigation
 local ws_nav = {
-    ["e+1"] = { "Page_Down", "U", "period", "mouse_down" },
-    ["e-1"] = { "Page_Up", "I", "comma", "mouse_up" }
+    ["m+1"] = { "down", "Page_Down", "U", "mouse_down" },
+    ["m-1"] = { "up", "Page_Up", "I", "mouse_up" }
 }
 for ws, keys in pairs(ws_nav) do
     for _, key in ipairs(keys) do
@@ -145,14 +194,26 @@ end
 
 -- Move window to adjacent workspace
 local ws_move = {
-    ["e+1"] = { "Page_Down", "U" },
-    ["e-1"] = { "Page_Up", "I" }
+    ["m+1"] = { "Page_Down", "U", "mouse_down" },
+    ["m-1"] = { "Page_Up", "I", "mouse_up" }
 }
 for ws, keys in pairs(ws_move) do
     for _, key in ipairs(keys) do
         hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = ws }))
     end
 end
+
+-- Horizontal wheel and Shift+vertical wheel navigate/reorder columns.
+for dir, keys in pairs({ l = { "mouse_left", "SHIFT + mouse_up" },
+                        r = { "mouse_right", "SHIFT + mouse_down" } }) do
+    for _, key in ipairs(keys) do
+        hl.bind(mainMod .. " + " .. key, layout_cmd(hl.dsp.focus({ direction = dir }), "focus " .. dir))
+        hl.bind(mainMod .. " + CTRL + " .. key,
+            layout_cmd(hl.dsp.window.move({ direction = dir }), "swapcol " .. dir))
+    end
+end
+-- Hyprland uses a global wheel cooldown instead of Niri's per-bind cooldown.
+hl.config({ binds = { scroll_event_delay = 150 } })
 
 ------------------
 ---- UTILS -------
@@ -202,5 +263,10 @@ end
 ----------------------
 ----- HYMISSION-------
 ----------------------
-hl.bind(mainMod .. " + TAB", hl.plugin.hymission.toggle)
-hl.bind("mouse:275", hl.plugin.hymission.toggle)
+-- Resolve the plugin at keypress: hyprpm loads it after config evaluation.
+local function toggle_overview()
+    if hl.plugin.hymission then hl.plugin.hymission.toggle() end
+end
+hl.bind(mainMod .. " + O", toggle_overview)
+hl.bind(mainMod .. " + TAB", toggle_overview)
+hl.bind("mouse:275", toggle_overview)

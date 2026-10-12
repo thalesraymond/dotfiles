@@ -91,6 +91,13 @@ window-rule {
     default-column-width { proportion 0.7; }
 }
 
+window-rule {
+    match app-id="kitty"
+    open-maximized false
+    open-fullscreen false
+    open-maximized-to-edges false
+}
+
 //PiP
 window-rule {
     match title="Picture-in-Picture"
@@ -152,6 +159,36 @@ window-rule {
     open-on-workspace "games"
     open-focused true
     open-fullscreen true
+}
+
+// Thunar window
+// Unity Editor: Hub-launched app IDs include the editor version.
+// Keep detached panels/dialogs floating and let Unity choose their sizes.
+// Tab docking has a separate xwayland-satellite bug; these rules cannot fix it:
+// https://github.com/Supreeeme/xwayland-satellite/issues/286
+window-rule {
+    match app-id=r#"(?i)^(unity|unityhub-unity-editor-.*)$"#
+    open-floating true
+    open-fullscreen false
+    open-maximized false
+    open-maximized-to-edges false
+}
+
+// Main project window: tiled, with room for the code IDE alongside it.
+window-rule {
+    match app-id=r#"(?i)^(unity|unityhub-unity-editor-.*)$"# title="^Unity - "
+    open-floating false
+    open-focused false
+    default-column-width { proportion 0.7; }
+}
+
+// Background work should not take keyboard focus from Rider/VS Code.
+// Progress titles vary by Unity release; inspect with `niri msg windows`.
+// open-focused only controls initial focus, not later activation requests.
+window-rule {
+    match app-id=r#"(?i)^(unity|unityhub-unity-editor-.*)$"# title=r#"(?i)^(hold on\b|compiling\b|reloading\b|importing\b|refreshing\b)"#
+    open-floating true
+    open-focused false
 }
 
 // Thunar window

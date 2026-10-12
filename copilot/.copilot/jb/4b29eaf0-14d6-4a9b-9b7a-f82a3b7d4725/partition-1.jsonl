@@ -1,0 +1,2 @@
+{"type":"partition.created","data":{"conversationId":"4b29eaf0-14d6-4a9b-9b7a-f82a3b7d4725","partitionId":1,"source":"panel","createdAt":1791768046366},"id":"fb0e3ae2-5ea9-4b20-8893-9b7f3d85baf2","timestamp":"2026-10-12T01:20:46.366Z","parentId":null}
+{"type":"user.message","data":{"content":"","turnId":"3e578fe6-9928-453a-9939-12def8936678"},"id":"07e17372-5f39-4ae5-9eeb-05e28432a87a","timestamp":"2026-10-12T01:20:46.366Z","parentId":null}
