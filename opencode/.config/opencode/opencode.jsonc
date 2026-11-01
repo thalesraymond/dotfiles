@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Keep ordinary sessions on the default build agent; enter the
+  // chief-of-staff flow explicitly with /chief.
+  "default_agent": "build",
+  // One extra delegation level: orchestrator -> role agents -> helpers.
+  // Experimental; see https://opencode.ai/v2/docs/config#subagent-depth
+  "experimental": {
+    "subagent_depth": 2
+  }
+}

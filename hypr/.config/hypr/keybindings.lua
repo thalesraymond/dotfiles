@@ -181,6 +181,46 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
+-- Keep one trailing empty workspace, like Niri. Monitor-relative selectors
+-- wrap at the end, so resolve downward navigation explicitly instead.
+local function next_workspace()
+    local current = hl.get_active_workspace()
+    if not current or current.special then return end
+
+    local next_id
+    for _, workspace in ipairs(hl.get_workspaces()) do
+        if not workspace.special and workspace.monitor and current.monitor
+            and workspace.monitor.id == current.monitor.id and workspace.id > current.id
+            and (not next_id or workspace.id < next_id) then
+            next_id = workspace.id
+        end
+    end
+    if next_id then return next_id end
+
+    -- Already on the trailing empty workspace: do not create endless empties.
+    if current.windows == 0 then return end
+    next_id = current.id + 1
+    while hl.get_workspace(next_id) do next_id = next_id + 1 end
+    return next_id
+end
+
+local function workspace_down(move_window)
+    return function()
+        local id = next_workspace()
+        if not id then return end
+        if move_window then
+            -- Create/focus on this monitor before moving; numbered workspace
+            -- rules might otherwise create the destination on another output.
+            local window = hl.get_active_window()
+            if not window then return end
+            hl.dispatch(hl.dsp.focus({ workspace = id, on_current_monitor = true }))
+            hl.dispatch(hl.dsp.window.move({ workspace = id, window = window }))
+        else
+            hl.dispatch(hl.dsp.focus({ workspace = id, on_current_monitor = true }))
+        end
+    end
+end
+
 -- Workspace Navigation
 local ws_nav = {
     ["m+1"] = { "down", "Page_Down", "U", "mouse_down" },
@@ -188,7 +228,8 @@ local ws_nav = {
 }
 for ws, keys in pairs(ws_nav) do
     for _, key in ipairs(keys) do
-        hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = ws }))
+        local action = ws == "m+1" and workspace_down(false) or hl.dsp.focus({ workspace = ws })
+        hl.bind(mainMod .. " + " .. key, action)
     end
 end
 
@@ -199,7 +240,8 @@ local ws_move = {
 }
 for ws, keys in pairs(ws_move) do
     for _, key in ipairs(keys) do
-        hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = ws }))
+        local action = ws == "m+1" and workspace_down(true) or hl.dsp.window.move({ workspace = ws })
+        hl.bind(mainMod .. " + CTRL + " .. key, action)
     end
 end
 

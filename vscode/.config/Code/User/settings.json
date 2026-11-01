@@ -157,7 +157,6 @@
       "sshSavePassword": true,
       "savePassword": true,
       "sslRootCertMode": "none",
-      "connectionString": "postgres://postgres:password@localhost:5434/expedition_db",
       "server": "localhost",
       "user": "postgres",
       "port": "5434",
@@ -166,6 +165,7 @@
       "profileName": "expedition_db",
       "expiresOn": 0,
       "sshPassword": "",
+      "emptyPasswordInput": false,
     },
     {
       "id": "1254A68A-4C7F-4659-8141-FE9D8FE8F770",
@@ -178,7 +178,6 @@
       "sshSavePassword": true,
       "savePassword": true,
       "sslRootCertMode": "none",
-      "connectionString": "postgres://postgres:password@localhost:5432/daily_db",
       "server": "localhost",
       "user": "postgres",
       "port": "5432",
@@ -187,6 +186,7 @@
       "profileName": "daily_db",
       "expiresOn": 0,
       "sshPassword": "",
+      "emptyPasswordInput": false,
     },
     {
       "id": "AC8ADDA5-57AD-4E69-BBA2-79649A1DA05A",
@@ -200,7 +200,6 @@
       "savePassword": true,
       "sslRootCertMode": "none",
       "server": "localhost",
-      "connectionString": "postgres://postgres:password@localhost:5433/ship_db",
       "user": "postgres",
       "port": "5433",
       "database": "ship_db",
@@ -208,6 +207,7 @@
       "profileName": "ship_db",
       "expiresOn": 0,
       "sshPassword": "",
+      "emptyPasswordInput": false,
     },
     {
       "id": "D14E64B3-7F92-4ED7-BC93-63608FEFF96A",
@@ -220,7 +220,6 @@
       "sshSavePassword": true,
       "savePassword": true,
       "sslRootCertMode": "none",
-      "connectionString": "postgres://postgres:password@localhost:5431/user_db",
       "server": "localhost",
       "user": "postgres",
       "port": "5431",
@@ -229,6 +228,7 @@
       "profileName": "user_db",
       "expiresOn": 0,
       "sshPassword": "",
+      "emptyPasswordInput": false,
     },
   ],
   "extensions.supportAgentsWindow": {

@@ -34,6 +34,8 @@ window-rule {
         blur true
     }
     draw-border-with-background false
+    open-maximized false
+    open-fullscreen false
 }
 
 layer-rule {
@@ -52,6 +54,16 @@ window-rule {
     open-maximized false
     open-fullscreen false
     default-column-width { proportion 0.5; }
+}
+
+// Jetbrains Rider
+window-rule {
+    match app-id="jetbrains-rider"
+    open-focused false
+    open-maximized false
+    open-fullscreen false
+    open-maximized-to-edges false
+    default-column-width { proportion 0.8; }
 }
 
 window-rule {
