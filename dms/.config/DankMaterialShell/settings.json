@@ -455,11 +455,12 @@
       "showOnLastDisplay": true,
       "position": 1,
       "mode": "compact",
+      "middleClickAction": "close",
       "taskbarAlign": "center",
       "widgetExpansion": "popout",
       "iconSize": 48,
       "spacing": 12,
-      "itemSpacing": 4,
+      "itemSpacing": 8,
       "margin": 0,
       "bottomGap": -18,
       "transparency": 1,
@@ -518,7 +519,8 @@
   ],
   "blurBorderSeeded": true,
   "dmsWindowsFloatingSeeded": [
-    "niri"
+    "niri",
+    "hyprland"
   ],
   "connectedFrameBarStyleBackups": {},
   "frameEnabled": false,
@@ -549,5 +551,7 @@
       "enabled": false
     }
   ],
-  "useFahrenheit": false
+  "useFahrenheit": false,
+  "density": "comfortable",
+  "interfaceStyle": "expressive"
 }

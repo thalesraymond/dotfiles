@@ -12,7 +12,7 @@ local config_home = vim.env.XDG_CONFIG_HOME
 if config_home == nil or #config_home == 0 then
 	config_home = vim.fs.joinpath(vim.env.HOME, ".config")
 end
-local settings_file_path = vim.fs.joinpath(config_home, "Dux Shell", "settings.json")
+local settings_file_path = vim.fs.joinpath(config_home, "dms", "settings.json")
 local settings_file = io.open(settings_file_path, "r")
 if settings_file == nil then
 	vim.notify(
@@ -86,9 +86,9 @@ end
 
 if not base46.theme_tables[theme_name] or base46.theme_tables[theme_name].type ~= vim.o.background then
 	local builtin = vim.deepcopy(assert(base46.get_builtin_theme(theme_base)))
-	local harmonized = base46.theme_harmonize(builtin, "#a49fc4", harmony)
+	local harmonized = base46.theme_harmonize(builtin, "#701ba6", harmony)
 	if settings.matugenTemplateNeovimSetBackground ~= false then
-		harmonized = base46.theme_set_bg(harmonized, "#141318")
+		harmonized = base46.theme_set_bg(harmonized, "#161217")
 	end
 
 	base46.theme_tables[theme_name] = harmonized

@@ -1,9 +1,9 @@
-background = #141318
-foreground = #e5e1e9
-cursor-color = #e5e1e9
-cursor-text = #c9c5d0
-selection-background = #c8c3dc
-selection-foreground = #302e41
+background = #161217
+foreground = #e9e0e8
+cursor-color = #e9e0e8
+cursor-text = #cdc3ce
+selection-background = #d2c1d9
+selection-foreground = #382c3e
 
 # black
 palette = 0=#4c4c4c
@@ -22,7 +22,7 @@ palette = 3=#aca98a
 palette = 11=#c4c19e
 
 # blue
-palette = 4=#c7bfff
+palette = 4=#dfb8f6
 palette = 12=#a39ec4
 
 # magenta

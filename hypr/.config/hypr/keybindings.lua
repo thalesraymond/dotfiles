@@ -6,9 +6,9 @@
 -- Whole-column transfers, workspace reordering, and window-height presets do
 -- not have native scrolling dispatchers; transfers below move one window.
 
-local mainMod    = "SUPER"
-local term       = "kitty"
-local files      = "thunar"
+local mainMod = "SUPER"
+local term    = "kitty"
+local files   = "thunar"
 -- Resolve the workspace layout when pressed, including workspace overrides.
 -- Floating windows retain normal directional navigation and resizing.
 local function layout_cmd(fallback, scrolling_cmd)
@@ -52,7 +52,7 @@ local win_binds = {
     { "V",         hl.dsp.window.float({ action = "toggle" }) },
 
     -- Keep Shift+I available: Niri uses it to reorder workspaces.
-    { "ALT + I", layout_cmd(hl.dsp.layout("togglesplit"), "inhibit_scroll") },
+    { "ALT + I",   layout_cmd(hl.dsp.layout("togglesplit"), "inhibit_scroll") },
 }
 for _, bind in ipairs(win_binds) do
     hl.bind(mainMod .. " + " .. bind[1], bind[2])
@@ -115,8 +115,8 @@ end
 -- Percentages are fractions of the scrolling viewport; other layouts and
 -- floating windows use 50 logical pixel steps. Shift+arrows focus monitors.
 local resize_binds = {
-    { "minus", layout_cmd(hl.dsp.window.resize({ x = -50, y = 0, relative = true }), "colresize -0.1") },
-    { "equal", layout_cmd(hl.dsp.window.resize({ x = 50, y = 0, relative = true }), "colresize +0.1") },
+    { "minus",         layout_cmd(hl.dsp.window.resize({ x = -50, y = 0, relative = true }), "colresize -0.1") },
+    { "equal",         layout_cmd(hl.dsp.window.resize({ x = 50, y = 0, relative = true }), "colresize +0.1") },
     { "SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50, relative = true }) },
     { "SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50, relative = true }) },
 }
@@ -125,13 +125,13 @@ for _, bind in ipairs(resize_binds) do
 end
 
 local column_binds = {
-    { "bracketleft", "consume_or_expel prev" },
+    { "bracketleft",  "consume_or_expel prev" },
     { "bracketright", "consume_or_expel next" },
-    { "comma", "consume" },
-    { "period", "expel" },
-    { "R", "colresize +conf" },
-    { "C", "center" },
-    { "CTRL + F", "fit expand" },
+    { "comma",        "consume" },
+    { "period",       "expel" },
+    { "R",            "colresize +conf" },
+    { "C",            "center" },
+    { "CTRL + F",     "fit expand" },
 }
 for _, bind in ipairs(column_binds) do
     hl.bind(mainMod .. " + " .. bind[1], layout_cmd(nil, bind[2]))
@@ -247,7 +247,7 @@ end
 
 -- Horizontal wheel and Shift+vertical wheel navigate/reorder columns.
 for dir, keys in pairs({ l = { "mouse_left", "SHIFT + mouse_up" },
-                        r = { "mouse_right", "SHIFT + mouse_down" } }) do
+    r = { "mouse_right", "SHIFT + mouse_down" } }) do
     for _, key in ipairs(keys) do
         hl.bind(mainMod .. " + " .. key, layout_cmd(hl.dsp.focus({ direction = dir }), "focus " .. dir))
         hl.bind(mainMod .. " + CTRL + " .. key,
@@ -302,12 +302,24 @@ for _, bind in ipairs(media_binds) do
     hl.bind(bind[1], bind[2], bind[3])
 end
 
+-- ----------------------
+-- ----- HYMISSION-------
+-- ----------------------
+-- -- Resolve the plugin at keypress: hyprpm loads it after config evaluation.
+-- local function toggle_overview()
+--     if hl.plugin.hymission then hl.plugin.hymission.toggle() end
+-- end
+-- hl.bind(mainMod .. " + O", toggle_overview)
+-- hl.bind(mainMod .. " + TAB", toggle_overview)
+-- hl.bind("mouse:275", toggle_overview)
+
+
 ----------------------
 ----- HYMISSION-------
 ----------------------
 -- Resolve the plugin at keypress: hyprpm loads it after config evaluation.
 local function toggle_overview()
-    if hl.plugin.hymission then hl.plugin.hymission.toggle() end
+    if hl.plugin.scrolloverview then hl.plugin.scrolloverview.overview("toggle all") end
 end
 hl.bind(mainMod .. " + O", toggle_overview)
 hl.bind(mainMod .. " + TAB", toggle_overview)
