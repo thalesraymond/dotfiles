@@ -236,7 +236,13 @@ local app_workspaces = {
     { ws = "9 silent", class = "^([Dd]iscord)$" },
     { ws = "9 silent", class = "^([Ss]potify)$" },
     { ws = "9 silent", class = "^([Tt]hunderbird)$" },
-    { ws = "2",        maximize = true,                                             class = "^(zen-alpha|zen)$", title = "negative:^(Picture-in-Picture)$" },
+    { 
+        ws = "2",
+        maximize = true,
+        full_screen = tr
+        class = "^(zen-alpha|zen)$", 
+        title = "negative:^(Picture-in-Picture)$" 
+    },
 }
 for i, app in ipairs(app_workspaces) do
     local match = { class = app.class }
