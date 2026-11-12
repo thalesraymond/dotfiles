@@ -1034,28 +1034,28 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/pbakaus/impeccable.git",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
-      "skillFolderHash": "489dc92e370e30fa0a798073f09d3e020e80cd8b",
+      "skillFolderHash": "6a01b00eb68ec4900a1c4e24fec5a5c973636bfa",
       "installedAt": "2026-11-01T00:32:11.625Z",
-      "updatedAt": "2026-11-01T00:32:11.625Z"
+      "updatedAt": "2026-11-10T01:55:17.349Z"
     },
     "diagram-design": {
       "source": "cathrynlavery/diagram-design",
       "sourceType": "github",
       "sourceUrl": "https://github.com/cathrynlavery/diagram-design.git",
       "skillPath": "skills/diagram-design/SKILL.md",
-      "skillFolderHash": "bcecaf90a9082b1820d32c9416665bec0d9d713e",
+      "skillFolderHash": "7c64ced4ca34f0e77fd4f3c5f77421cf59de3762",
       "installedAt": "2026-11-01T00:32:26.509Z",
-      "updatedAt": "2026-11-01T00:32:26.509Z"
+      "updatedAt": "2026-11-10T01:55:18.120Z"
     },
     "design-taste-frontend": {
       "source": "Leonxlnx/taste-skill",
       "sourceType": "github",
       "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
       "skillPath": "skills/taste-skill/SKILL.md",
-      "skillFolderHash": "844f3cf223d25a29e75f7965d095a093938282df",
+      "skillFolderHash": "90f92ba7a3ce514cf85a2809583712dbd14106ea",
       "pluginName": "taste-skill",
       "installedAt": "2026-11-01T00:33:17.412Z",
-      "updatedAt": "2026-11-01T00:33:17.412Z"
+      "updatedAt": "2026-11-10T01:55:23.030Z"
     }
   },
   "dismissed": {

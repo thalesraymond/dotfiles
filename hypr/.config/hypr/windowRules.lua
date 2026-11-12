@@ -209,6 +209,23 @@ hl.window_rule({
 hl.window_rule({ name = "windowrule-67", no_initial_focus = true, match = { class = "^(jetbrains-.+)" } })
 hl.window_rule({ name = "windowrule-68", no_initial_focus = true, match = { title = "^(wind.*)$" } })
 
+-------------------------------
+---- UNITY BACKGROUND WORK ----
+-------------------------------
+
+-- Background work should not take keyboard focus from Rider/VS Code.
+-- Progress titles vary by Unity release; inspect with `hyprctl clients`.
+-- no_initial_focus only controls initial focus, not later activation requests.
+hl.window_rule({
+    name             = "unity-background-work",
+    float            = true,
+    no_initial_focus = true,
+    match            = {
+        class = "(?i)^(unity|unityhub-unity-editor-.*)$",
+        title = "(?i)^(hold on\\b|compiling\\b|reloading\\b|importing\\b|refreshing\\b)",
+    },
+})
+
 ----------------------------
 ---- APP WORKSPACE RULES ----
 ----------------------------

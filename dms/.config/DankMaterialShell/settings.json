@@ -40,7 +40,7 @@
   "fontFamily": "JetBrains Mono",
   "monoFontFamily": "JetBrains Mono",
   "fontWeight": 500,
-  "acMonitorTimeout": 3600,
+  "acMonitorTimeout": 600,
   "acLockTimeout": 1800,
   "fadeToLockEnabled": false,
   "matugenTemplateNeovim": true,
@@ -62,11 +62,11 @@
       "id": "default",
       "name": "Main Bar",
       "enabled": true,
-      "position": 0,
+      "position": 1,
       "screenPreferences": [
         {
-          "name": "DP-3",
-          "model": "LG ULTRAWIDE"
+          "name": "HDMI-A-1",
+          "model": "LG HDR WFHD"
         }
       ],
       "showOnLastDisplay": true,
@@ -80,7 +80,10 @@
           "id": "workspaceSwitcher",
           "enabled": true,
           "showWorkspaceApps": true,
-          "maxWorkspaceIcons": 10
+          "maxWorkspaceIcons": 10,
+          "workspaceIndicatorStyle": "cards",
+          "workspaceIndicatorCompact": false,
+          "workspaceFollowFocus": true
         }
       ],
       "centerWidgets": [
@@ -136,8 +139,8 @@
       "spacing": 0,
       "innerPadding": 4,
       "bottomGap": 0,
-      "transparency": 0.2,
-      "widgetTransparency": 0.9,
+      "transparency": 0.02,
+      "widgetTransparency": 0.4,
       "squareCorners": true,
       "noBackground": false,
       "gothCornersEnabled": false,
@@ -156,7 +159,7 @@
       "popupGapsManual": 36,
       "widgetOutlineEnabled": false,
       "shadowIntensity": 0,
-      "maximizeWidgetText": false,
+      "maximizeWidgetText": true,
       "maximizeWidgetIcons": true,
       "maximizeDetection": false,
       "iconScale": 1,
@@ -165,7 +168,7 @@
       "widgetPadding": 8,
       "widgetOutlineOpacity": 1,
       "barInsetPadding": 10,
-      "widgetOutlineColor": "secondary",
+      "widgetOutlineColor": "surfaceText",
       "attachToScreenEdge": false,
       "islandFloating": false,
       "islandUseOverlayLayer": false,
@@ -202,7 +205,7 @@
         }
       ],
       "islandHomeCompactTight": false,
-      "islandSatellitesEnabled": false,
+      "islandSatellitesEnabled": true,
       "islandSatelliteBackground": true,
       "islandTransparency": 0.9,
       "islandCornerRadius": 14,
@@ -223,10 +226,13 @@
       "widgetFollowInterfaceStyle": false,
       "dot": false,
       "island": false,
-      "islandNotch": false,
+      "islandNotch": true,
       "islandPlacement": "edge",
       "barLengthMode": "full",
-      "widgetStyle": "pills"
+      "widgetStyle": "segments",
+      "barLengthPadding": 0,
+      "islandDashTabs": false,
+      "islandSatelliteFollowInterfaceStyle": true
     },
     {
       "id": "dot1792954016536",
@@ -438,7 +444,7 @@
     }
   },
   "frameShowOnOverview": true,
-  "barInsetPaddingShared": 4,
+  "barInsetPaddingShared": 48,
   "barInsetPaddingSyncAll": true,
   "configVersion": 42,
   "radiusStrength": 38,
@@ -553,5 +559,8 @@
   ],
   "useFahrenheit": false,
   "density": "comfortable",
-  "interfaceStyle": "expressive"
+  "interfaceStyle": "expressive",
+  "floatingWindowTitleBars": true,
+  "widgetColorMode": "default",
+  "acPostLockMonitorTimeout": 30
 }
