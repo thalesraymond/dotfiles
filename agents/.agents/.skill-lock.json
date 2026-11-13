@@ -1034,18 +1034,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/pbakaus/impeccable.git",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
-      "skillFolderHash": "6a01b00eb68ec4900a1c4e24fec5a5c973636bfa",
+      "skillFolderHash": "e92e2e77c815097cd5fa05c8eaee2a5399d92757",
       "installedAt": "2026-11-01T00:32:11.625Z",
-      "updatedAt": "2026-11-10T01:55:17.349Z"
+      "updatedAt": "2026-11-13T00:47:22.776Z"
     },
     "diagram-design": {
       "source": "cathrynlavery/diagram-design",
       "sourceType": "github",
       "sourceUrl": "https://github.com/cathrynlavery/diagram-design.git",
       "skillPath": "skills/diagram-design/SKILL.md",
-      "skillFolderHash": "7c64ced4ca34f0e77fd4f3c5f77421cf59de3762",
+      "skillFolderHash": "cde001a0341ed67e818207c4e3f06d4727a42cde",
       "installedAt": "2026-11-01T00:32:26.509Z",
-      "updatedAt": "2026-11-10T01:55:18.120Z"
+      "updatedAt": "2026-11-13T00:47:23.555Z"
     },
     "design-taste-frontend": {
       "source": "Leonxlnx/taste-skill",

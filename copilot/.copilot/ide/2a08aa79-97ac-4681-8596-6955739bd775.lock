@@ -1,0 +1,14 @@
+{
+  "socketPath": "/tmp/mcp-wpBLva/mcp.sock",
+  "scheme": "unix",
+  "headers": {
+    "Authorization": "Nonce d8fa8e02-768f-4b65-99c8-aadf2ef15a5e"
+  },
+  "pid": 35735,
+  "ideName": "Visual Studio Code",
+  "timestamp": 1794531473469,
+  "workspaceFolders": [
+    "/home/thales/dotfiles"
+  ],
+  "isTrusted": true
+}

@@ -236,12 +236,11 @@ local app_workspaces = {
     { ws = "9 silent", class = "^([Dd]iscord)$" },
     { ws = "9 silent", class = "^([Ss]potify)$" },
     { ws = "9 silent", class = "^([Tt]hunderbird)$" },
-    { 
+    {
         ws = "2",
-        maximize = true,
-        full_screen = tr
-        class = "^(zen-alpha|zen)$", 
-        title = "negative:^(Picture-in-Picture)$" 
+        fullscreen = true,
+        class = "^(zen-alpha|zen)$",
+        title = "negative:^(Picture-in-Picture)$"
     },
 }
 for i, app in ipairs(app_workspaces) do
@@ -250,6 +249,7 @@ for i, app in ipairs(app_workspaces) do
 
     local rule = { name = "app-workspace-" .. i, workspace = app.ws, match = match }
     if app.maximize then rule.maximize = true end
+    if app.fullscreen then rule.fullscreen = true end
     hl.window_rule(rule)
 end
 

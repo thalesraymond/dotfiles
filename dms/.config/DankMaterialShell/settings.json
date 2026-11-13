@@ -81,9 +81,13 @@
           "enabled": true,
           "showWorkspaceApps": true,
           "maxWorkspaceIcons": 10,
-          "workspaceIndicatorStyle": "cards",
+          "workspaceIndicatorStyle": "lines",
           "workspaceIndicatorCompact": false,
-          "workspaceFollowFocus": true
+          "workspaceFollowFocus": true,
+          "showWorkspaceName": false,
+          "overflowMode": "section",
+          "workspaceAppIconSizeOffset": 0,
+          "showSpecialWorkspaces": false
         }
       ],
       "centerWidgets": [
