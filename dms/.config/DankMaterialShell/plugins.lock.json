@@ -15,12 +15,12 @@
     },
     "wallpaperCarousel": {
       "repo": "https://github.com/motor-dev/wallpaperCarousel",
-      "commit": "761ecd1b7f347beee9f17909f8334d987c935a1a"
+      "commit": "0ed803b40736359d3b32aa9cd3aaf342b3695759"
     },
     "wallpaperDiscovery": {
       "repo": "https://github.com/lucyfire/dms-plugins",
       "path": "wallpaperDiscovery",
-      "commit": "3a22c32e06d153d6a13bb18b10eb41615c564a05"
+      "commit": "bd6303a215db88360294e792533b3cba99a29270"
     }
   }
 }

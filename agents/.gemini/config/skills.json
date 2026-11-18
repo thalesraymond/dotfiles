@@ -1,7 +1,10 @@
 {
   "entries": [
     {
-      "path": "~/.agents/skills"
+      "path": "/home/thales/.agents/skills"
+    },
+    {
+      "path": "/home/thales//dotfiles/agents/.agents/skills/"
     }
   ]
 }

@@ -27,8 +27,8 @@ local startup_apps = {
     "hyprctl setcursor Bibata-Modern-Ice 24",
 
     -- Dbus / systemd environment
-    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
-    "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GTK_IM_MODULE QT_IM_MODULE ELECTRON_OZONE_PLATFORM_HINT",
+    "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GTK_IM_MODULE QT_IM_MODULE ELECTRON_OZONE_PLATFORM_HINT",
 
     -- DMS (shell / bar)
     "sleep 3 && dms run &",

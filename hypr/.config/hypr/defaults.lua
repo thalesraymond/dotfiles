@@ -46,6 +46,10 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 -- Electron >28 apps
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 
+-- Cedilla (us-intl with LANG=en_US.UTF-8)
+hl.env("GTK_IM_MODULE", "cedilla")
+hl.env("QT_IM_MODULE", "cedilla")
+
 -- NVIDIA
 -- See https://wiki.hyprland.org/Nvidia/#environment-variables
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
