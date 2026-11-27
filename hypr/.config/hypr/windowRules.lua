@@ -153,7 +153,7 @@ end
 -- Opacities use "override" so they are absolute values, not multipliers stacked
 -- on top of decoration.active_opacity / decoration.inactive_opacity.
 local tag_opacities = {
-    ["browser*"]      = "0.96 override",
+    ["browser*"]      = "0.96 override 0.85 override",
     ["projects*"]     = "0.98 override",
     ["file-manager*"] = "0.9 override",
     ["terminal*"]     = "0.8 override",
@@ -210,21 +210,59 @@ hl.window_rule({ name = "windowrule-67", no_initial_focus = true, match = { clas
 hl.window_rule({ name = "windowrule-68", no_initial_focus = true, match = { title = "^(wind.*)$" } })
 
 -------------------------------
----- UNITY BACKGROUND WORK ----
+---- UNITY EDITOR -------------
 -------------------------------
 
--- Background work should not take keyboard focus from Rider/VS Code.
--- Progress titles vary by Unity release; inspect with `hyprctl clients`.
--- no_initial_focus only controls initial focus, not later activation requests.
+-- Unity Editor: Hub-launched classes include the editor version.
+-- Keep detached panels/dialogs/dropdowns floating at their native positions.
 hl.window_rule({
+    name  = "unity-dialogs-float",
+    float = true,
+    match = {
+        class = "(?i)^(unity|unityhub-unity-editor-.*)$",
+        title = "negative:^Unity - ",
+    },
+})
+
+-- Main project window: tiled, with room for the code IDE alongside it.
+hl.window_rule({
+    name             = "unity-main-window",
+    tile             = true,
+    no_initial_focus = true,
+    scrolling_width  = 0.7,
+    match            = {
+        class = "(?i)^(unity|unityhub-unity-editor-.*)$",
+        title = "^Unity - ",
+    },
+})
+
+-- Background popups (recompiling/domain reload/importing) spawned while Unity
+-- is unfocused (e.g. while coding in Rider): never steal focus and move to
+-- the bottom-left corner. Disabled automatically while Unity itself is focused
+-- so dropdowns and context menus open at the cursor as normal.
+local unity_bg_popup = hl.window_rule({
     name             = "unity-background-work",
     float            = true,
     no_initial_focus = true,
+    suppress_event   = "activate activatefocus x11configurerequest",
+    move             = { "20", "monitor_h - window_h - 20" },
     match            = {
         class = "(?i)^(unity|unityhub-unity-editor-.*)$",
-        title = "(?i)^(hold on\\b|compiling\\b|reloading\\b|importing\\b|refreshing\\b)",
+        title = "negative:^Unity - ",
     },
 })
+
+local function is_unity_window(win)
+    if not win or not win.class then return false end
+    local c = win.class:lower()
+    return c == "unity" or c:find("^unityhub%-unity%-editor%-") ~= nil
+end
+
+unity_bg_popup:set_enabled(not is_unity_window(hl.get_active_window()))
+
+hl.on("window.active", function(win)
+    unity_bg_popup:set_enabled(not is_unity_window(win))
+end)
 
 ----------------------------
 ---- APP WORKSPACE RULES ----
@@ -238,7 +276,7 @@ local app_workspaces = {
     { ws = "9 silent", class = "^([Tt]hunderbird)$" },
     {
         ws = "2",
-        fullscreen = true,
+        scrolling_width = 1,
         class = "^(zen-alpha|zen)$",
         title = "negative:^(Picture-in-Picture)$"
     },

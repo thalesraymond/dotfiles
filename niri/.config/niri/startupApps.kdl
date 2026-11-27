@@ -20,7 +20,7 @@ spawn-at-startup "zen-browser"
 spawn-sh-at-startup "sleep 3 && obsidian"
 spawn-sh-at-startup "sleep 3 && spotify"
 spawn-at-startup "lutris" 
-spawn-at-startup "steam" 
+spawn-at-startup "sleep 3 && steam" 
 spawn-sh-at-startup "openrgb --startminimized" 
 spawn-sh-at-startup "solaar -w hide" 
 

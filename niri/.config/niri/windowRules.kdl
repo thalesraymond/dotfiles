@@ -129,10 +129,7 @@ window-rule {
     match app-id="zen"
     exclude title="Picture-in-Picture"
     open-on-workspace "home"
-    open-maximized true
-    open-focused true
-    open-fullscreen false
-    open-maximized-to-edges false
+    default-column-width { proportion 1.0; }
 }
 
 window-rule {

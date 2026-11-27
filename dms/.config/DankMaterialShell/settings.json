@@ -88,6 +88,10 @@
           "overflowMode": "section",
           "workspaceAppIconSizeOffset": 0,
           "showSpecialWorkspaces": false
+        },
+        {
+          "id": "appsDock",
+          "enabled": true
         }
       ],
       "centerWidgets": [
@@ -566,5 +570,7 @@
   "interfaceStyle": "expressive",
   "floatingWindowTitleBars": true,
   "widgetColorMode": "default",
-  "acPostLockMonitorTimeout": 30
+  "acPostLockMonitorTimeout": 30,
+  "popupTransparency": 1,
+  "radiusMode": "scale"
 }
